@@ -12,9 +12,12 @@
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
 		92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92485E191CAD937A0094D2C9 /* Assets.xcassets */; };
 		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
+		92485E251CAD993E0094D2C9 /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */; };
+		EE6C54D649F9A803453D73DC /* libPods-Carpooling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carpooling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92485E141CAD937A0094D2C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		92485E191CAD937A0094D2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92485E1C1CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92485E1E1CAD937A0094D2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
+		9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.release.xcconfig"; sourceTree = "<group>"; };
+		F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE6C54D649F9A803453D73DC /* libPods-Carpooling.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184A689D2910CCAADB87B006 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7C54F1D6423D247861C3815B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */,
+				9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		92485E061CAD93790094D2C9 = {
 			isa = PBXGroup;
 			children = (
 				92485E111CAD937A0094D2C9 /* Carpooling */,
 				92485E101CAD937A0094D2C9 /* Products */,
+				7C54F1D6423D247861C3815B /* Pods */,
+				184A689D2910CCAADB87B006 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +82,7 @@
 			children = (
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
 				92485E141CAD937A0094D2C9 /* ViewController.swift */,
+				92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */,
 				92485E161CAD937A0094D2C9 /* Main.storyboard */,
 				92485E191CAD937A0094D2C9 /* Assets.xcassets */,
 				92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */,
@@ -71,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92485E211CAD937A0094D2C9 /* Build configuration list for PBXNativeTarget "Carpooling" */;
 			buildPhases = (
+				94BB3909CDF7940C3546E1FD /* Check Pods Manifest.lock */,
 				92485E0B1CAD937A0094D2C9 /* Sources */,
 				92485E0C1CAD937A0094D2C9 /* Frameworks */,
 				92485E0D1CAD937A0094D2C9 /* Resources */,
+				DE718A4E2AEE360236473112 /* Embed Pods Frameworks */,
+				D574BADC52827975CAAAD752 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,6 +152,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92485E251CAD993E0094D2C9 /* Storyboard2.storyboard in Resources */,
 				92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */,
 				92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */,
 				92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */,
@@ -129,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		94BB3909CDF7940C3546E1FD /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D574BADC52827975CAAAD752 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE718A4E2AEE360236473112 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		92485E0B1CAD937A0094D2C9 /* Sources */ = {
@@ -247,6 +326,7 @@
 		};
 		92485E221CAD937A0094D2C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Carpooling/Info.plist;
@@ -258,6 +338,7 @@
 		};
 		92485E231CAD937A0094D2C9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Carpooling/Info.plist;
@@ -286,6 +367,7 @@
 				92485E231CAD937A0094D2C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
