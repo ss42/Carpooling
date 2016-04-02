@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		101856B31CAE40E00019F1F7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101856B21CAE40E00019F1F7 /* UI.swift */; };
+		10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */; };
+		10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AED1CAFA334007C20C5 /* HomeViewController.swift */; };
+		10722AF01CAFA5C0007C20C5 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */; };
+		10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */; };
 		92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E121CAD937A0094D2C9 /* AppDelegate.swift */; };
 		92485E151CAD937A0094D2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* ViewController.swift */; };
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
@@ -19,6 +23,12 @@
 
 /* Begin PBXFileReference section */
 		101856B21CAE40E00019F1F7 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carpooling-Bridging-Header.h"; sourceTree = "<group>"; };
+		10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		10722AED1CAFA334007C20C5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableViewController.swift; sourceTree = "<group>"; };
+		10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutMenuController.swift; sourceTree = "<group>"; };
 		17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carpooling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +54,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10722AE81CAFA06D007C20C5 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */,
+				10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */,
+				10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */,
+			);
+			name = "Supporting files";
+			sourceTree = "<group>";
+		};
 		184A689D2910CCAADB87B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +84,7 @@
 		92485E061CAD93790094D2C9 = {
 			isa = PBXGroup;
 			children = (
+				10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */,
 				92485E111CAD937A0094D2C9 /* Carpooling */,
 				92485E101CAD937A0094D2C9 /* Products */,
 				7C54F1D6423D247861C3815B /* Pods */,
@@ -84,10 +105,13 @@
 			children = (
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
 				92485E141CAD937A0094D2C9 /* ViewController.swift */,
+				10722AED1CAFA334007C20C5 /* HomeViewController.swift */,
+				10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */,
 				101856B21CAE40E00019F1F7 /* UI.swift */,
 				92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */,
-				92485E161CAD937A0094D2C9 /* Main.storyboard */,
+				10722AE81CAFA06D007C20C5 /* Supporting files */,
 				92485E191CAD937A0094D2C9 /* Assets.xcassets */,
+				92485E161CAD937A0094D2C9 /* Main.storyboard */,
 				92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */,
 				92485E1E1CAD937A0094D2C9 /* Info.plist */,
 			);
@@ -217,9 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
 				92485E151CAD937A0094D2C9 /* ViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
 				92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */,
+				10722AF01CAFA5C0007C20C5 /* BackTableViewController.swift in Sources */,
+				10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */,
+				10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,10 +361,13 @@
 			baseConfigurationReference = F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Carpooling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -345,10 +376,12 @@
 			baseConfigurationReference = 9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Carpooling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 			};
 			name = Release;
 		};
