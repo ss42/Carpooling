@@ -15,13 +15,15 @@ end'''
 
 
 
-```//To commit
+```
+//To commit
 git branch //this checks which branch you are on and make sure you are working on your branch
 git checkout YOURBRANCHNAME //to go to your branch
 git status   //to see the status of the changes
 git add YOURFILENAME //to add files to commit
 git commit -m "YOUR MESSAGE" //to commit
-git push origin YOURBRANCHNAME //to push it to master```
+git push origin YOURBRANCHNAME //to push it to master
+```
 
 
 
