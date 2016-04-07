@@ -21,7 +21,7 @@ git checkout YOURBRANCHNAME //to go to your branch
 git status   //to see the status of the changes
 git add YOURFILENAME //to add files to commit
 git commit -m "YOUR MESSAGE" //to commit
-git push origin YOURBRANCHNAME //to push it to master
+git push origin YOURBRANCHNAME //to push it to master```
 
 
 
