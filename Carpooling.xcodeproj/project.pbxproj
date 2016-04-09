@@ -1,436 +1,993 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		101856B31CAE40E00019F1F7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101856B21CAE40E00019F1F7 /* UI.swift */; };
-		1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */; };
-		1066F2161CB8B73100CD795F /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2151CB8B73100CD795F /* Rider.swift */; };
-		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
-		10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */; };
-		10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AED1CAFA334007C20C5 /* HomeViewController.swift */; };
-		10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */; };
-		92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E121CAD937A0094D2C9 /* AppDelegate.swift */; };
-		92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* LoginViewController.swift */; };
-		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
-		92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92485E191CAD937A0094D2C9 /* Assets.xcassets */; };
-		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
-		92485E251CAD993E0094D2C9 /* Storyboard2.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */; };
-		92DB5D201CB9B17900796EEC /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D1F1CB9B17900796EEC /* DatePicker.swift */; };
-		92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */; };
-		EE6C54D649F9A803453D73DC /* libPods-Carpooling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		101856B21CAE40E00019F1F7 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
-		1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
-		1066F2151CB8B73100CD795F /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
-		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
-		10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carpooling-Bridging-Header.h"; sourceTree = "<group>"; };
-		10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		10722AED1CAFA334007C20C5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutMenuController.swift; sourceTree = "<group>"; };
-		17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carpooling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92485E141CAD937A0094D2C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		92485E171CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		92485E191CAD937A0094D2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		92485E1C1CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		92485E1E1CAD937A0094D2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard2.storyboard; sourceTree = "<group>"; };
-		92DB5D1F1CB9B17900796EEC /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
-		92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvailableRidesTableViewCell.swift; sourceTree = "<group>"; };
-		9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.release.xcconfig"; sourceTree = "<group>"; };
-		F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.debug.xcconfig"; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		92485E0C1CAD937A0094D2C9 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EE6C54D649F9A803453D73DC /* libPods-Carpooling.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		1066F2141CB8B72000CD795F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				1066F2151CB8B73100CD795F /* Rider.swift */,
-				1066F2171CB8B7BB00CD795F /* Trips.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		10722AE81CAFA06D007C20C5 /* Supporting files */ = {
-			isa = PBXGroup;
-			children = (
-				10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */,
-				10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */,
-				10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */,
-				10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */,
-				101856B21CAE40E00019F1F7 /* UI.swift */,
-				92DB5D1F1CB9B17900796EEC /* DatePicker.swift */,
-			);
-			name = "Supporting files";
-			sourceTree = "<group>";
-		};
-		184A689D2910CCAADB87B006 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7C54F1D6423D247861C3815B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */,
-				9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		92485E061CAD93790094D2C9 = {
-			isa = PBXGroup;
-			children = (
-				92485E111CAD937A0094D2C9 /* Carpooling */,
-				92485E101CAD937A0094D2C9 /* Products */,
-				7C54F1D6423D247861C3815B /* Pods */,
-				184A689D2910CCAADB87B006 /* Frameworks */,
-			);
-			sourceTree = "<group>";
-		};
-		92485E101CAD937A0094D2C9 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				92485E0F1CAD937A0094D2C9 /* Carpooling.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		92485E111CAD937A0094D2C9 /* Carpooling */ = {
-			isa = PBXGroup;
-			children = (
-				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
-				92485E141CAD937A0094D2C9 /* LoginViewController.swift */,
-				1066F2141CB8B72000CD795F /* Model */,
-				10722AED1CAFA334007C20C5 /* HomeViewController.swift */,
-				1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */,
-				92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */,
-				92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */,
-				10722AE81CAFA06D007C20C5 /* Supporting files */,
-				92485E191CAD937A0094D2C9 /* Assets.xcassets */,
-				92485E161CAD937A0094D2C9 /* Main.storyboard */,
-				92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */,
-				92485E1E1CAD937A0094D2C9 /* Info.plist */,
-			);
-			path = Carpooling;
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		92485E0E1CAD937A0094D2C9 /* Carpooling */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92485E211CAD937A0094D2C9 /* Build configuration list for PBXNativeTarget "Carpooling" */;
-			buildPhases = (
-				94BB3909CDF7940C3546E1FD /* Check Pods Manifest.lock */,
-				92485E0B1CAD937A0094D2C9 /* Sources */,
-				92485E0C1CAD937A0094D2C9 /* Frameworks */,
-				92485E0D1CAD937A0094D2C9 /* Resources */,
-				DE718A4E2AEE360236473112 /* Embed Pods Frameworks */,
-				D574BADC52827975CAAAD752 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = Carpooling;
-			productName = Carpooling;
-			productReference = 92485E0F1CAD937A0094D2C9 /* Carpooling.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		92485E071CAD937A0094D2C9 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
-				ORGANIZATIONNAME = "St Marys";
-				TargetAttributes = {
-					92485E0E1CAD937A0094D2C9 = {
-						CreatedOnToolsVersion = 7.3;
-					};
-				};
-			};
-			buildConfigurationList = 92485E0A1CAD937A0094D2C9 /* Build configuration list for PBXProject "Carpooling" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 92485E061CAD93790094D2C9;
-			productRefGroup = 92485E101CAD937A0094D2C9 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				92485E0E1CAD937A0094D2C9 /* Carpooling */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		92485E0D1CAD937A0094D2C9 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				92485E251CAD993E0094D2C9 /* Storyboard2.storyboard in Resources */,
-				92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */,
-				92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */,
-				92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		94BB3909CDF7940C3546E1FD /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D574BADC52827975CAAAD752 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE718A4E2AEE360236473112 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		92485E0B1CAD937A0094D2C9 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
-				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
-				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
-				92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */,
-				1066F2161CB8B73100CD795F /* Rider.swift in Sources */,
-				1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */,
-				92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */,
-				1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */,
-				10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */,
-				10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */,
-				92DB5D201CB9B17900796EEC /* DatePicker.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		92485E161CAD937A0094D2C9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				92485E171CAD937A0094D2C9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				92485E1C1CAD937A0094D2C9 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		92485E1F1CAD937A0094D2C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		92485E201CAD937A0094D2C9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		92485E221CAD937A0094D2C9 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Carpooling/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		92485E231CAD937A0094D2C9 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Carpooling/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		92485E0A1CAD937A0094D2C9 /* Build configuration list for PBXProject "Carpooling" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92485E1F1CAD937A0094D2C9 /* Debug */,
-				92485E201CAD937A0094D2C9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		92485E211CAD937A0094D2C9 /* Build configuration list for PBXNativeTarget "Carpooling" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92485E221CAD937A0094D2C9 /* Debug */,
-				92485E231CAD937A0094D2C9 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 92485E071CAD937A0094D2C9 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>101856B21CAE40E00019F1F7</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>UI.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>101856B31CAE40E00019F1F7</key>
+		<dict>
+			<key>fileRef</key>
+			<string>101856B21CAE40E00019F1F7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1066F2121CB8B0DA00CD795F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>RequestRideViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1066F2131CB8B0DA00CD795F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1066F2121CB8B0DA00CD795F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1066F2141CB8B72000CD795F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>1066F2151CB8B73100CD795F</string>
+				<string>1066F2171CB8B7BB00CD795F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Model</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1066F2151CB8B73100CD795F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Rider.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1066F2161CB8B73100CD795F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1066F2151CB8B73100CD795F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>1066F2171CB8B7BB00CD795F</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Trips.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>1066F2181CB8B7BB00CD795F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>1066F2171CB8B7BB00CD795F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10722AE81CAFA06D007C20C5</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10722AF51CAFB596007C20C5</string>
+				<string>10722AEA1CAFA08A007C20C5</string>
+				<string>10722AEB1CAFA08A007C20C5</string>
+				<string>10722AE91CAFA08A007C20C5</string>
+				<string>101856B21CAE40E00019F1F7</string>
+				<string>92DB5D1F1CB9B17900796EEC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AE91CAFA08A007C20C5</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>Carpooling-Bridging-Header.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AEA1CAFA08A007C20C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SWRevealViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AEB1CAFA08A007C20C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SWRevealViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AEC1CAFA08A007C20C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10722AEB1CAFA08A007C20C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10722AED1CAFA334007C20C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HomeViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AEE1CAFA334007C20C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10722AED1CAFA334007C20C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10722AF51CAFB596007C20C5</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SlideOutMenuController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10722AF61CAFB596007C20C5</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10722AF51CAFB596007C20C5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>184A689D2910CCAADB87B006</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>DB4F0E0E362218C41BA4B4F5</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7C54F1D6423D247861C3815B</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>F95E1B2626F147C72FAF7F45</string>
+				<string>9E99BFB7CB9B611D79DB5940</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E061CAD93790094D2C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>92485E111CAD937A0094D2C9</string>
+				<string>92485E101CAD937A0094D2C9</string>
+				<string>7C54F1D6423D247861C3815B</string>
+				<string>184A689D2910CCAADB87B006</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E071CAD937A0094D2C9</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0730</string>
+				<key>LastUpgradeCheck</key>
+				<string>0730</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>St Marys</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>92485E0E1CAD937A0094D2C9</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>7.3</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>92485E0A1CAD937A0094D2C9</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>92485E061CAD93790094D2C9</string>
+			<key>productRefGroup</key>
+			<string>92485E101CAD937A0094D2C9</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>92485E0E1CAD937A0094D2C9</string>
+			</array>
+		</dict>
+		<key>92485E0A1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>92485E1F1CAD937A0094D2C9</string>
+				<string>92485E201CAD937A0094D2C9</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>92485E0B1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10722AEE1CAFA334007C20C5</string>
+				<string>92485E151CAD937A0094D2C9</string>
+				<string>101856B31CAE40E00019F1F7</string>
+				<string>92485E131CAD937A0094D2C9</string>
+				<string>1066F2161CB8B73100CD795F</string>
+				<string>1066F2181CB8B7BB00CD795F</string>
+				<string>92DB5D221CB9B52E00796EEC</string>
+				<string>1066F2131CB8B0DA00CD795F</string>
+				<string>10722AEC1CAFA08A007C20C5</string>
+				<string>10722AF61CAFB596007C20C5</string>
+				<string>92DB5D201CB9B17900796EEC</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>92485E0C1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>B26153C2201066B6998A7E3B</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>92485E0D1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>92485E251CAD993E0094D2C9</string>
+				<string>92485E1D1CAD937A0094D2C9</string>
+				<string>92485E1A1CAD937A0094D2C9</string>
+				<string>92485E181CAD937A0094D2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>92485E0E1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>92485E211CAD937A0094D2C9</string>
+			<key>buildPhases</key>
+			<array>
+				<string>94BB3909CDF7940C3546E1FD</string>
+				<string>92485E0B1CAD937A0094D2C9</string>
+				<string>92485E0C1CAD937A0094D2C9</string>
+				<string>92485E0D1CAD937A0094D2C9</string>
+				<string>DE718A4E2AEE360236473112</string>
+				<string>D574BADC52827975CAAAD752</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Carpooling</string>
+			<key>productName</key>
+			<string>Carpooling</string>
+			<key>productReference</key>
+			<string>92485E0F1CAD937A0094D2C9</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>92485E0F1CAD937A0094D2C9</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Carpooling.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>92485E101CAD937A0094D2C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>92485E0F1CAD937A0094D2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E111CAD937A0094D2C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>92485E121CAD937A0094D2C9</string>
+				<string>92485E141CAD937A0094D2C9</string>
+				<string>1066F2141CB8B72000CD795F</string>
+				<string>10722AED1CAFA334007C20C5</string>
+				<string>1066F2121CB8B0DA00CD795F</string>
+				<string>92485E241CAD993E0094D2C9</string>
+				<string>92DB5D211CB9B52E00796EEC</string>
+				<string>10722AE81CAFA06D007C20C5</string>
+				<string>92485E191CAD937A0094D2C9</string>
+				<string>92485E161CAD937A0094D2C9</string>
+				<string>92485E1B1CAD937A0094D2C9</string>
+				<string>92485E1E1CAD937A0094D2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Carpooling</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E121CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E131CAD937A0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E121CAD937A0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92485E141CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LoginViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E151CAD937A0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E141CAD937A0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92485E161CAD937A0094D2C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>92485E171CAD937A0094D2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E171CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E181CAD937A0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E161CAD937A0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92485E191CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E1A1CAD937A0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E191CAD937A0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92485E1B1CAD937A0094D2C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>92485E1C1CAD937A0094D2C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E1C1CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E1D1CAD937A0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E1B1CAD937A0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92485E1E1CAD937A0094D2C9</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E1F1CAD937A0094D2C9</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>92485E201CAD937A0094D2C9</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.3</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>92485E211CAD937A0094D2C9</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>92485E221CAD937A0094D2C9</string>
+				<string>92485E231CAD937A0094D2C9</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>92485E221CAD937A0094D2C9</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>F95E1B2626F147C72FAF7F45</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Carpooling/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Sanjay.Carpooling</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Carpooling/Carpooling-Bridging-Header.h</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>92485E231CAD937A0094D2C9</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>9E99BFB7CB9B611D79DB5940</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Carpooling/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>Sanjay.Carpooling</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
+				<string>Carpooling/Carpooling-Bridging-Header.h</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>92485E241CAD993E0094D2C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>path</key>
+			<string>Storyboard2.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92485E251CAD993E0094D2C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92485E241CAD993E0094D2C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92DB5D1F1CB9B17900796EEC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>DatePicker.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92DB5D201CB9B17900796EEC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92DB5D1F1CB9B17900796EEC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>92DB5D211CB9B52E00796EEC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AvailableRidesTableViewCell.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>92DB5D221CB9B52E00796EEC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>92DB5D211CB9B52E00796EEC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>94BB3909CDF7940C3546E1FD</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>9E99BFB7CB9B611D79DB5940</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Carpooling.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>B26153C2201066B6998A7E3B</key>
+		<dict>
+			<key>fileRef</key>
+			<string>DB4F0E0E362218C41BA4B4F5</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>D574BADC52827975CAAAD752</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>DB4F0E0E362218C41BA4B4F5</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Carpooling.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>DE718A4E2AEE360236473112</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>F95E1B2626F147C72FAF7F45</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Carpooling.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>92485E071CAD937A0094D2C9</string>
+</dict>
+</plist>
