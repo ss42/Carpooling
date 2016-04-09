@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		101856B31CAE40E00019F1F7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101856B21CAE40E00019F1F7 /* UI.swift */; };
+		1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */; };
+		1066F2161CB8B73100CD795F /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2151CB8B73100CD795F /* Rider.swift */; };
+		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
 		10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */; };
 		10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AED1CAFA334007C20C5 /* HomeViewController.swift */; };
-		10722AF01CAFA5C0007C20C5 /* BackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */; };
 		10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */; };
 		92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E121CAD937A0094D2C9 /* AppDelegate.swift */; };
-		92485E151CAD937A0094D2C9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* ViewController.swift */; };
+		92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* LoginViewController.swift */; };
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
 		92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92485E191CAD937A0094D2C9 /* Assets.xcassets */; };
 		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
@@ -23,16 +25,18 @@
 
 /* Begin PBXFileReference section */
 		101856B21CAE40E00019F1F7 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
+		1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
+		1066F2151CB8B73100CD795F /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
+		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carpooling-Bridging-Header.h"; sourceTree = "<group>"; };
 		10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		10722AED1CAFA334007C20C5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackTableViewController.swift; sourceTree = "<group>"; };
 		10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideOutMenuController.swift; sourceTree = "<group>"; };
 		17232EEA91E29DF2D077C575 /* libPods-Carpooling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carpooling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92485E141CAD937A0094D2C9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92485E141CAD937A0094D2C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		92485E171CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92485E191CAD937A0094D2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92485E1C1CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,12 +58,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1066F2141CB8B72000CD795F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1066F2151CB8B73100CD795F /* Rider.swift */,
+				1066F2171CB8B7BB00CD795F /* Trips.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		10722AE81CAFA06D007C20C5 /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */,
 				10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */,
 				10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */,
 				10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */,
+				101856B21CAE40E00019F1F7 /* UI.swift */,
 			);
 			name = "Supporting files";
 			sourceTree = "<group>";
@@ -84,7 +99,6 @@
 		92485E061CAD93790094D2C9 = {
 			isa = PBXGroup;
 			children = (
-				10722AEF1CAFA5C0007C20C5 /* BackTableViewController.swift */,
 				92485E111CAD937A0094D2C9 /* Carpooling */,
 				92485E101CAD937A0094D2C9 /* Products */,
 				7C54F1D6423D247861C3815B /* Pods */,
@@ -104,10 +118,10 @@
 			isa = PBXGroup;
 			children = (
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
-				92485E141CAD937A0094D2C9 /* ViewController.swift */,
+				92485E141CAD937A0094D2C9 /* LoginViewController.swift */,
+				1066F2141CB8B72000CD795F /* Model */,
 				10722AED1CAFA334007C20C5 /* HomeViewController.swift */,
-				10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */,
-				101856B21CAE40E00019F1F7 /* UI.swift */,
+				1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */,
 				92485E241CAD993E0094D2C9 /* Storyboard2.storyboard */,
 				10722AE81CAFA06D007C20C5 /* Supporting files */,
 				92485E191CAD937A0094D2C9 /* Assets.xcassets */,
@@ -242,10 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
-				92485E151CAD937A0094D2C9 /* ViewController.swift in Sources */,
+				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
 				92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */,
-				10722AF01CAFA5C0007C20C5 /* BackTableViewController.swift in Sources */,
+				1066F2161CB8B73100CD795F /* Rider.swift in Sources */,
+				1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */,
+				1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */,
 				10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */,
 				10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */,
 			);

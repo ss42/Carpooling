@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var open: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
