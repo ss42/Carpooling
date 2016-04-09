@@ -22,9 +22,38 @@ class Trips{
     var toCity = ""
     var toState = ""
     var toZipCode = ""
-    var date = ""
-    var time = ""
+    var date:NSDate?
+    var hour:NSDateComponents?
+    var minute:NSDateComponents?
+    var calender:NSCalendar?
     var notes = ""
+    
+    init(rider:Rider, fromStreetAddress:String, fromCity:String, fromState:String, fromZipCode:String, toStreetAddress:String, toCity:String, toState:String, toZipCode:String, date:NSDate, time:NSCalendar, notes:String)
+    {
+        self.firstName = rider.firstName
+        self.lastName = rider.lastName
+        self.phoneNumber = rider.phoneNumber
+        self.email = rider.email
+        self.fromCity = fromCity
+        self.fromState = fromState
+        self.fromZipCode = fromZipCode
+        self.toStreetAddress = toStreetAddress
+        self.toCity = toCity
+        self.toState = toState
+        self.toZipCode = toZipCode
+        self.date = date
+        self.calender = NSCalendar.currentCalendar()
+        let date = NSDate()
+        //let calendar = NSCalendar.currentCalendar()
+        //let components = calendar.components(.CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
+        let hour = self.calender!.components(NSCalendarUnit.Hour, fromDate: date)
+        let minute = self.calender!.components(NSCalendarUnit.Minute, fromDate: date)
+        self.hour = hour
+        self.minute = minute
+        
+    }
+    
+    
     
     
 }
