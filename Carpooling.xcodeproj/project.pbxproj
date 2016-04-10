@@ -210,7 +210,7 @@
 		<dict>
 			<key>children</key>
 			<array>
-				<string>DB4F0E0E362218C41BA4B4F5</string>
+				<string>3DB732FAD9DD320352718496</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -218,6 +218,19 @@
 			<string>Frameworks</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>3DB732FAD9DD320352718496</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>libPods-Carpooling.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
 		<key>7C54F1D6423D247861C3815B</key>
 		<dict>
@@ -339,7 +352,7 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
-				<string>B26153C2201066B6998A7E3B</string>
+				<string>E6BD3D2A82298498A6C8E061</string>
 			</array>
 			<key>isa</key>
 			<string>PBXFrameworksBuildPhase</string>
@@ -903,13 +916,6 @@ fi
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>B26153C2201066B6998A7E3B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>DB4F0E0E362218C41BA4B4F5</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>D574BADC52827975CAAAD752</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -934,19 +940,6 @@ fi
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
 		</dict>
-		<key>DB4F0E0E362218C41BA4B4F5</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.framework</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Pods_Carpooling.framework</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
 		<key>DE718A4E2AEE360236473112</key>
 		<dict>
 			<key>buildActionMask</key>
@@ -970,6 +963,13 @@ fi
 </string>
 			<key>showEnvVarsInLog</key>
 			<string>0</string>
+		</dict>
+		<key>E6BD3D2A82298498A6C8E061</key>
+		<dict>
+			<key>fileRef</key>
+			<string>3DB732FAD9DD320352718496</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 		<key>F95E1B2626F147C72FAF7F45</key>
 		<dict>

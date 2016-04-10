@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var open: UIBarButtonItem!
     
@@ -16,14 +16,19 @@ class HomeViewController: UIViewController {
     
     var tempArray = Trips.makeDummyTrips()
     
+    var dummy = [["hello world" , "male"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         
         if self.revealViewController() != nil {
            open.target = self.revealViewController()
             open.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        print("viewdid load")
     }
     
     override func didReceiveMemoryWarning() {
@@ -55,12 +60,13 @@ class HomeViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("in one of the table view functions")
         return tempArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
         
         //let photo = photos[indexPath.row]
         let trip = tempArray[indexPath.row]
@@ -68,11 +74,18 @@ class HomeViewController: UIViewController {
         // Configure the cell...
         
         //cell.textLabel?.text = photo.caption
-        cell.textLabel?.text = trip.firstName
+        cell.startAddress?.text = trip.toStreetAddress
         //cell.imageView?.image = UIImage(named: photo.thumbnailImageName)
-        cell.imageView?.image = trip.driver?.picture
+        cell.picture.image = UIImage(named: "male")
+        print("cell configured")
+        configureTableView()
         
         return cell
+    }
+    func configureTableView(){
+        //tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = 100.00
+        
     }
     
 }
