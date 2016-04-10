@@ -15,9 +15,9 @@ class Rider{
     var phoneNumber = ""
     var email = ""
     var password = ""
-    var picture:UIImage?
+    var picture: UIImage?
     
-    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture:UIImage)
+    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: UIImage)
     {
         self.firstName = firstName
         self.lastName = lastName
