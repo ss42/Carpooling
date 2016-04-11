@@ -68,12 +68,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     {
         let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
         
-        //let photo = photos[indexPath.row]
         let trip = tempArray[indexPath.row]
         
         // Configure the cell...
         
-        //cell.textLabel?.text = photo.caption
         cell.startAddress?.text = trip.toStreetAddress
         //cell.imageView?.image = UIImage(named: photo.thumbnailImageName)
         cell.picture.image = UIImage(named: "male")
