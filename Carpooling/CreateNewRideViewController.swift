@@ -1,17 +1,18 @@
 //
-//  RequestRideViewController.swift
+//  CreateNewRideViewController.swift
 //  Carpooling
 //
-//  Created by Sanjay Shrestha on 4/8/16.
+//  Created by Sanjay Shrestha on 4/10/16.
 //  Copyright © 2016 St Marys. All rights reserved.
 //
 
 import UIKit
 
-class RequestRideViewController: UIViewController {
+class CreateNewRideViewController: UIViewController {
 
+    
     @IBOutlet weak var notes: UITextView!
-
+    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,8 +27,7 @@ class RequestRideViewController: UIViewController {
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
     
-    let tempRider = Rider(firstName: "john", lastName: "Snow", phoneNumber: "01154", email: "abcom", password: "hey", picture: UIImage(named: "male")!)
-    //let tempTrip = Trips(tempRider)
+    
     
     
     override func viewDidLoad() {
@@ -37,11 +37,13 @@ class RequestRideViewController: UIViewController {
         confirmTextFieldDelegate()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     func confirmTextFieldDelegate() {
         fromStreetAddressTextField.delegate = self
         fromCityTextField.delegate = self
@@ -54,20 +56,17 @@ class RequestRideViewController: UIViewController {
     }
     
     @IBAction func fromStreetAddressTapped(sender: AnyObject) {
-        checkResponder(fromStreetAddressTextField)
-        //fromStreetAddressTextField.text = tempTrip.fromStreet
         
+        changeResponder(fromStreetAddressTextField)
     }
     
     @IBAction func fromCityTapped(sender: AnyObject) {
         
-        checkResponder(fromCityTextField)
-        
+        changeResponder(fromCityTextField)
     }
     
     
     @IBAction func fromStateTapped(sender: AnyObject) {
-        
     }
     
     @IBAction func fromZipcodeTapped(sender: AnyObject) {
@@ -94,12 +93,12 @@ class RequestRideViewController: UIViewController {
         datePicker.hidden = false
         doneButton.hidden = false
         notes.hidden = true
-     
+        
         //need to reload data
         
         
     }
-  
+    
     @IBAction func doneTapped(sender: AnyObject) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
@@ -118,7 +117,7 @@ class RequestRideViewController: UIViewController {
         self.presentViewController(myAlert, animated: true, completion: nil);
     }
     
-    func checkResponder(textField: UITextField){
+    func changeResponder(textField: UITextField){
         if textField.isFirstResponder(){
             textField.resignFirstResponder()
             print("dismiss respone")
@@ -128,14 +127,10 @@ class RequestRideViewController: UIViewController {
             print("become first repsonder")
         }
     }
-    
-    
-    
-
 
 }
 
-extension RequestRideViewController: UITextFieldDelegate{
+extension CreateNewRideViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField) {
         print("test")
     }
