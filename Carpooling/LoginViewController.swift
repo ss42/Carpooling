@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -23,10 +24,50 @@ class LoginViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && CURRENT_USER.authData != nil
+        {
+           // self.logoutButton.hidden = false
+        }
     }
     
     
+    @IBAction func loginAction(sender: AnyObject)
+    {
+        let email = self.emailTextField.text
+        let password = self.passwordTextField.text
+        
+        if email != "" && password != ""
+        {
+            FIREBASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
+                
+                if error == nil
+                {
+                    NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                    print("Logged In :)")
+                    self.logoutButton.hidden = false
+                }
+                else
+                {
+                    print(error)
+                }
+            })
+        }
+        else
+        {
+            let alert = UIAlertController(title: "Error", message: "Enter Email and Password.", preferredStyle: UIAlertControllerStyle.Alert)
+            let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+            alert.addAction(action)
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+
+    
+    @IBAction func logoutAction(sender: AnyObject)
+    {
+        CURRENT_USER.unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        self.logoutButton.hidden = true
+    }
 
 }
 

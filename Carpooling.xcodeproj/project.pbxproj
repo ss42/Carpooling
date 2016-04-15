@@ -11,6 +11,7 @@
 		1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */; };
 		1066F2161CB8B73100CD795F /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2151CB8B73100CD795F /* Rider.swift */; };
 		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
+		1067958C1CC18AF000ED4EF8 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1067958B1CC18AF000ED4EF8 /* Firebase.swift */; };
 		10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */; };
 		10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AED1CAFA334007C20C5 /* HomeViewController.swift */; };
 		10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */; };
@@ -24,7 +25,7 @@
 		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
 		92DB5D201CB9B17900796EEC /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D1F1CB9B17900796EEC /* DatePicker.swift */; };
 		92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */; };
-		E6BD3D2A82298498A6C8E061 /* libPods-Carpooling.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DB732FAD9DD320352718496 /* libPods-Carpooling.a */; };
+		F7AB1EEE0DA5BAFC3CFAD39F /* Pods_Carpooling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
 		1066F2151CB8B73100CD795F /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
+		1067958B1CC18AF000ED4EF8 /* Firebase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Firebase.swift; path = ../Firebase.swift; sourceTree = "<group>"; };
 		10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carpooling-Bridging-Header.h"; sourceTree = "<group>"; };
 		10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -40,7 +42,7 @@
 		1079BF7B1CBB80A100DBDF92 /* CreateNewRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewRideViewController.swift; sourceTree = "<group>"; };
 		1079BF7D1CBB816A00DBDF92 /* CustomViewIBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewIBDesignable.swift; sourceTree = "<group>"; };
 		1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3DB732FAD9DD320352718496 /* libPods-Carpooling.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Carpooling.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpooling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92485E141CAD937A0094D2C9 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6BD3D2A82298498A6C8E061 /* libPods-Carpooling.a in Frameworks */,
+				F7AB1EEE0DA5BAFC3CFAD39F /* Pods_Carpooling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +128,7 @@
 		184A689D2910CCAADB87B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3DB732FAD9DD320352718496 /* libPods-Carpooling.a */,
+				3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,6 +163,7 @@
 		92485E111CAD937A0094D2C9 /* Carpooling */ = {
 			isa = PBXGroup;
 			children = (
+				1067958B1CC18AF000ED4EF8 /* Firebase.swift */,
 				1079BF811CBB88FF00DBDF92 /* Profile */,
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
 				1079BF761CBB59E600DBDF92 /* Available Rides */,
@@ -212,6 +215,7 @@
 				TargetAttributes = {
 					92485E0E1CAD937A0094D2C9 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 7B9F98EQ3K;
 					};
 				};
 			};
@@ -299,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1067958C1CC18AF000ED4EF8 /* Firebase.swift in Sources */,
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
 				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
@@ -427,10 +432,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Carpooling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				STRIPFLAGS = "-ObjC flag";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -442,10 +451,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Carpooling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				STRIPFLAGS = "-ObjC flag";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 			};
 			name = Release;

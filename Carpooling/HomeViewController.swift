@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
+        
         if self.revealViewController() != nil {
            open.target = self.revealViewController()
             open.action = #selector(SWRevealViewController.revealToggle(_:))
@@ -87,3 +88,4 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 }
+
