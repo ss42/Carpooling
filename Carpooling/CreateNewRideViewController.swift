@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import GoogleMaps
+import Firebase
 
 class CreateNewRideViewController: UIViewController {
+
 
     
     @IBOutlet weak var notes: UITextView!
@@ -26,15 +29,25 @@ class CreateNewRideViewController: UIViewController {
     @IBOutlet weak var toCityTextfield: UITextField!
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
-    
-    
-    
-    
+  
+
+    var currentUser = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.hidden = true
         doneButton.hidden = true
         confirmTextFieldDelegate()
+        
+        DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
+            
+            let currentUser = snapshot.value.objectForKey("username") as! String
+            
+            print("Username: \(currentUser)")
+            self.currentUser = currentUser
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         
     }
     
@@ -44,6 +57,7 @@ class CreateNewRideViewController: UIViewController {
     }
     
     
+        
     func confirmTextFieldDelegate() {
         fromStreetAddressTextField.delegate = self
         fromCityTextField.delegate = self
@@ -55,39 +69,6 @@ class CreateNewRideViewController: UIViewController {
         toZipCodeTextField.delegate = self
     }
     
-    @IBAction func fromStreetAddressTapped(sender: AnyObject) {
-        
-        changeResponder(fromStreetAddressTextField)
-    }
-    
-    @IBAction func fromCityTapped(sender: AnyObject) {
-        
-        changeResponder(fromCityTextField)
-    }
-    
-    
-    @IBAction func fromStateTapped(sender: AnyObject) {
-    }
-    
-    @IBAction func fromZipcodeTapped(sender: AnyObject) {
-    }
-    
-    @IBAction func toStreetAddressTapped(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func toCityTapped(sender: AnyObject) {
-        
-    }
-    
-    
-    @IBAction func toStateTapped(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func toZipcodeTapped(sender: AnyObject) {
-        
-    }
     
     @IBAction func chooseDateAndTimeTapped(sender: AnyObject) {
         datePicker.hidden = false
@@ -98,6 +79,18 @@ class CreateNewRideViewController: UIViewController {
         
         
     }
+    
+    
+    @IBAction func submitTapped(sender: AnyObject) {
+        let fromStreet = fromStreetAddressTextField.text
+        let fromCity = fromCityTextField.text
+        let fromState = fromStateTextField.text
+        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!]
+        let profile = DataService.dataService.BASE_REF.childByAppendingPath("users")
+        
+        
+    }
+    
     
     @IBAction func doneTapped(sender: AnyObject) {
         let dateFormatter = NSDateFormatter()
