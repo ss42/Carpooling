@@ -37,7 +37,7 @@ class CreateNewAccountViewController: UIViewController {
             
             // Set Email and Password for the New User.
             
-            DataService.dataService.BASE_REF.createUser(email, password: password, withValueCompletionBlock: { (error, authData) -> Void in
+            DataService.dataService.baseRef.createUser(email, password: password, withValueCompletionBlock: { (error, authData) -> Void in
                 
                 if error != nil {
                     
@@ -47,7 +47,7 @@ class CreateNewAccountViewController: UIViewController {
                 } else {
                     
                     // Create and Login the New User with authUser
-                    DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: {(error, authData) -> Void in
+                    DataService.dataService.baseRef.authUser(email, password: password, withCompletionBlock: {(error, authData) -> Void in
                         
                         let user = ["provider": authData.provider!, "email": email!]
                         
