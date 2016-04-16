@@ -14,6 +14,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var phoneNumber: UITextField!
     @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var editProfilePictureButton: UIButton!
     
     
     
@@ -44,6 +46,8 @@ class ProfileViewController: UIViewController {
         performCustomSegue()
     }
     
+    @IBAction func editButtonTapped(sender: AnyObject) {
+    }
     
     func performCustomSegue(){
         

@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		101856B31CAE40E00019F1F7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101856B21CAE40E00019F1F7 /* UI.swift */; };
-		1023F2ED1CC203B1007FADE9 /* NormalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2E71CC203B1007FADE9 /* NormalCell.xib */; };
-		1023F2EE1CC203B1007FADE9 /* TextfieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2E81CC203B1007FADE9 /* TextfieldCell.xib */; };
-		1023F2EF1CC203B1007FADE9 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2E91CC203B1007FADE9 /* DatePickerCell.xib */; };
-		1023F2F01CC203B1007FADE9 /* SwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2EA1CC203B1007FADE9 /* SwitchCell.xib */; };
-		1023F2F11CC203B1007FADE9 /* ValuePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2EB1CC203B1007FADE9 /* ValuePickerCell.xib */; };
-		1023F2F21CC203B1007FADE9 /* SliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1023F2EC1CC203B1007FADE9 /* SliderCell.xib */; };
 		1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */; };
 		1066F2161CB8B73100CD795F /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2151CB8B73100CD795F /* Rider.swift */; };
 		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
@@ -37,12 +31,6 @@
 
 /* Begin PBXFileReference section */
 		101856B21CAE40E00019F1F7 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
-		1023F2E71CC203B1007FADE9 /* NormalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalCell.xib; sourceTree = "<group>"; };
-		1023F2E81CC203B1007FADE9 /* TextfieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextfieldCell.xib; sourceTree = "<group>"; };
-		1023F2E91CC203B1007FADE9 /* DatePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
-		1023F2EA1CC203B1007FADE9 /* SwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SwitchCell.xib; sourceTree = "<group>"; };
-		1023F2EB1CC203B1007FADE9 /* ValuePickerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValuePickerCell.xib; sourceTree = "<group>"; };
-		1023F2EC1CC203B1007FADE9 /* SliderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SliderCell.xib; sourceTree = "<group>"; };
 		1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
 		1066F2151CB8B73100CD795F /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
@@ -82,19 +70,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1023F2E61CC2039B007FADE9 /* Custom xibs */ = {
-			isa = PBXGroup;
-			children = (
-				1023F2E71CC203B1007FADE9 /* NormalCell.xib */,
-				1023F2E81CC203B1007FADE9 /* TextfieldCell.xib */,
-				1023F2E91CC203B1007FADE9 /* DatePickerCell.xib */,
-				1023F2EA1CC203B1007FADE9 /* SwitchCell.xib */,
-				1023F2EB1CC203B1007FADE9 /* ValuePickerCell.xib */,
-				1023F2EC1CC203B1007FADE9 /* SliderCell.xib */,
-			);
-			name = "Custom xibs";
-			sourceTree = "<group>";
-		};
 		1066F2141CB8B72000CD795F /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */,
-				1023F2E61CC2039B007FADE9 /* Custom xibs */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -279,15 +253,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1023F2F21CC203B1007FADE9 /* SliderCell.xib in Resources */,
-				1023F2ED1CC203B1007FADE9 /* NormalCell.xib in Resources */,
-				1023F2EE1CC203B1007FADE9 /* TextfieldCell.xib in Resources */,
 				92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */,
-				1023F2EF1CC203B1007FADE9 /* DatePickerCell.xib in Resources */,
 				92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */,
-				1023F2F01CC203B1007FADE9 /* SwitchCell.xib in Resources */,
 				92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */,
-				1023F2F11CC203B1007FADE9 /* ValuePickerCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
