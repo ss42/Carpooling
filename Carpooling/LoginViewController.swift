@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
             
             // Login with the Firebase's authUser method
             
-            DataService.dataService.BASE_REF.authUser(email, password: password, withCompletionBlock: { error, authData in
+            DataService.dataService.baseRef.authUser(email, password: password, withCompletionBlock: { error, authData in
                 
                 if error != nil {
                     print(error)

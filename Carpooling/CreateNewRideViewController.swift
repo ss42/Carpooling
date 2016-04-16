@@ -41,9 +41,9 @@ class CreateNewRideViewController: UIViewController {
         
         DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
             
-            let currentUser = snapshot.value.objectForKey("username") as! String
+            let currentUser = snapshot.value.objectForKey("email") as! String
             
-            print("Username: \(currentUser)")
+            print("email: \(currentUser)")
             self.currentUser = currentUser
             }, withCancelBlock: { error in
                 print(error.description)
@@ -86,9 +86,22 @@ class CreateNewRideViewController: UIViewController {
         let fromCity = fromCityTextField.text
         let fromState = fromStateTextField.text
         let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!]
-        let profile = DataService.dataService.BASE_REF.childByAppendingPath("users")
+        DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
+        //to go to home screen
+        performCustomSegue()
         
+    }
+    
+    func performCustomSegue(){
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        //let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("navView") as! UINavigationController
+        
+        let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
+        
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     
@@ -110,6 +123,9 @@ class CreateNewRideViewController: UIViewController {
         self.presentViewController(myAlert, animated: true, completion: nil);
     }
     
+    
+    //may be we don't need the following function
+    //to change responder for each textfield
     func changeResponder(textField: UITextField){
         if textField.isFirstResponder(){
             textField.resignFirstResponder()
