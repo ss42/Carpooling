@@ -40,7 +40,6 @@ extension UIView {
 	layer.borderColor = newValue?.CGColor
 	}
 	}
-	
 	@IBInspectable
 	var cornerRadius: CGFloat{
 	get{
@@ -61,6 +60,6 @@ extension UIView {
 	if let makeCircular = newValue where makeCircular{
 	cornerRadius = min(bounds.width, bounds.height)/2.0
 	}
-	}
-	}
+        }
+    }
 }
