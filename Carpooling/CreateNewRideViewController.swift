@@ -85,7 +85,8 @@ class CreateNewRideViewController: UIViewController {
         let fromStreet = fromStreetAddressTextField.text
         let fromCity = fromCityTextField.text
         let fromState = fromStateTextField.text
-        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!]
+        let postedTime = getCurrentTime()
+        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!, "postedTime" : postedTime]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
         //to go to home screen
@@ -93,13 +94,15 @@ class CreateNewRideViewController: UIViewController {
         
     }
     
+    
+    @IBAction func cancelTapped(sender: AnyObject) {
+        performCustomSegue()
+    }
+    
     func performCustomSegue(){
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("navView") as! UINavigationController
-        
-        let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
+     let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
         
         self.presentViewController(vc, animated: true, completion: nil)
     }
@@ -135,6 +138,10 @@ class CreateNewRideViewController: UIViewController {
             textField.becomeFirstResponder()
             print("become first repsonder")
         }
+    }
+    
+    func getCurrentTime()-> String{
+        return NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.NoStyle)
     }
 
 }

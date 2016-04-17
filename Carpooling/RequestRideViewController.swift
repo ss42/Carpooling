@@ -53,42 +53,7 @@ class RequestRideViewController: UIViewController {
         toZipCodeTextField.delegate = self
     }
     
-    @IBAction func fromStreetAddressTapped(sender: AnyObject) {
-        checkResponder(fromStreetAddressTextField)
-        //fromStreetAddressTextField.text = tempTrip.fromStreet
-        
-    }
-    
-    @IBAction func fromCityTapped(sender: AnyObject) {
-        
-        checkResponder(fromCityTextField)
-        
-    }
-    
-    
-    @IBAction func fromStateTapped(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func fromZipcodeTapped(sender: AnyObject) {
-    }
-    
-    @IBAction func toStreetAddressTapped(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func toCityTapped(sender: AnyObject) {
-        
-    }
-    
-    
-    @IBAction func toStateTapped(sender: AnyObject) {
-        
-    }
-    
-    @IBAction func toZipcodeTapped(sender: AnyObject) {
-        
-    }
+  
     
     @IBAction func chooseDateAndTimeTapped(sender: AnyObject) {
         datePicker.hidden = false
@@ -130,8 +95,22 @@ class RequestRideViewController: UIViewController {
     }
     
     
+    @IBAction func submitTapped(sender: AnyObject) {
+        performCustomSegue()
+    }
     
 
+    @IBAction func cancelTapped(sender: AnyObject) {
+        performCustomSegue()
+    }
+    
+    
+    func performCustomSegue(){
+        
+        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
+        self.presentViewController(vc, animated: true, completion: nil)
+    }
 
 }
 
