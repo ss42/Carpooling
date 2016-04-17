@@ -44,9 +44,6 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <segue destination="Xwe-19-UUb" kind="show" id="kEe-Tg-IwN"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -278,8 +275,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyh-QJ-Xaj">
-                                                    <rect key="frame" x="137" y="12" width="100" height="25"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign out" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyh-QJ-Xaj">
+                                                    <rect key="frame" x="55" y="0.0" width="250" height="50"/>
+                                                    <color key="backgroundColor" red="1" green="0.32750135149999998" blue="0.20356457750000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -407,6 +405,14 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male" translatesAutoresizingMaskIntoConstraints="NO" id="dWW-Yu-k8X">
                                 <rect key="frame" x="240" y="37" width="120" height="120"/>
@@ -692,17 +698,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JiH-Ie-dt6" userLabel="Submit">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
-                                <state key="normal" title="Submit Request">
-                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitButtonTapped:" destination="weM-wN-ldg" eventType="touchUpInside" id="rZE-HV-QXm"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NqX-9r-8r2">
                                 <rect key="frame" x="20" y="302" width="156" height="30"/>
                                 <state key="normal" title="Choose Date and Time"/>
@@ -735,15 +730,46 @@
                                     <action selector="doneTapped:" destination="weM-wN-ldg" eventType="touchUpInside" id="B3x-ts-6cy"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAH-jM-RDx">
-                                <rect key="frame" x="20" y="13" width="43" height="43"/>
-                                <state key="normal" image="back"/>
-                                <connections>
-                                    <segue destination="rmz-5K-Mwl" kind="show" id="Bjj-OT-sjh"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O3R-wy-WMi">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRD-zN-j0s" userLabel="Submit">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="weM-wN-ldg" eventType="touchUpInside" id="9Pu-ej-IE3"/>
+                                            <action selector="cancelTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="YBJ-ih-XRa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="byR-xo-EsD">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SaveTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="DzQ-Zt-4rp"/>
+                                            <action selector="submitTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="D0C-GM-1vx"/>
+                                            <action selector="submitTapped:" destination="weM-wN-ldg" eventType="touchUpInside" id="w9Q-20-90A"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ETF-Y4-P2g"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98075510529999999" green="0.96038710019999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="O3R-wy-WMi" firstAttribute="leading" secondItem="2cU-uU-Q9A" secondAttribute="leading" id="HUI-8I-Lfb"/>
+                            <constraint firstItem="2x7-Lh-dnt" firstAttribute="top" secondItem="O3R-wy-WMi" secondAttribute="bottom" id="P0T-8E-G6R"/>
+                            <constraint firstAttribute="trailing" secondItem="O3R-wy-WMi" secondAttribute="trailing" id="dYh-zg-9HJ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="sV0-fe-J3v" id="b8L-OH-Zvo"/>
@@ -776,17 +802,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-OC-AKP">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="createAccount:" destination="Xwe-19-UUb" eventType="touchUpInside" id="D0P-6h-8J6"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-BQ-MnU">
                                 <rect key="frame" x="20" y="114" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -802,8 +817,44 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                             </textField>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-8a-jJe">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vSj-OC-AKP">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelCreateAccount:" destination="Xwe-19-UUb" eventType="touchUpInside" id="ehK-jR-7gK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFi-sI-aiY">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Register">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SaveTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="41v-Im-Uwl"/>
+                                            <action selector="createAccount:" destination="Xwe-19-UUb" eventType="touchUpInside" id="erY-rZ-oQj"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4sI-en-GzQ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98075510529999999" green="0.96038710019999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NqQ-8a-jJe" secondAttribute="trailing" id="CJe-V4-drR"/>
+                            <constraint firstItem="mVa-Ac-rxu" firstAttribute="top" secondItem="NqQ-8a-jJe" secondAttribute="bottom" id="MyG-Zr-EhU"/>
+                            <constraint firstItem="NqQ-8a-jJe" firstAttribute="leading" secondItem="sDA-Nf-FQj" secondAttribute="leading" id="Y0f-Re-0Dn"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="emailField" destination="n3h-BQ-MnU" id="RVI-uM-jQ8"/>
@@ -926,17 +977,37 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PB-Z8-mu6" userLabel="Submit">
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5Ts-Op-fm5">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
-                                <state key="normal" title="Submit Request">
-                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="submitTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="nDz-eE-mas"/>
-                                </connections>
-                            </button>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1PB-Z8-mu6" userLabel="Submit">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="GJC-pn-YVz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S1u-t8-x1A">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SaveTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="6RE-7G-AE6"/>
+                                            <action selector="submitTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="NYE-w6-fuA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="5Z5-RO-tbk"/>
+                                </constraints>
+                            </stackView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cag-bW-aee">
                                 <rect key="frame" x="20" y="296" width="156" height="30"/>
                                 <state key="normal" title="Choose Date and Time"/>
@@ -964,12 +1035,13 @@
                                     <action selector="doneTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="ugf-9v-grq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avH-3r-FBa">
-                                <rect key="frame" x="25" y="9" width="43" height="43"/>
-                                <state key="normal" image="back"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98075510529999999" green="0.96038710019999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Ts-Op-fm5" firstAttribute="leading" secondItem="D15-NZ-1hW" secondAttribute="leading" id="DKA-II-cc9"/>
+                            <constraint firstItem="uHI-St-bSH" firstAttribute="top" secondItem="5Ts-Op-fm5" secondAttribute="bottom" id="MkG-aD-r8z"/>
+                            <constraint firstAttribute="trailing" secondItem="5Ts-Op-fm5" secondAttribute="trailing" id="VcD-jT-LIb"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="imo-T7-ms1" id="oD7-U4-6cI"/>
@@ -988,16 +1060,27 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ezy-Ob-TW9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CA6-zk-PdI">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="SaveTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="M3Z-o5-fSD"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="2518" y="994"/>
         </scene>
     </scenes>
     <resources>
-        <image name="back" width="43" height="43"/>
         <image name="male" width="500" height="410"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZjQ-tk-mgs"/>
+        <segue reference="CDO-P3-2Jh"/>
         <segue reference="4zF-5w-xVF"/>
     </inferredMetricsTieBreakers>
 </document>
