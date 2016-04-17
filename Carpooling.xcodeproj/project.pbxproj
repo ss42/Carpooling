@@ -452,6 +452,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIPFLAGS = "-ObjC flag";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -471,6 +472,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIPFLAGS = "-ObjC flag";
+				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfileViewController: UIViewController {
     
@@ -18,9 +19,20 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var editProfilePictureButton: UIButton!
     
     
+    var currentUser = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
+            
+            let currentUser = snapshot.value.objectForKey("email") as! String
+            
+            print("email: \(currentUser)")
+            self.currentUser = currentUser
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -43,10 +55,25 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func SaveTapped(sender: AnyObject) {
+        let first = firstName.text
+        let last = lastName.text
+        let phone = phoneNumber.text
+        let emailAddress = email.text
+        
+        let user: NSDictionary = ["first": first!, "last": last!, "phone" : phone!, "email" : emailAddress!]
+        
+        var usersRef = DataService.dataService.userRef.childByAppendingPath("users")
+        
+        usersRef.setValue(user)
+        
+
+        
         performCustomSegue()
     }
     
     @IBAction func editButtonTapped(sender: AnyObject) {
+        
+        
     }
     
     func performCustomSegue(){
