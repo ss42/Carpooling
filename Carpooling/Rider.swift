@@ -17,15 +17,16 @@ class Rider{
     var email = ""
     var password = ""
     var picture: UIImage?
-    let uid: String
+    //let uid: String
     
     // Initialize from Firebase(test)
     init(authData: FAuthData) {
-        uid = authData.uid
+      //  uid = authData.uid
         email = authData.providerData["email"] as! String
+        password = authData.providerData["provider"] as! String
     }
     
-    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: UIImage, uid: String)
+    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: UIImage)//, uid: String)
     {
         self.firstName = firstName
         self.lastName = lastName
@@ -33,7 +34,7 @@ class Rider{
         self.email = email
         self.password = password
         self.picture = picture
-        self.uid = uid
+       // self.uid = uid
     }
     
 }

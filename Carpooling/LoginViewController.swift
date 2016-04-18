@@ -9,10 +9,11 @@
 import UIKit
 import Firebase
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var ScrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,10 +21,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER.authData != nil {
             self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
         }
     }
@@ -76,6 +78,14 @@ class LoginViewController: UIViewController {
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        return false
+    }
     
+    func textFieldDidBeginEditing(textField: UITextField) {
+            ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
     
 }

@@ -23,7 +23,7 @@ class CreateNewRideViewController: UIViewController {
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
     @IBOutlet weak var fromCityTextField: UITextField!
     @IBOutlet weak var fromStateTextField: UITextField!
-    @IBOutlet weak var fromZipCode: UITextField!
+    @IBOutlet weak var fromZipCodeTextField: UITextField!
     
     @IBOutlet weak var toStreetAddressTextField: UITextField!
     @IBOutlet weak var toCityTextfield: UITextField!
@@ -38,8 +38,8 @@ class CreateNewRideViewController: UIViewController {
         datePicker.hidden = true
         doneButton.hidden = true
         confirmTextFieldDelegate()
-        
-        DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
+        /**
+        DataService.dataService.CURRENT_USER.observeEventType(FEventType.Value, withBlock: { snapshot in
             
             let currentUser = snapshot.value.objectForKey("email") as! String
             
@@ -47,7 +47,7 @@ class CreateNewRideViewController: UIViewController {
             self.currentUser = currentUser
             }, withCancelBlock: { error in
                 print(error.description)
-        })
+        })**/
         
     }
     
@@ -62,7 +62,7 @@ class CreateNewRideViewController: UIViewController {
         fromStreetAddressTextField.delegate = self
         fromCityTextField.delegate = self
         fromStateTextField.delegate = self
-        fromZipCode.delegate = self
+        fromZipCodeTextField.delegate = self
         toStreetAddressTextField.delegate = self
         toCityTextfield.delegate = self
         toStateTextField.delegate = self
@@ -85,9 +85,17 @@ class CreateNewRideViewController: UIViewController {
         let fromStreet = fromStreetAddressTextField.text
         let fromCity = fromCityTextField.text
         let fromState = fromStateTextField.text
+        let fromZipCode = fromZipCodeTextField.text
+        let toStreet = toStreetAddressTextField.text
+        let toCity = toCityTextfield.text
+        let toState = toStateTextField.text
+        let toZipCode = toZipCodeTextField.text
+        
         let postedTime = getCurrentTime()
-        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!, "postedTime" : postedTime]
+        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
+        
+       
         
         //to go to home screen
         performCustomSegue()

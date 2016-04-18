@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SlideOutMenuController: UITableViewController {
     
@@ -24,5 +25,14 @@ class SlideOutMenuController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBAction func signOutTapped(sender: AnyObject) {
+        print("loggin out started")
+        DataService.dataService.userRef.unauth()
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Login")
+        UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
+        print("loged out")
+    }
+    
 
 }

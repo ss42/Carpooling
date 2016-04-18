@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,12 +15,56 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var tableView: UITableView!
     
-    var tempArray = Trips.makeDummyTrips()
+    var tempArray:NSMutableArray = [] //Trips.makeDummyTrips()
+    //var tempArray:NSMutableArray?
     
     var dummy = [["hello world" , "male"]]
     
+    
+    // fetch the trips from firebase and then update the tempArray
+    func fetchTripList()
+    {
+        print ("before data call to firebase")
+        DataService.dataService.postRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
+            if snapshot.value["fromStreet"] is NSNull{
+                print("null")
+            }
+            print("after snapshot")
+            let fromStreet = snapshot.value["fromStreet"] as? String
+            let fromCity = snapshot.value["fromCity"] as? String
+            let fromState = snapshot.value["fromState"] as? String
+            let fromZipCode = snapshot.value["fromZipCode"] as? String
+            let toStreet = snapshot.value["toStreet"] as? String
+            let toCity = snapshot.value["toCity"] as? String
+            let toState = snapshot.value["toState"] as? String
+            let toZipCode = snapshot.value["toZipCode"] as? String
+            
+            print ("after city stuff")
+            let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
+            print("after temp rider")
+            print(snapshot.value["fromStreet"] as? String)
+            
+            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, date: NSDate(), time: NSCalendar.currentCalendar(), notes: "", capacity: 5))
+            print("fromcity \(fromCity)")
+            print(self.tempArray.count)
+            self.tableView.reloadData()
+        })
+        print("temp array count is:  \(tempArray.count)")
+        
+    }
+    
+    /*func createTripFromFirebase(snapshot:FDataSnapshot){
+        let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
+        
+        tempArray.append(Trips(rider: r5, fromStreetAddress: "", fromCity: snapshot.value["fromCity"], fromState: snapshot.value["fromState"], fromZipCode: "", toStreetAddress: "", toCity: snapshot.value["toCity"], toState: snapshot.value["toState"], toZipCode: "", date: NSDate(), time: NSCalendar.currentCalendar(), notes: "", capacity: 5))
+    }*/
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchTripList()
+        print("after fetch")
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -29,8 +74,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             open.action = #selector(SWRevealViewController.revealToggle(_:))
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
         print("viewdid load")
+        self.tableView.reloadData()
+        
     }
+    /*override func viewWillAppear(animated: Bool) {
+        fetchTripList()
+        tableView.reloadData()
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,21 +121,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     {
         let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
         
-        let trip = tempArray[indexPath.row]
+        let trip = tempArray[indexPath.row] as! Trips
         
         // Configure the cell...
         
-        cell.startAddress?.text = trip.toStreetAddress
-        //cell.imageView?.image = UIImage(named: photo.thumbnailImageName)
+
         cell.picture.image = UIImage(named: "male")
-        print("cell configured")
+        cell.startAddress?.text = "\(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode))  "
+        cell.endAddress?.text = "\(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode))  "
+        print("The Start Address is  ")
+        print(cell.startAddress?.text)
+        print("The end Address is  ")
+        print(cell.endAddress?.text)
+
         configureTableView()
         
         return cell
     }
     func configureTableView(){
-        //tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 100.00
+        tableView.rowHeight = 200.00
+        
         
     }
     

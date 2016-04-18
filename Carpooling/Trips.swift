@@ -61,7 +61,7 @@ class Trips{
         self.riders?.append(rider)
     }
     
-    static func makeDummyTrips()->[Trips]{
+    static func makeDummyTrips()->NSMutableArray{
         let r1:Rider = Rider(firstName: "Rahul", lastName: "Murthy", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
         
         let r2:Rider = Rider(firstName: "Sanjay", lastName: "Shrestha", phoneNumber: "2345983459", email: "ss42@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
@@ -81,7 +81,9 @@ class Trips{
         t2.addRider(r1)
         t2.addRider(r4)
         
-        let temp = [t1,t2]
+        let temp = NSMutableArray()
+        temp.addObject(t1)
+        temp.addObject(t2)
         return temp
     }
     

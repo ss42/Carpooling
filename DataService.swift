@@ -12,6 +12,7 @@ import Firebase
 
 
 let BASE_URL =  "http://smcpool.firebaseio.com"
+//var fireBaseRef
 
 class DataService {
     static let dataService = DataService()
@@ -21,11 +22,11 @@ class DataService {
     var postRef = Firebase(url: "\(BASE_URL)/posts")
     
   
-    
-    var CURRENT_USER_REF: Firebase {
+    var CURRENT_USER: Firebase
+    {
         let userID = NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String
         
-        let currentUser = Firebase(url: "\(baseRef)").childByAppendingPath("users").childByAppendingPath(userID)
+        let currentUser = userRef.childByAppendingPath("users").childByAppendingPath(userID)
         
         return currentUser!
     }
@@ -43,7 +44,7 @@ class DataService {
         
        
         
-        let firebaseNewPost = userRef.childByAutoId()
+        let firebaseNewPost = postRef.childByAutoId()
         
         // setValue() saves to Firebase.
         
