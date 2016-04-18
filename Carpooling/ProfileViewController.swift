@@ -90,17 +90,12 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         picker.sourceType = .PhotoLibrary
         presentViewController(picker, animated: true, completion: nil)
         
-        
     }
     
     func performCustomSegue(){
         
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        //let vc: UINavigationController = storyboard.instantiateViewControllerWithIdentifier("navView") as! UINavigationController
-        
         let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
-        
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
@@ -127,12 +122,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         profileImage.image = image
         
         let imageData = UIImagePNGRepresentation(image)
-        
-        
         let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-        //
-        
-        
         //newPost?.image = base64String
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -143,8 +133,6 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     
     // MARK:- UIImagePickerControllerDelegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        
-        
         
         profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
