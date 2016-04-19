@@ -67,8 +67,10 @@ class CreateNewAccountViewController: UIViewController, UITextFieldDelegate {
                     
                     
                     
-                    // Store the uid for future access - handy!
-                    let storage = NSUserDefaults.standardUserDefaults()//.setValue(authData ["uid"], forKey: "uid")
+                    // Store the uid for future access - handy! 
+                    //let storage = NSUserDefaults.standardUserDefaults()//.setValue(authData ["uid"], forKey: "uid")
+                    
+                    
                     //storage.setObject(, forKey: )
                     
                     // Enter the app.

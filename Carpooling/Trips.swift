@@ -27,16 +27,18 @@ class Trips{
     var minute:NSDateComponents?
     var calender:NSCalendar?
     var notes = ""
+    var postedTime = ""
     var capacity:NSInteger?
     var riders:[Rider]?
     
-    init(rider:Rider, fromStreetAddress:String, fromCity:String, fromState:String, fromZipCode:String, toStreetAddress:String, toCity:String, toState:String, toZipCode:String, date:NSDate, time:NSCalendar, notes:String, capacity:NSInteger)
+    init(rider:Rider, fromStreetAddress:String, fromCity:String, fromState:String, fromZipCode:String, toStreetAddress:String, toCity:String, toState:String, toZipCode:String, date:NSDate, time:NSCalendar, notes:String, postedTime: String, capacity: NSInteger)
     {
         self.driver = rider
         self.firstName = rider.firstName
         self.lastName = rider.lastName
         self.phoneNumber = rider.phoneNumber
         self.email = rider.email
+        self.fromStreetAddress = fromStreetAddress
         self.fromCity = fromCity
         self.fromState = fromState
         self.fromZipCode = fromZipCode
@@ -45,6 +47,7 @@ class Trips{
         self.toState = toState
         self.toZipCode = toZipCode
         self.date = date
+        self.postedTime = postedTime
         self.calender = NSCalendar.currentCalendar()
         let date = NSDate()
         //let calendar = NSCalendar.currentCalendar()
@@ -60,6 +63,7 @@ class Trips{
     func addRider(rider:Rider){
         self.riders?.append(rider)
     }
+    /**
     
     static func makeDummyTrips()->NSMutableArray{
         let r1:Rider = Rider(firstName: "Rahul", lastName: "Murthy", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
@@ -87,7 +91,7 @@ class Trips{
         return temp
     }
     
-    
+    **/
     
     
 }

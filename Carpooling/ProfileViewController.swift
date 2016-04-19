@@ -121,8 +121,10 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         
         profileImage.image = image
         
-        let imageData = UIImagePNGRepresentation(image)
-        let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        //commented out image saving 4/19
+        
+        //let imageData = UIImagePNGRepresentation(image)
+        //let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         //newPost?.image = base64String
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
@@ -136,15 +138,16 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         
         profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
-        let imageToSave: UIImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
+        //let imageToSave: UIImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
         
-        var data: NSData = NSData()
+        /*var data: NSData = NSData()
         
         if let image = profileImage.image {
             data = UIImageJPEGRepresentation(image, 0.75)!
         }
+ */
         
-        var base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        //var base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         
         dismissViewControllerAnimated(true, completion: nil)
     }

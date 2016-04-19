@@ -26,6 +26,7 @@
 		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
 		92DB5D201CB9B17900796EEC /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D1F1CB9B17900796EEC /* DatePicker.swift */; };
 		92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */; };
+		92FE132B1CC69A3E0091CF59 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE132A1CC69A3E0091CF59 /* ForgotPasswordViewController.swift */; };
 		F7AB1EEE0DA5BAFC3CFAD39F /* Pods_Carpooling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		92485E1E1CAD937A0094D2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DB5D1F1CB9B17900796EEC /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvailableRidesTableViewCell.swift; path = Carpooling/AvailableRidesTableViewCell.swift; sourceTree = "<group>"; };
+		92FE132A1CC69A3E0091CF59 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		9E99BFB7CB9B611D79DB5940 /* Pods-Carpooling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.release.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.release.xcconfig"; sourceTree = "<group>"; };
 		F95E1B2626F147C72FAF7F45 /* Pods-Carpooling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Carpooling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Carpooling/Pods-Carpooling.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			children = (
 				1067958D1CC1956900ED4EF8 /* CreateNewAccountViewController.swift */,
 				92485E141CAD937A0094D2C9 /* LoginViewController.swift */,
+				92FE132A1CC69A3E0091CF59 /* ForgotPasswordViewController.swift */,
 			);
 			name = Login/Register;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */,
 				1067958E1CC1956900ED4EF8 /* CreateNewAccountViewController.swift in Sources */,
 				1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */,
+				92FE132B1CC69A3E0091CF59 /* ForgotPasswordViewController.swift in Sources */,
 				1079BF801CBB88F900DBDF92 /* ProfileViewController.swift in Sources */,
 				10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */,
 				10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */,

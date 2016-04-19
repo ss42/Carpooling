@@ -12,7 +12,6 @@ import Firebase
 
 class CreateNewRideViewController: UIViewController {
 
-
     
     @IBOutlet weak var notes: UITextView!
     
@@ -50,6 +49,8 @@ class CreateNewRideViewController: UIViewController {
         })**/
         
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -90,8 +91,9 @@ class CreateNewRideViewController: UIViewController {
         let toCity = toCityTextfield.text
         let toState = toStateTextField.text
         let toZipCode = toZipCodeTextField.text
-        
         let postedTime = getCurrentTime()
+        print("Todays date is  \(postedTime)")
+        
         let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
@@ -149,7 +151,11 @@ class CreateNewRideViewController: UIViewController {
     }
     
     func getCurrentTime()-> String{
-        return NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.NoStyle)
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let currentTimeAndDate:String = dateFormatter.stringFromDate(todaysDate)
+        return currentTimeAndDate
     }
 
 }

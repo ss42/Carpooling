@@ -27,11 +27,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print ("before data call to firebase")
         DataService.dataService.postRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
-            if snapshot.value["fromStreet"] is NSNull{
-                print("null")
-            }
+            
             print("after snapshot")
             let fromStreet = snapshot.value["fromStreet"] as? String
+            print("from street: \(fromStreet)")
             let fromCity = snapshot.value["fromCity"] as? String
             let fromState = snapshot.value["fromState"] as? String
             let fromZipCode = snapshot.value["fromZipCode"] as? String
@@ -39,13 +38,14 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let toCity = snapshot.value["toCity"] as? String
             let toState = snapshot.value["toState"] as? String
             let toZipCode = snapshot.value["toZipCode"] as? String
+            let postedTime = snapshot.value["postedTime"] as? String
             
             print ("after city stuff")
             let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
             print("after temp rider")
             print(snapshot.value["fromStreet"] as? String)
             
-            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, date: NSDate(), time: NSCalendar.currentCalendar(), notes: "", capacity: 5))
+            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, date: NSDate(), time: NSCalendar.currentCalendar(), notes: "",postedTime: postedTime!, capacity: 5))
             print("fromcity \(fromCity)")
             print(self.tempArray.count)
             self.tableView.reloadData()
@@ -129,6 +129,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.picture.image = UIImage(named: "male")
         cell.startAddress?.text = "\(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode))  "
         cell.endAddress?.text = "\(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode))  "
+        cell.postedTime?.text = trip.postedTime
+        print("from street address")
+        print(trip.fromStreetAddress)
         print("The Start Address is  ")
         print(cell.startAddress?.text)
         print("The end Address is  ")
