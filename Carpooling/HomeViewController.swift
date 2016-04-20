@@ -24,13 +24,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // fetch the trips from firebase and then update the tempArray
     func fetchTripList()
     {
-        print ("before data call to firebase")
         DataService.dataService.postRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
-            print("after snapshot")
             let fromStreet = snapshot.value["fromStreet"] as? String
-            print("from street: \(fromStreet)")
             let fromCity = snapshot.value["fromCity"] as? String
             let fromState = snapshot.value["fromState"] as? String
             let fromZipCode = snapshot.value["fromZipCode"] as? String
@@ -39,14 +36,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let toState = snapshot.value["toState"] as? String
             let toZipCode = snapshot.value["toZipCode"] as? String
             let postedTime = snapshot.value["postedTime"] as? String
+            let pickUpTime = snapshot.value["pickupTime"] as? String
+            let notes = "hello"
+            print("Posted time is   \(pickUpTime) in fetch trip function ")
+   
+
             
-            print ("after city stuff")
+            
+            print("Posted time is   \(postedTime) in fetch trip function ")
+
             let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
-            print("after temp rider")
-            print(snapshot.value["fromStreet"] as? String)
             
-            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, date: NSDate(), time: NSCalendar.currentCalendar(), notes: "",postedTime: postedTime!, capacity: 5))
-            print("fromcity \(fromCity)")
+            
+            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes, postedTime: postedTime!, capacity: 5))
+            
             print(self.tempArray.count)
             self.tableView.reloadData()
         })
@@ -54,11 +57,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     
-    /*func createTripFromFirebase(snapshot:FDataSnapshot){
-        let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
-        
-        tempArray.append(Trips(rider: r5, fromStreetAddress: "", fromCity: snapshot.value["fromCity"], fromState: snapshot.value["fromState"], fromZipCode: "", toStreetAddress: "", toCity: snapshot.value["toCity"], toState: snapshot.value["toState"], toZipCode: "", date: NSDate(), time: NSCalendar.currentCalendar(), notes: "", capacity: 5))
-    }*/
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,41 +78,42 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.reloadData()
         
     }
-    /*override func viewWillAppear(animated: Bool) {
-        fetchTripList()
-        tableView.reloadData()
-    }*/
-    
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-    // make dummy riders and dummy trips
-    
-    /*let r1:Rider = Rider(firstName: "Rahul", lastName: "Murthy", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named:"male")!)
-    
-    let r2:Rider = Rider(firstName: "Sanjay", lastName: "Shrestha", phoneNumber: "2345983459", email: "ss42@stmarys-ca.edu", password: "12345678", picture: UIImage(named:"male")!)
-    let r3:Rider = Rider(firstName: "Bob", lastName: "Dole", phoneNumber: "2354366546", email: "bob@stmarys-ca.edu", password: "12345678", picture: UIImage(named:"male")!)
-    let r4:Rider = Rider(firstName: "sdfsdf", lastName: "asdfasdf", phoneNumber: "0548680456", email: "sfdf@stmarys-ca.edu", password: "12345678", picture: UIImage(named:"male")!)
-    
-    let date = NSDate()
-    let cal = NSCalendar.currentCalendar()
-    
-    let t1:Trips = Trips(rider: r1, fromStreetAddress: "start1", fromCity: "city1", fromState: "state1", fromZipCode: "z1", toStreetAddress: "end1", toCity: "city2", toState: "state2", toZipCode: "z2", date: date, time: cal, notes: "bring snacks", capacity: 4)
- */
-    
-    
-    
-    
+    func timeElapsed(date: String)-> String{
+        let dateformatter = NSDateFormatter()
+        dateformatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        dateformatter.dateFormat = "h:mm a"
+        let postedDate  = dateformatter.dateFromString(date)!
+        
+        print("Posted time is is  \(date)")
+
+        print("Posted time is is  \(postedDate)")
+
+        let elapsedTimeInSeconds = NSDate().timeIntervalSinceDate(postedDate)
+        let secondInDays: NSTimeInterval = 60 * 60 * 24
+        if elapsedTimeInSeconds > 7 * secondInDays {
+            dateformatter.dateFormat = "MM/dd/yy"
+        } else if elapsedTimeInSeconds > 7 * secondInDays{
+            dateformatter.dateFormat = "EEE"
+        } else if elapsedTimeInSeconds > secondInDays/24{
+            dateformatter.dateFormat = "HH"
+            
+        }
+        let timeToShow: String = dateformatter.stringFromDate(postedDate)
+        return timeToShow
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("in one of the table view functions")
         return tempArray.count
     }
     
@@ -130,12 +130,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.startAddress?.text = "\(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode))  "
         cell.endAddress?.text = "\(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode))  "
         cell.postedTime?.text = trip.postedTime
-        print("from street address")
-        print(trip.fromStreetAddress)
-        print("The Start Address is  ")
-        print(cell.startAddress?.text)
-        print("The end Address is  ")
-        print(cell.endAddress?.text)
+        cell.pickUpTime?.text = "Pick Up at \(trip.pickUpTime)"
+     
 
         configureTableView()
         

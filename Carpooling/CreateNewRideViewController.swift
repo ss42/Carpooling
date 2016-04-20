@@ -75,6 +75,7 @@ class CreateNewRideViewController: UIViewController {
         datePicker.hidden = false
         doneButton.hidden = false
         notes.hidden = true
+        //self.datePicker.addGestureRecognizer(sender as! UIGestureRecognizer)
         
         //need to reload data
         
@@ -83,6 +84,8 @@ class CreateNewRideViewController: UIViewController {
     
     
     @IBAction func submitTapped(sender: AnyObject) {
+        
+        
         let fromStreet = fromStreetAddressTextField.text
         let fromCity = fromCityTextField.text
         let fromState = fromStateTextField.text
@@ -92,9 +95,14 @@ class CreateNewRideViewController: UIViewController {
         let toState = toStateTextField.text
         let toZipCode = toZipCodeTextField.text
         let postedTime = getCurrentTime()
-        print("Todays date is  \(postedTime)")
         
-        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime]
+        //check for field if empty...
+        
+        
+        print("Todays date is  \(postedTime)")
+        let pickupTime = dateLabel.text
+        
+        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
        
@@ -126,6 +134,7 @@ class CreateNewRideViewController: UIViewController {
         dateLabel.text = strDate
         datePicker.hidden = true
         notes.hidden = false
+        doneButton.hidden = true
     }
     
     //to display alert for errors
@@ -153,7 +162,7 @@ class CreateNewRideViewController: UIViewController {
     func getCurrentTime()-> String{
         let todaysDate:NSDate = NSDate()
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         let currentTimeAndDate:String = dateFormatter.stringFromDate(todaysDate)
         return currentTimeAndDate
     }
