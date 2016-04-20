@@ -88,6 +88,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.sourceType = .PhotoLibrary
+        picker.allowsEditing = true
         presentViewController(picker, animated: true, completion: nil)
         
     }
@@ -125,7 +126,6 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         
         //let imageData = UIImagePNGRepresentation(image)
         //let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-        //newPost?.image = base64String
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         //self.savedImageAlert()
@@ -135,6 +135,8 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     
     // MARK:- UIImagePickerControllerDelegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+       
         
         profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
         
