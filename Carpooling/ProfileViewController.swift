@@ -115,7 +115,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     
     func updateInfoFromDatabase(){
-        DataService.dataService.userRef.ref.queryOrderedByChild(currentUser).observeEventType(.ChildAdded, withBlock: { snapshot in
+        
+        DataService.dataService.userRef.queryOrderedByChild(currentUser).observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
             
             print("The first name is \(snapshot.value["first"] as! String)")
             
@@ -220,6 +221,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
+    
     func takePhoto(){
         let cameraPicker = UIImagePickerController()
         cameraPicker.delegate = self
@@ -227,6 +229,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         self.presentViewController(cameraPicker, animated: true, completion: nil)
         
     }
+    
     func choosePhoto(){
         let photoPicker = UIImagePickerController()
         photoPicker.delegate = self

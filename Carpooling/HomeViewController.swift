@@ -127,8 +127,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
 
         cell.picture.image = UIImage(named: "male")
-        cell.startAddress?.text = "\(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode))  "
-        cell.endAddress?.text = "\(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode))  "
+        cell.startAddress?.text = "Start from - \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode)  "
+        cell.endAddress?.text = "End at - \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
         cell.postedTime?.text = trip.postedTime
         cell.pickUpTime?.text = "Pick Up at \(trip.pickUpTime)"
      
@@ -137,8 +137,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //when selected do something
+    }
+    
+    
     func configureTableView(){
-        tableView.rowHeight = 200.00
+        tableView.rowHeight = 150.00
         
         
     }
