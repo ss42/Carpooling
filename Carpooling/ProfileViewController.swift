@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             if authData != nil{
                 self.currentUser = authData.uid
                 print("The UID for current user is \(self.currentUser)")
-                self.updateInfoFromDatabase()
+               // self.updateInfoFromDatabase()
             }
             else
             {

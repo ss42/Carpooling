@@ -24,6 +24,7 @@
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
 		92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92485E191CAD937A0094D2C9 /* Assets.xcassets */; };
 		92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E1B1CAD937A0094D2C9 /* LaunchScreen.storyboard */; };
+		929DEF661CC93D68001962C2 /* DetailRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929DEF651CC93D68001962C2 /* DetailRideViewController.swift */; };
 		92DB5D201CB9B17900796EEC /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D1F1CB9B17900796EEC /* DatePicker.swift */; };
 		92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */; };
 		92FE132B1CC69A3E0091CF59 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FE132A1CC69A3E0091CF59 /* ForgotPasswordViewController.swift */; };
@@ -53,6 +54,7 @@
 		92485E191CAD937A0094D2C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92485E1C1CAD937A0094D2C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92485E1E1CAD937A0094D2C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		929DEF651CC93D68001962C2 /* DetailRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRideViewController.swift; sourceTree = "<group>"; };
 		92DB5D1F1CB9B17900796EEC /* DatePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AvailableRidesTableViewCell.swift; path = Carpooling/AvailableRidesTableViewCell.swift; sourceTree = "<group>"; };
 		92FE132A1CC69A3E0091CF59 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				10722AED1CAFA334007C20C5 /* HomeViewController.swift */,
+				929DEF651CC93D68001962C2 /* DetailRideViewController.swift */,
 				92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */,
 			);
 			name = "Available Rides";
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1067958C1CC18AF000ED4EF8 /* DataService.swift in Sources */,
+				929DEF661CC93D68001962C2 /* DetailRideViewController.swift in Sources */,
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
 				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
