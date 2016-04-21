@@ -20,18 +20,20 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var ScrollView: UIScrollView!
     
+    var imageString = ""
     var currentUser = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
         confirmDelegate()
         // Do any additional setup after loading the view, typically from a nib.
-       /**let userUID = DataService.dataService.userRef
+        _ = DataService.dataService.userRef
         DataService.dataService.userRef.observeAuthEventWithBlock({
             authData in
             if authData != nil{
                 self.currentUser = authData.uid
-                
+                print("The UID for current user is \(self.currentUser)")
+               // self.updateInfoFromDatabase()
             }
             else
             {
@@ -39,7 +41,6 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             }
         })
         
-        **/
         
         //if (NSUserDefaults.standardUserDefaults().valueForKey("uid") as! String == DataService.dataService.userRef
     }
@@ -49,14 +50,14 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         self.lastName.delegate = self
         self.phoneNumber.delegate = self
         self.emailAddress.delegate = self
-
+        
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
- 
+        
     }
     
     
@@ -75,22 +76,21 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         let last = lastName.text
         let phone = phoneNumber.text
         let email = emailAddress.text
-        
-        let user: NSDictionary = ["first": first!, "last": last!, "phone": phone!, "email" : email!]
+        let image = self.convertToBase64String(profileImage.image!)
+        let user: NSDictionary = ["first": first!, "last": last!, "phone": phone!, "email" : email!, "image": image]
         DataService.dataService.userRef.childByAppendingPath(currentUser).updateChildValues(user as! Dictionary<String, AnyObject>)
-
+        
         
         performCustomSegue()
     }
     
     @IBAction func editButtonTapped(sender: AnyObject) {
-        
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .PhotoLibrary
-        picker.allowsEditing = true
-        presentViewController(picker, animated: true, completion: nil)
-        
+        /*
+         let picker = UIImagePickerController()
+         picker.delegate = self
+         picker.sourceType = .PhotoLibrary
+         picker.allowsEditing = true*/
+        self.actionSheet()
     }
     
     func performCustomSegue(){
@@ -110,9 +110,50 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     func textFieldDidBeginEditing(textField: UITextField) {
         if (textField == emailAddress) || (textField == phoneNumber){
             ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
-
+            
         }
     }
+    
+    func updateInfoFromDatabase(){
+        
+        DataService.dataService.userRef.queryOrderedByChild(currentUser).observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+            
+            print("The first name is \(snapshot.value["first"] as! String)")
+            
+            if  snapshot.value["first"] as! String == "" {
+                self.firstName.text = snapshot.value["first"] as? String
+            }
+            else {
+                self.firstName.placeholder = "Enter your first name."
+            }
+            /*  if  snapshot.value["last"] as! String != "" {
+             self.lastName.text = snapshot.value["last"] as? String
+             }
+             else {
+             self.lastName.placeholder = "Enter your last name."
+             }
+             if  snapshot.value["phone"] as! String != "" {
+             self.phoneNumber.text = snapshot.value["phone"] as? String
+             }
+             else {
+             self.phoneNumber.placeholder = "Enter your phone number."
+             }
+             if  snapshot.value["email"] as! String != "" {
+             self.emailAddress.text = snapshot.value["first"] as? String
+             }
+             else {
+             self.emailAddress.placeholder = "Enter your email address"
+             }
+             if  snapshot.value["image"] as! String != "" {
+             let imageString = snapshot.value["image"] as? String
+             self.profileImage.image = self.convertBase64StringToUImage(imageString!)
+             }
+             else {
+             self.profileImage.image = UIImage(named: "male")
+             }*/
+        })
+    }
+    
     
 }
 
@@ -120,12 +161,9 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
-        profileImage.image = image
         
-        //commented out image saving 4/19
+        //self.convertToBase64String(profileImage.image!)
         
-        //let imageData = UIImagePNGRepresentation(image)
-        //let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
         //self.savedImageAlert()
@@ -135,41 +173,69 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     
     // MARK:- UIImagePickerControllerDelegate methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let imageToSave: UIImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!{
+            profileImage.image = imageToSave
+        }
         
-       
-        
-        profileImage.image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        
-        //let imageToSave: UIImage = (info[UIImagePickerControllerOriginalImage] as? UIImage)!
-        
-        /*var data: NSData = NSData()
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func convertToBase64String(image: UIImage)-> String
+    {
+        var data: NSData = NSData()
         
         if let image = profileImage.image {
             data = UIImageJPEGRepresentation(image, 0.75)!
         }
- */
+        let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        return base64String
+    }
+    func convertBase64StringToUImage(baseString: String)-> UIImage {
+        let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        let decodedimage = UIImage(data: decodedData!)
+        //println(decodedimage)
+        return decodedimage! as UIImage
         
-        //var base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-        
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    //read abd decode
-    /*imageRef.observeEventType(.Value, withBlock: { snapshot in
-     
-     let base64EncodedString = snapshot.value
-     let imageData = NSData(base64EncodedString: base64EncodedString as! String,
-     options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-     let decodedImage = NSImage(data:imageData!)
-     self.myImageView.image = decodedImage
-     
-     }, withCancelBlock: { error in
-     print(error.description)
-     })*/
     
+    func actionSheet(){
+        let alertController: UIAlertController = UIAlertController(title: "Master your selfie skill.", message: "Choose a photo where other people can recognize you easily. ", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let takePhoto = UIAlertAction(title: "Take a photo", style: UIAlertActionStyle.Default){(action)-> Void in
+            self.takePhoto()
+        }
+        let chooosePhoto = UIAlertAction(title: "Choose a photo", style: UIAlertActionStyle.Default){(action)-> Void in
+            self.choosePhoto()
+            
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+            
+        }
+        alertController.addAction(takePhoto)
+        alertController.addAction(chooosePhoto)
+        alertController.addAction(cancelAction)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func takePhoto(){
+        let cameraPicker = UIImagePickerController()
+        cameraPicker.delegate = self
+        cameraPicker.sourceType = .Camera
+        self.presentViewController(cameraPicker, animated: true, completion: nil)
+        
+    }
+    
+    func choosePhoto(){
+        let photoPicker = UIImagePickerController()
+        photoPicker.delegate = self
+        photoPicker.sourceType = .PhotoLibrary
+        self.presentViewController(photoPicker, animated: true, completion: nil)
+        
+    }
     
 }
