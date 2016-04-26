@@ -26,18 +26,18 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         super.viewDidLoad()
         
         confirmDelegate()
-        // Do any additional setup after loading the view, typically from a nib.
-        _ = DataService.dataService.userRef
+        
         DataService.dataService.userRef.observeAuthEventWithBlock({
             authData in
+            print("hello world")
             if authData != nil{
                 self.currentUser = authData.uid
                 print("The UID for current user is \(self.currentUser)")
-                // self.updateInfoFromDatabase()
+                self.updateInfoFromDatabase()
             }
             else
             {
-                
+               print("authdata is nil")
             }
         })
         
