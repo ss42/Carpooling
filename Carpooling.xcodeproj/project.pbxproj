@@ -19,6 +19,8 @@
 		1079BF7C1CBB80A100DBDF92 /* CreateNewRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079BF7B1CBB80A100DBDF92 /* CreateNewRideViewController.swift */; };
 		1079BF7E1CBB816A00DBDF92 /* CustomViewIBDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079BF7D1CBB816A00DBDF92 /* CustomViewIBDesignable.swift */; };
 		1079BF801CBB88F900DBDF92 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */; };
+		107A381B1CCF011A008840DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 107A381A1CCF011A008840DA /* GoogleService-Info.plist */; };
+		107A381D1CCF03E2008840DA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A381C1CCF03E2008840DA /* ForgotPasswordViewController.swift */; };
 		92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E121CAD937A0094D2C9 /* AppDelegate.swift */; };
 		92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* LoginViewController.swift */; };
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		1079BF7B1CBB80A100DBDF92 /* CreateNewRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewRideViewController.swift; sourceTree = "<group>"; };
 		1079BF7D1CBB816A00DBDF92 /* CustomViewIBDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewIBDesignable.swift; sourceTree = "<group>"; };
 		1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		107A381A1CCF011A008840DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		107A381C1CCF03E2008840DA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpooling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				1067958D1CC1956900ED4EF8 /* CreateNewAccountViewController.swift */,
+				107A381C1CCF03E2008840DA /* ForgotPasswordViewController.swift */,
 				92485E141CAD937A0094D2C9 /* LoginViewController.swift */,
 			);
 			name = Login/Register;
@@ -175,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				1067958B1CC18AF000ED4EF8 /* DataService.swift */,
+				107A381A1CCF011A008840DA /* GoogleService-Info.plist */,
 				1079BF811CBB88FF00DBDF92 /* Profile */,
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
 				1079BF761CBB59E600DBDF92 /* Available Rides */,
@@ -254,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92485E1D1CAD937A0094D2C9 /* LaunchScreen.storyboard in Resources */,
+				107A381B1CCF011A008840DA /* GoogleService-Info.plist in Resources */,
 				92485E1A1CAD937A0094D2C9 /* Assets.xcassets in Resources */,
 				92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */,
 			);
@@ -325,6 +332,7 @@
 				92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */,
 				1067958E1CC1956900ED4EF8 /* CreateNewAccountViewController.swift in Sources */,
 				1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */,
+				107A381D1CCF03E2008840DA /* ForgotPasswordViewController.swift in Sources */,
 				1079BF801CBB88F900DBDF92 /* ProfileViewController.swift in Sources */,
 				10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */,
 				10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */,

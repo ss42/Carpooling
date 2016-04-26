@@ -17,12 +17,13 @@ class AvailableRidesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var postedTime: UILabel!
     
-    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var pickUpTime: UILabel!
     
-    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var capacity: UILabel!
     
     @IBOutlet weak var picture: UIImageView!
     
+    @IBOutlet weak var notes: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

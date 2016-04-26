@@ -12,7 +12,6 @@ import Firebase
 
 class CreateNewRideViewController: UIViewController {
 
-
     
     @IBOutlet weak var notes: UITextView!
     
@@ -23,13 +22,14 @@ class CreateNewRideViewController: UIViewController {
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
     @IBOutlet weak var fromCityTextField: UITextField!
     @IBOutlet weak var fromStateTextField: UITextField!
-    @IBOutlet weak var fromZipCode: UITextField!
+    @IBOutlet weak var fromZipCodeTextField: UITextField!
     
     @IBOutlet weak var toStreetAddressTextField: UITextField!
     @IBOutlet weak var toCityTextfield: UITextField!
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
   
+    @IBOutlet weak var capacity: UILabel!
 
     var currentUser = ""
 
@@ -38,8 +38,8 @@ class CreateNewRideViewController: UIViewController {
         datePicker.hidden = true
         doneButton.hidden = true
         confirmTextFieldDelegate()
-        
-        DataService.dataService.CURRENT_USER_REF.observeEventType(FEventType.Value, withBlock: { snapshot in
+        /**
+        DataService.dataService.CURRENT_USER.observeEventType(FEventType.Value, withBlock: { snapshot in
             
             let currentUser = snapshot.value.objectForKey("email") as! String
             
@@ -47,9 +47,11 @@ class CreateNewRideViewController: UIViewController {
             self.currentUser = currentUser
             }, withCancelBlock: { error in
                 print(error.description)
-        })
-        
+        })**/
+       
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -62,7 +64,7 @@ class CreateNewRideViewController: UIViewController {
         fromStreetAddressTextField.delegate = self
         fromCityTextField.delegate = self
         fromStateTextField.delegate = self
-        fromZipCode.delegate = self
+        fromZipCodeTextField.delegate = self
         toStreetAddressTextField.delegate = self
         toCityTextfield.delegate = self
         toStateTextField.delegate = self
@@ -74,20 +76,44 @@ class CreateNewRideViewController: UIViewController {
         datePicker.hidden = false
         doneButton.hidden = false
         notes.hidden = true
+        //self.datePicker.addGestureRecognizer(sender as! UIGestureRecognizer)
         
         //need to reload data
         
         
     }
     
+
+    @IBAction func capacityStepperTapped(sender: UIStepper) {
+        self.capacity.text = String(Int(sender.value))
+    }
+    
+    
     
     @IBAction func submitTapped(sender: AnyObject) {
+        
+        
         let fromStreet = fromStreetAddressTextField.text
         let fromCity = fromCityTextField.text
         let fromState = fromStateTextField.text
+        let fromZipCode = fromZipCodeTextField.text
+        let toStreet = toStreetAddressTextField.text
+        let toCity = toCityTextfield.text
+        let toState = toStateTextField.text
+        let toZipCode = toZipCodeTextField.text
         let postedTime = getCurrentTime()
-        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!, "postedTime" : postedTime]
+        let numberOfSeat = capacity.text
+        let notesFromDriver = notes.text
+        //check for field if empty...
+        
+        
+        print("Todays date is  \(postedTime)")
+        let pickupTime = dateLabel.text
+        
+        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
+        
+       
         
         //to go to home screen
         performCustomSegue()
@@ -112,10 +138,12 @@ class CreateNewRideViewController: UIViewController {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.dateFormat = "dd MMM HH:mm"
         let strDate = dateFormatter.stringFromDate(datePicker.date)
         dateLabel.text = strDate
         datePicker.hidden = true
         notes.hidden = false
+        doneButton.hidden = true
     }
     
     //to display alert for errors
@@ -141,14 +169,19 @@ class CreateNewRideViewController: UIViewController {
     }
     
     func getCurrentTime()-> String{
-        return NSDateFormatter.localizedStringFromDate(NSDate(), dateStyle: NSDateFormatterStyle.NoStyle, timeStyle: NSDateFormatterStyle.NoStyle)
+        let todaysDate:NSDate = NSDate()
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let currentTimeAndDate:String = dateFormatter.stringFromDate(todaysDate)
+        return currentTimeAndDate
     }
 
 }
 
 extension CreateNewRideViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField) {
-        print("test")
+        //add something may be?
+        
     }
     func textFieldShouldClear(textField: UITextField) -> Bool {
         return true
@@ -161,7 +194,6 @@ extension CreateNewRideViewController: UITextFieldDelegate{
         return true
     }
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
-        print("tessdft")
         return true
     }
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {

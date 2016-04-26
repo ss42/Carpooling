@@ -8,19 +8,31 @@
 
 import UIKit
 import Firebase
+import Google
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate, GIDSignInDelegate,  GIDSignInUIDelegate {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    @IBOutlet weak var signInButton: GIDSignInButton!
+
+    @IBOutlet weak var ScrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().uiDelegate = self
+        // Attempt to sign in silently, this will succeed if
+        // the user has recently been authenticated
+        GIDSignIn.sharedInstance().signInSilently()
+        
     }
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
@@ -32,6 +44,54 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
+    
+    func authenticateWithGoogle(sender: UIButton) {
+        GIDSignIn.sharedInstance().signIn()
+    }
+    
+    func signOut() {
+        GIDSignIn.sharedInstance().signOut()
+        DataService.dataService.userRef.unauth()
+    }
+    
+    
+    // Implement the required GIDSignInDelegate methods
+    func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
+                withError error: NSError!) {
+        if (error == nil) {
+            // Auth with Firebase
+            DataService.dataService.userRef.authWithOAuthProvider("google", token: user.authentication.accessToken, withCompletionBlock: { (error, authData) in
+                // User is logged in!
+                
+                let uid = user.userID
+                let first = user.profile.name
+                let last = user.profile.familyName
+                let email = user.profile.email
+                
+                let user = ["first": first!, "email": email!, "last": last!]
+                
+                // Seal the deal in DataService.swift.
+                DataService.dataService.createNewAccount(uid, user: user)
+
+                self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
+
+            })
+        } else {
+            // Don't assert this error it is commonly returned as nil
+            print("\(error.localizedDescription)")
+        }
+    }
+    
+    
+    
+    // Implement the required GIDSignInDelegate methods
+    // Unauth when disconnected from Google
+    func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
+                withError error: NSError!) {
+        DataService.dataService.userRef.unauth();
+    }
+
+    
     
     @IBAction func tryLogin(sender: AnyObject) {
         let email = emailField.text
@@ -77,5 +137,14 @@ class LoginViewController: UIViewController {
         presentViewController(alert, animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
+        return false
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+            ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
     
 }

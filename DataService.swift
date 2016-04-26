@@ -43,7 +43,7 @@ class DataService {
         
        
         
-        let firebaseNewPost = userRef.childByAutoId()
+        let firebaseNewPost = postRef.childByAutoId()
         
         // setValue() saves to Firebase.
         
