@@ -1,11 +1,11 @@
 # Carpooling
 a carpooling app, for Saint Mary's College of California.
-
-in the file main Directory do 
+```
+//in the file main Directory do 
 pod init
-open the podfile and add the following 
+//open the podfile and add the following 
 pod install
-
+```
 ```
 # Uncomment this line to define a global platform for your project
  platform :ios, '8.0'
