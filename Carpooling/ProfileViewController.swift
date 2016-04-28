@@ -33,11 +33,11 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             if authData != nil{
                 self.currentUser = authData.uid
                 print("The UID for current user is \(self.currentUser)")
-                // self.updateInfoFromDatabase()
+                self.updateInfoFromDatabase()
             }
             else
             {
-                
+                print("Uid not found")
             }
         })
         
@@ -115,42 +115,58 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     
     func updateInfoFromDatabase(){
-        
-        DataService.dataService.userRef.queryOrderedByChild(currentUser).observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/")
+        newRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+            snapshot in
             
-            print("The first name is \(snapshot.value["first"] as! String)")
+            print("Inside update from database func")
+            let first = snapshot.value["first"] as? String
+            let last = snapshot.value["last"] as? String
+            let phone = snapshot.value["phone"] as? String
+            let email = snapshot.value["email"] as? String
+            let imageString = snapshot.value["image"] as? String
             
-            if  snapshot.value["first"] as! String == "" {
+            //let firstname = snapshot.value["first"] as! String
+            //print("The first name is \(firstname)")
+            
+            if  first != "" {
+                print(first)
                 self.firstName.text = snapshot.value["first"] as? String
             }
             else {
                 self.firstName.placeholder = "Enter your first name."
             }
-            /*  if  snapshot.value["last"] as! String != "" {
+             if  last != "" {
+                print(last)
              self.lastName.text = snapshot.value["last"] as? String
              }
              else {
              self.lastName.placeholder = "Enter your last name."
              }
-             if  snapshot.value["phone"] as! String != "" {
+             if  phone != "" {
+                print(phone)
              self.phoneNumber.text = snapshot.value["phone"] as? String
              }
              else {
              self.phoneNumber.placeholder = "Enter your phone number."
              }
-             if  snapshot.value["email"] as! String != "" {
-             self.emailAddress.text = snapshot.value["first"] as? String
+             if  email != "" {
+                print(email)
+             self.emailAddress.text = snapshot.value["email"] as? String
              }
              else {
              self.emailAddress.placeholder = "Enter your email address"
              }
-             if  snapshot.value["image"] as! String != "" {
-             let imageString = snapshot.value["image"] as? String
-             self.profileImage.image = self.convertBase64StringToUImage(imageString!)
+             if  imageString != nil {
+                print("image not empty")
+                print(imageString)
+             let image = self.convertBase64StringToUImage(imageString!)
+             self.profileImage.image = image
              }
              else {
-             self.profileImage.image = UIImage(named: "male")
-             }*/
+                print("No photo")
+             //self.profileImage.image = UIImage(named: "male")
+             }
         })
     }
     

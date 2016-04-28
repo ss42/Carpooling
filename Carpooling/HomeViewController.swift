@@ -71,7 +71,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        print("viewdid load")
         self.tableView.reloadData()
         
     }
@@ -141,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Configure the cell...
         
 
-        cell.picture.image = UIImage(named: "male")
+        cell.picture.image = trip.driver?.picture
         cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode)  "
         cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
         cell.postedTime?.text = "Posted \(trip.postedTime)"

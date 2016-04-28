@@ -31,7 +31,6 @@ class DataService {
     }
     
     
-    
     func createNewAccount(uid: String, user: Dictionary<String, String>) {
         
         // A User is born.
