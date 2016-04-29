@@ -42,7 +42,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let elapsed = self.timeElapsed(postedTime!)
             
             
-            let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: UIImage(named: "male")!)
+            let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: "male")
             
             
             self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
@@ -140,7 +140,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         // Configure the cell...
         
 
-        cell.picture.image = trip.driver?.picture
+        cell.picture.image = UIImage(named: (trip.driver?.picture)!)
         cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode)  "
         cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
         cell.postedTime?.text = "Posted \(trip.postedTime)"

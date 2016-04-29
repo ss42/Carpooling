@@ -115,8 +115,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     
     func updateInfoFromDatabase(){
-        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/")
-        newRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUser)")
+        newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
             snapshot in
             
             print("Inside update from database func")
@@ -126,32 +126,34 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             let email = snapshot.value["email"] as? String
             let imageString = snapshot.value["image"] as? String
             
+            //let user : NSDictionary = []
+            
             //let firstname = snapshot.value["first"] as! String
             //print("The first name is \(firstname)")
             
             if  first != "" {
-                print(first)
+                print("The first name of this guy is \(first)")
                 self.firstName.text = snapshot.value["first"] as? String
             }
             else {
                 self.firstName.placeholder = "Enter your first name."
             }
              if  last != "" {
-                print(last)
+                print("The last name of this guy is \(last)")
              self.lastName.text = snapshot.value["last"] as? String
              }
              else {
              self.lastName.placeholder = "Enter your last name."
              }
              if  phone != "" {
-                print(phone)
+                print("The phone number of this guy is \(phone)")
              self.phoneNumber.text = snapshot.value["phone"] as? String
              }
              else {
              self.phoneNumber.placeholder = "Enter your phone number."
              }
              if  email != "" {
-                print(email)
+                print("The email of this guy is \(email)")
              self.emailAddress.text = snapshot.value["email"] as? String
              }
              else {
@@ -201,11 +203,12 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         var data: NSData = NSData()
         
         if let image = profileImage.image {
-            data = UIImageJPEGRepresentation(image, 0.75)!
+            data = UIImageJPEGRepresentation(image, 0.55)!
         }
         let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         return base64String
     }
+    
     func convertBase64StringToUImage(baseString: String)-> UIImage {
         let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         let decodedimage = UIImage(data: decodedData!)
