@@ -17,12 +17,15 @@ class CreateNewAccountViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var passwordField2: UITextField!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailField.delegate = self
         passwordField.delegate = self
         passwordField2.delegate = self
         // Do any additional setup after loading the view.
+        
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,6 +108,8 @@ class CreateNewAccountViewController: UIViewController, UITextFieldDelegate {
         alert.addAction(action)
         presentViewController(alert, animated: true, completion: nil)
     }
+    
+ 
     
     
 }

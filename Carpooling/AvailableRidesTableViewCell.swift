@@ -25,6 +25,9 @@ class AvailableRidesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var notes: UILabel!
     
+    @IBOutlet weak var fullName: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

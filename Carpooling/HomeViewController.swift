@@ -40,10 +40,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             let notes = snapshot.value["notes"] as? String
             let capacity = snapshot.value["capacity"] as? String
             let elapsed = self.timeElapsed(postedTime!)
+            let firstName = snapshot.value["first"] as? String
+            let lastName = snapshot.value["last"] as? String
+            let phoneNumber = snapshot.value["phone"] as? String
+            let email = snapshot.value["email"] as? String
+            let picture = snapshot.value["image"] as? String
             
-            
-            let r5:Rider = Rider(firstName: "Rahul3", lastName: "Murthy2", phoneNumber: "8457023976", email: "ram11@stmarys-ca.edu", password: "12345678", picture: "male")
-            
+            let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture!)
             
             self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
             
@@ -53,7 +56,13 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         print("temp array count is:  \(tempArray.count)")
         
     }
-    
+    func convertBase64StringToUImage(baseString: String)-> UIImage {
+        let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        let decodedimage = UIImage(data: decodedData!)
+        //println(decodedimage)
+        return decodedimage! as UIImage
+        
+    }
  
     
     override func viewDidLoad() {
@@ -138,10 +147,11 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         let trip = tempArray[indexPath.row] as! Trips
         
         // Configure the cell...
+        let picture = convertBase64StringToUImage((trip.driver?.picture)!)
         
-
-        cell.picture.image = UIImage(named: (trip.driver?.picture)!)
-        cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.toZipCode)  "
+        cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
+        cell.picture.image = picture
+        cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
         cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
         cell.postedTime?.text = "Posted \(trip.postedTime)"
         cell.pickUpTime?.text = "On \(trip.pickUpTime)"

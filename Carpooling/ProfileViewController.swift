@@ -203,7 +203,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         var data: NSData = NSData()
         
         if let image = profileImage.image {
-            data = UIImageJPEGRepresentation(image, 0.55)!
+            data = UIImageJPEGRepresentation(image, 1)!
         }
         let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         return base64String

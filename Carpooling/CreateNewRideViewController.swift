@@ -31,23 +31,29 @@ class CreateNewRideViewController: UIViewController {
   
     @IBOutlet weak var capacity: UILabel!
 
-    var currentUser = ""
-
+    var currentUserUID = ""
+    
+    var user : NSDictionary?
+    
+var tempArray:NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.hidden = true
         doneButton.hidden = true
         confirmTextFieldDelegate()
-        /**
-        DataService.dataService.CURRENT_USER.observeEventType(FEventType.Value, withBlock: { snapshot in
-            
-            let currentUser = snapshot.value.objectForKey("email") as! String
-            
-            print("email: \(currentUser)")
-            self.currentUser = currentUser
-            }, withCancelBlock: { error in
-                print(error.description)
-        })**/
+        DataService.dataService.userRef.observeAuthEventWithBlock({
+            authData in
+            print("hello world")
+            if authData != nil{
+                self.currentUserUID = authData.uid
+                print("The UID for current user is \(self.currentUserUID)")
+                self.updateInfoFromDatabase()
+            }
+            else
+            {
+                print("authdata is nil")
+            }
+        })
        
     }
     
@@ -105,12 +111,16 @@ class CreateNewRideViewController: UIViewController {
         let numberOfSeat = capacity.text
         let notesFromDriver = notes.text
         //check for field if empty...
-        
+        let first = tempArray[0]
+        let last = tempArray[1]
+        let phone = tempArray[2]
+        let email = tempArray[3]
+        let imageString = tempArray[4]
         
         print("Todays date is  \(postedTime)")
         let pickupTime = dateLabel.text
         
-        let user: NSDictionary = ["fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!]
+        user = ["first": first, "last": last, "phone": phone, "email": email, "image": imageString,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
        
@@ -174,6 +184,74 @@ class CreateNewRideViewController: UIViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let currentTimeAndDate:String = dateFormatter.stringFromDate(todaysDate)
         return currentTimeAndDate
+    }
+    
+    func updateInfoFromDatabase(){
+        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUserUID)")
+        newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
+            snapshot in
+            
+            print("Inside update from database func")
+            let first = snapshot.value["first"] as? String
+            let last = snapshot.value["last"] as? String
+            let phone = snapshot.value["phone"] as? String
+            let email = snapshot.value["email"] as? String
+            let imageString = snapshot.value["image"] as? String
+            
+            print("The first name of this guy is \(first)")
+            print("The last name of this guy is \(last)")
+            print("The phone number of this guy is \(phone)")
+            print("The email of this guy is \(email)")
+            print("image not empty")
+            print(imageString)
+            
+            if  (first != nil && last != nil && phone != nil && email != nil && imageString != nil) {
+               
+                    print("The first name of this guy is \(first)")
+                    print("The last name of this guy is \(last)")
+                    print("The phone number of this guy is \(phone)")
+                    print("The email of this guy is \(email)")
+                    print("image not empty")
+                    print(imageString)
+                  //  self.user = ["first": first!, "last": last!, "phone": phone!, "email": email!, "image": imageString!]
+                print("User info sucessfully appended to dictionary ")
+                self.tempArray.addObject(first!)
+                self.tempArray.addObject(last!)
+                self.tempArray.addObject(phone!)
+                self.tempArray.addObject(email!)
+                self.tempArray.addObject(imageString!)
+                
+                for i in self.tempArray{
+                    print(i)
+                }
+    
+        
+             }
+            else {
+                //show profile is not completed to create ride
+                self.showError()
+                
+                
+            }
+            
+        })
+    }
+    func showError(){
+        let alert = UIAlertController(title: "Missing Information", message: "Please complete your profile so that riders can get information to communicate with you", preferredStyle: UIAlertControllerStyle.Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        //self.presentViewController(alert, animated: true, completion: nil)
+        self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
+        self.presentViewController(alert, animated: true, completion: nil)
+
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
+        if segue.identifier == "incompleteProfileSegue"{
+            print("overide prepere for segue")
+            let vc = segue.destinationViewController as! ProfileViewController
+            self.presentViewController(vc, animated: true, completion: nil)
+                    }
     }
 
 }
