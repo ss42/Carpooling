@@ -16,7 +16,7 @@ class Rider{
     var phoneNumber = ""
     var email = ""
     var password = ""
-    var picture: UIImage?
+    var picture = ""
     //let uid: String
     
     // Initialize from Firebase(test)
@@ -26,7 +26,7 @@ class Rider{
         password = authData.providerData["provider"] as! String
     }
     
-    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: UIImage)//, uid: String)
+    init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: String)//, uid: String)
     {
         self.firstName = firstName
         self.lastName = lastName

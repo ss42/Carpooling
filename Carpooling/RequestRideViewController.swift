@@ -26,7 +26,7 @@ class RequestRideViewController: UIViewController {
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
     
-    let tempRider = Rider(firstName: "john", lastName: "Snow", phoneNumber: "01154", email: "abcom", password: "hey", picture: UIImage(named: "male")!)
+    let tempRider = Rider(firstName: "john", lastName: "Snow", phoneNumber: "01154", email: "abcom", password: "hey", picture:  "male")
     //let tempTrip = Trips(tempRider)
     
     

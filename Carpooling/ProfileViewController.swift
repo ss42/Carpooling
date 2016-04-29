@@ -115,42 +115,60 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     
     func updateInfoFromDatabase(){
-        
-        DataService.dataService.userRef.queryOrderedByChild(currentUser).observeEventType(FEventType.ChildAdded, withBlock: { snapshot in
+        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUser)")
+        newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
+            snapshot in
             
-            print("The first name is \(snapshot.value["first"] as! String)")
+            print("Inside update from database func")
+            let first = snapshot.value["first"] as? String
+            let last = snapshot.value["last"] as? String
+            let phone = snapshot.value["phone"] as? String
+            let email = snapshot.value["email"] as? String
+            let imageString = snapshot.value["image"] as? String
             
-            if  snapshot.value["first"] as! String == "" {
+            //let user : NSDictionary = []
+            
+            //let firstname = snapshot.value["first"] as! String
+            //print("The first name is \(firstname)")
+            
+            if  first != "" {
+                print("The first name of this guy is \(first)")
                 self.firstName.text = snapshot.value["first"] as? String
             }
             else {
                 self.firstName.placeholder = "Enter your first name."
             }
-            /*  if  snapshot.value["last"] as! String != "" {
+             if  last != "" {
+                print("The last name of this guy is \(last)")
              self.lastName.text = snapshot.value["last"] as? String
              }
              else {
              self.lastName.placeholder = "Enter your last name."
              }
-             if  snapshot.value["phone"] as! String != "" {
+             if  phone != "" {
+                print("The phone number of this guy is \(phone)")
              self.phoneNumber.text = snapshot.value["phone"] as? String
              }
              else {
              self.phoneNumber.placeholder = "Enter your phone number."
              }
-             if  snapshot.value["email"] as! String != "" {
-             self.emailAddress.text = snapshot.value["first"] as? String
+             if  email != "" {
+                print("The email of this guy is \(email)")
+             self.emailAddress.text = snapshot.value["email"] as? String
              }
              else {
              self.emailAddress.placeholder = "Enter your email address"
              }
-             if  snapshot.value["image"] as! String != "" {
-             let imageString = snapshot.value["image"] as? String
-             self.profileImage.image = self.convertBase64StringToUImage(imageString!)
+             if  imageString != nil {
+                print("image not empty")
+                print(imageString)
+             let image = self.convertBase64StringToUImage(imageString!)
+             self.profileImage.image = image
              }
              else {
-             self.profileImage.image = UIImage(named: "male")
-             }*/
+                print("No photo")
+             //self.profileImage.image = UIImage(named: "male")
+             }
         })
     }
     
@@ -185,11 +203,12 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         var data: NSData = NSData()
         
         if let image = profileImage.image {
-            data = UIImageJPEGRepresentation(image, 0.75)!
+            data = UIImageJPEGRepresentation(image, 0.55)!
         }
         let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         return base64String
     }
+    
     func convertBase64StringToUImage(baseString: String)-> UIImage {
         let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
         let decodedimage = UIImage(data: decodedData!)
