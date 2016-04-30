@@ -169,6 +169,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //when selected do something
         self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
         
+        
     }
     
     
@@ -178,10 +179,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        //let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
+        let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
         if segue.identifier == "showDetailsSegue"{
             
-          //  let vc = segue.destinationViewController as! DetailRideViewController
+          let destinationVC = segue.destinationViewController as! DetailRideViewController
+        
+        
+
+       // let trip = tempArray[indexPath.row] as! Trips
+            
+            destinationVC.rideDetail = tempArray[indexPath.row] as? Trips
             //vc.detailTrips = tempArray[indexPath.row] as! NSMutableArray
         }
     }

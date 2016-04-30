@@ -8,8 +8,22 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <mutableArray key="SF-UI-Display-Light.otf">
+            <string>SFUIDisplay-Light</string>
+            <string>SFUIDisplay-Light</string>
+        </mutableArray>
         <mutableArray key="SF-UI-Display-Thin.otf">
             <string>SFUIDisplay-Thin</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -78,12 +92,12 @@
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-hj-oXn">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-8t-z4S">
                                                 <rect key="frame" x="0.0" y="40" width="560" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-Ee-aRH">
@@ -632,7 +646,7 @@
         <!--Carpooling-->
         <scene sceneID="Hqv-Pp-1v6">
             <objects>
-                <viewController id="qIP-tq-mhX" customClass="HomeViewController" customModule="Carpooling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="availableRidesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qIP-tq-mhX" customClass="HomeViewController" customModule="Carpooling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rhZ-h0-eAg"/>
                         <viewControllerLayoutGuide type="bottom" id="Jst-Td-wgv"/>
@@ -646,7 +660,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="150" id="hiX-xs-jgd" customClass="AvailableRidesTableViewCell" customModule="Carpooling" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="150"/>
+                                        <rect key="frame" x="0.0" y="28" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hiX-xs-jgd" id="jT4-YZ-zGV">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
@@ -759,7 +773,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="msf-gn-Y7S"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="15"/>
                                                     <color key="textColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -843,37 +857,244 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-3l-V6e">
-                                <rect key="frame" x="144" y="20" width="431" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uct-yG-R2V">
-                                <rect key="frame" x="25" y="20" width="100" height="100"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uct-yG-R2V">
+                                <rect key="frame" x="25" y="44" width="75" height="75"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="makeCircular" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="35"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bw-KS-nOd">
-                                <rect key="frame" x="144" y="85" width="431" height="26"/>
+                                <rect key="frame" x="120" y="88" width="400" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5m-3l-V6e">
+                                <rect key="frame" x="120" y="44" width="450" height="24"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nu-7F-IS5">
+                                <rect key="frame" x="25" y="312" width="550" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGx-Hd-6nZ">
+                                <rect key="frame" x="25" y="361" width="550" height="72"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bIW-aM-gGt">
+                                <rect key="frame" x="67" y="155" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ratings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ub-IA-UcZ">
-                                <rect key="frame" x="144" y="52" width="431" height="25"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFC-QC-8aF">
+                                <rect key="frame" x="25" y="208" width="550" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-Ah-qJl">
-                                <rect key="frame" x="25" y="137" width="550" height="392"/>
-                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ufr-kz-6V8">
+                                <rect key="frame" x="25" y="261" width="550" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="1kH-XU-VyH">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pxH-Ya-lLV" userLabel="Submit">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelButtonTapped:" destination="ZMk-gy-Lkr" eventType="touchUpInside" id="Ioz-5L-tUd"/>
+                                            <action selector="cancelTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="v7q-6A-RWX"/>
+                                            <action selector="cancelTapped:" destination="weM-wN-ldg" eventType="touchUpInside" id="xyO-SO-u7Q"/>
+                                            <segue destination="qIP-tq-mhX" kind="show" id="JGN-6k-Ww1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UjP-g2-R6l">
+                                        <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="SaveTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="LXR-Dw-N6B"/>
+                                            <action selector="submitTapped:" destination="3kg-IA-wu9" eventType="touchUpInside" id="GH8-JV-E7y"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="js4-JU-XiJ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kIk-U6-8mL">
+                                <rect key="frame" x="45" y="504" width="76" height="30"/>
+                                <state key="normal" title="Send Email"/>
+                                <connections>
+                                    <action selector="sendMail:" destination="ZMk-gy-Lkr" eventType="touchUpInside" id="KrJ-TV-DAg"/>
+                                    <segue destination="EzE-Im-tOO" kind="presentation" id="7Zy-yd-l5z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3wI-U7-PgK">
+                                <rect key="frame" x="149" y="504" width="78" height="30"/>
+                                <state key="normal" title="Call Phone "/>
+                                <connections>
+                                    <action selector="call:" destination="ZMk-gy-Lkr" eventType="touchUpInside" id="Gnt-L0-0u9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7A-Cu-EqN">
+                                <rect key="frame" x="312" y="499" width="101" height="30"/>
+                                <state key="normal" title="Send Message"/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="ZMk-gy-Lkr" eventType="touchUpInside" id="Yyi-Aq-tV9"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PickUp Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7sI-Qu-p4y">
+                                <rect key="frame" x="25" y="163" width="550" height="26"/>
+                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="M9V-Md-Xhj">
+                                <rect key="frame" x="20" y="418" width="452" height="78"/>
+                                <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1kH-XU-VyH" secondAttribute="trailing" id="0ou-il-eDq"/>
+                            <constraint firstItem="1kH-XU-VyH" firstAttribute="leading" secondItem="lbV-Vd-akq" secondAttribute="leading" id="990-Gq-D6P"/>
+                            <constraint firstItem="SZo-xm-S5r" firstAttribute="top" secondItem="1kH-XU-VyH" secondAttribute="bottom" id="agN-E7-XZg"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="capacityLabel" destination="9nu-7F-IS5" id="OOD-ka-d7R"/>
+                        <outlet property="endAddressLabel" destination="Ufr-kz-6V8" id="WN7-yh-qGl"/>
+                        <outlet property="fullNameLabel" destination="c5m-3l-V6e" id="xbw-Gb-pys"/>
+                        <outlet property="image" destination="Uct-yG-R2V" id="0Y0-X6-gml"/>
+                        <outlet property="message" destination="M9V-Md-Xhj" id="pEP-In-ZxE"/>
+                        <outlet property="notesLabel" destination="LGx-Hd-6nZ" id="dFQ-pb-dEX"/>
+                        <outlet property="pickUpTimeLabel" destination="7sI-Qu-p4y" id="lmN-gZ-JEG"/>
+                        <outlet property="postedTimeLabel" destination="1bw-KS-nOd" id="YBF-Hn-1BV"/>
+                        <outlet property="startAddressLabel" destination="jFC-QC-8aF" id="ShB-qW-hJp"/>
+                        <segue destination="qIP-tq-mhX" kind="show" identifier="availableRidesSegue" id="gLe-1B-62c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdh-mu-GSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="-996"/>
+            <point key="canvasLocation" x="3173" y="-996"/>
+        </scene>
+        <!--Send Mail View Controller-->
+        <scene sceneID="eQ1-cd-LUy">
+            <objects>
+                <viewController id="EzE-Im-tOO" customClass="SendMailViewController" customModule="Carpooling" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8uh-xI-FOJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfr-Yf-IZq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qlb-7V-rjt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="nww-cP-1TF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jzi-vE-HIW">
+                                        <rect key="frame" x="14" y="176" width="572" height="283"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="283" id="SSj-sj-l3H"/>
+                                        </constraints>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="P5l-9i-XeI">
+                                        <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fa7-ut-Go6">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                                <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                                <state key="normal" title="Cancel">
+                                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cancelPressed:" destination="EzE-Im-tOO" eventType="touchUpInside" id="77p-K8-ptM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yR-Z9-Ng9" userLabel="Send Message">
+                                                <rect key="frame" x="300" y="0.0" width="300" height="50"/>
+                                                <color key="backgroundColor" red="0.90588235289999997" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                                <state key="normal" title="Send Message">
+                                                    <color key="titleColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="sendMailPressed:" destination="EzE-Im-tOO" eventType="touchUpInside" id="44l-5N-UIL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="74o-3o-UOX"/>
+                                        </constraints>
+                                    </stackView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YVb-uc-XZh">
+                                        <rect key="frame" x="14" y="113" width="572" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="P5l-9i-XeI" secondAttribute="bottom" id="0HU-Ht-gbP"/>
+                                    <constraint firstItem="YVb-uc-XZh" firstAttribute="leading" secondItem="jzi-vE-HIW" secondAttribute="leading" id="3qX-ad-aZf"/>
+                                    <constraint firstItem="P5l-9i-XeI" firstAttribute="leading" secondItem="nww-cP-1TF" secondAttribute="leading" id="BhD-in-6mH"/>
+                                    <constraint firstAttribute="bottom" secondItem="P5l-9i-XeI" secondAttribute="bottom" id="Lq0-0h-zyO"/>
+                                    <constraint firstItem="jzi-vE-HIW" firstAttribute="top" secondItem="YVb-uc-XZh" secondAttribute="bottom" constant="33" id="Mnc-2Q-OTY"/>
+                                    <constraint firstAttribute="trailing" secondItem="YVb-uc-XZh" secondAttribute="trailing" constant="14" id="Mrn-dZ-uMG"/>
+                                    <constraint firstItem="P5l-9i-XeI" firstAttribute="top" secondItem="nww-cP-1TF" secondAttribute="top" constant="550" id="VzJ-IL-hIE"/>
+                                    <constraint firstItem="YVb-uc-XZh" firstAttribute="trailing" secondItem="jzi-vE-HIW" secondAttribute="trailing" id="XaG-ur-9td"/>
+                                    <constraint firstAttribute="trailing" secondItem="P5l-9i-XeI" secondAttribute="trailing" id="ekI-Qc-RD1"/>
+                                    <constraint firstItem="YVb-uc-XZh" firstAttribute="centerX" secondItem="nww-cP-1TF" secondAttribute="centerX" id="k0U-kJ-ylB"/>
+                                    <constraint firstItem="YVb-uc-XZh" firstAttribute="leading" secondItem="nww-cP-1TF" secondAttribute="leading" constant="14" id="ma8-b0-YZz"/>
+                                    <constraint firstItem="YVb-uc-XZh" firstAttribute="top" secondItem="nww-cP-1TF" secondAttribute="top" constant="113" id="wfC-xR-ZZy"/>
+                                    <constraint firstItem="P5l-9i-XeI" firstAttribute="leading" secondItem="nww-cP-1TF" secondAttribute="leading" id="zYz-Me-WIM"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nww-cP-1TF" firstAttribute="width" secondItem="Qlb-7V-rjt" secondAttribute="width" id="DEf-oQ-W6q"/>
+                            <constraint firstItem="nww-cP-1TF" firstAttribute="centerX" secondItem="Qlb-7V-rjt" secondAttribute="centerX" id="SxU-KR-Igh"/>
+                            <constraint firstItem="nww-cP-1TF" firstAttribute="centerY" secondItem="Qlb-7V-rjt" secondAttribute="centerY" id="Zzn-2t-0gQ"/>
+                            <constraint firstItem="nww-cP-1TF" firstAttribute="height" secondItem="Qlb-7V-rjt" secondAttribute="height" id="a8v-1l-A4U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="body" destination="jzi-vE-HIW" id="ceD-4t-I5b"/>
+                        <outlet property="subject" destination="YVb-uc-XZh" id="gL2-cq-SJr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ts9-eJ-FOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3693" y="-1292"/>
         </scene>
         <!--Request Ride View Controller-->
         <scene sceneID="qn3-CB-p6q">
@@ -1455,8 +1676,9 @@
         <image name="Carpool" width="380" height="261"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4zF-5w-xVF"/>
         <segue reference="ZjQ-tk-mgs"/>
+        <segue reference="4zF-5w-xVF"/>
         <segue reference="7aP-hH-lMI"/>
+        <segue reference="gLe-1B-62c"/>
     </inferredMetricsTieBreakers>
 </document>

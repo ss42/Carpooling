@@ -29,6 +29,8 @@
 		101C84091CD3373B001B1D33 /* SF-UI-Text-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 101C83F41CD336FF001B1D33 /* SF-UI-Text-RegularItalic.otf */; };
 		101C840A1CD3373B001B1D33 /* SF-UI-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 101C83F51CD336FF001B1D33 /* SF-UI-Text-Semibold.otf */; };
 		101C840B1CD3373B001B1D33 /* SF-UI-Text-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 101C83F61CD336FF001B1D33 /* SF-UI-Text-SemiboldItalic.otf */; };
+		105F21B71CD41619005B6B8B /* DetailRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F21B61CD41619005B6B8B /* DetailRideViewController.swift */; };
+		105F21C11CD45C3F005B6B8B /* SendMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F21C01CD45C3F005B6B8B /* SendMailViewController.swift */; };
 		1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */; };
 		1066F2161CB8B73100CD795F /* Rider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2151CB8B73100CD795F /* Rider.swift */; };
 		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
@@ -75,6 +77,10 @@
 		101C83F41CD336FF001B1D33 /* SF-UI-Text-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-RegularItalic.otf"; sourceTree = "<group>"; };
 		101C83F51CD336FF001B1D33 /* SF-UI-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-Semibold.otf"; sourceTree = "<group>"; };
 		101C83F61CD336FF001B1D33 /* SF-UI-Text-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Text-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		105F21B61CD41619005B6B8B /* DetailRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRideViewController.swift; sourceTree = "<group>"; };
+		105F21B81CD4167B005B6B8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		105F21BA1CD41685005B6B8B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		105F21C01CD45C3F005B6B8B /* SendMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMailViewController.swift; sourceTree = "<group>"; };
 		1066F2121CB8B0DA00CD795F /* RequestRideViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRideViewController.swift; sourceTree = "<group>"; };
 		1066F2151CB8B73100CD795F /* Rider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rider.swift; sourceTree = "<group>"; };
 		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
@@ -182,6 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				10722AED1CAFA334007C20C5 /* HomeViewController.swift */,
+				105F21B61CD41619005B6B8B /* DetailRideViewController.swift */,
+				105F21C01CD45C3F005B6B8B /* SendMailViewController.swift */,
 				92DB5D211CB9B52E00796EEC /* AvailableRidesTableViewCell.swift */,
 			);
 			name = "Available Rides";
@@ -215,6 +223,8 @@
 		184A689D2910CCAADB87B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				105F21BA1CD41685005B6B8B /* MapKit.framework */,
+				105F21B81CD4167B005B6B8B /* CoreLocation.framework */,
 				3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */,
 			);
 			name = Frameworks;
@@ -414,10 +424,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				1067958C1CC18AF000ED4EF8 /* DataService.swift in Sources */,
+				105F21B71CD41619005B6B8B /* DetailRideViewController.swift in Sources */,
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
 				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
 				1079BF7E1CBB816A00DBDF92 /* CustomViewIBDesignable.swift in Sources */,
+				105F21C11CD45C3F005B6B8B /* SendMailViewController.swift in Sources */,
 				92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */,
 				1066F2161CB8B73100CD795F /* Rider.swift in Sources */,
 				1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */,
