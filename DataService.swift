@@ -30,7 +30,7 @@ class DataService {
         return currentUser!
     }
     
-    
+
     func createNewAccount(uid: String, user: Dictionary<String, String>) {
         
         // A User is born.
@@ -49,6 +49,8 @@ class DataService {
         firebaseNewPost.setValue(trip)
     }
 }
+
+
 
 //Firebase.defaultConfig().persistenceEnabled = true
 //ref.keepSynced(true)

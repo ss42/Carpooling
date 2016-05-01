@@ -115,7 +115,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     }
     
     func updateInfoFromDatabase(){
-        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUser)")
+        let newRef = DataService.dataService.userRef.childByAppendingPath(currentUser)
+        //let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUser)")
         newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
             snapshot in
             
