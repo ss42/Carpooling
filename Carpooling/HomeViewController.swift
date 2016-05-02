@@ -222,10 +222,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     //do stuff
             }
             let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
-                    //
+                    //do stuff
             }
             let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
                 //do stuff
+                //segue to sendmailcontroller and send data or driver's email add thru segue
             }
             let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
                 
