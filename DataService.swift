@@ -32,15 +32,11 @@ class DataService {
     
 
     func createNewAccount(uid: String, user: Dictionary<String, String>) {
-        
         // A User is born.
-        
         userRef.childByAppendingPath(uid).setValue(user)
     }
     
     func createNewPost(trip: Dictionary<String, AnyObject>) {
-        
-       
         
         let firebaseNewPost = postRef.childByAutoId()
         

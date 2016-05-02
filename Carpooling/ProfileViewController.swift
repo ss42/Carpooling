@@ -24,6 +24,11 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     var currentUser = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let imageData = NSUserDefaults.standardUserDefaults().objectForKey("image") as? NSData{
+            let storedImage = UIImage.init(data: imageData)
+            profileImage.image = storedImage
+        }
+        
         
         confirmDelegate()
         
@@ -76,8 +81,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         let last = lastName.text
         let phone = phoneNumber.text
         let email = emailAddress.text
-        let image = self.convertToBase64String(profileImage.image!)
-        let user: NSDictionary = ["first": first!, "last": last!, "phone": phone!, "email" : email!, "image": image]
+        //let image = self.convertToBase64String(profileImage.image!)
+        let user: NSDictionary = ["first": first!, "last": last!, "phone": phone!, "email" : email!]//, "image": image]
         DataService.dataService.userRef.childByAppendingPath(currentUser).updateChildValues(user as! Dictionary<String, AnyObject>)
         
         
@@ -125,7 +130,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             let last = snapshot.value["last"] as? String
             let phone = snapshot.value["phone"] as? String
             let email = snapshot.value["email"] as? String
-            let imageString = snapshot.value["image"] as? String
+           // let imageString = snapshot.value["image"] as? String
             
             //let user : NSDictionary = []
             
@@ -160,7 +165,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
              else {
              self.emailAddress.placeholder = "Enter your email address"
              }
-             if  imageString != nil {
+            /* if  imageString != nil {
                 print("image not empty")
                 print(imageString)
              let image = self.convertBase64StringToUImage(imageString!)
@@ -170,7 +175,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
                 print("No photo")
              //self.profileImage.image = UIImage(named: "male")
              }
-        })
+*/        })
     }
     
     

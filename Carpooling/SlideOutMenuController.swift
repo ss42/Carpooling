@@ -12,9 +12,18 @@ import Google
 
 class SlideOutMenuController: UITableViewController {
     
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .None
+        
+        if let imageData = NSUserDefaults.standardUserDefaults().objectForKey("image") as? NSData{
+            let storedImage = UIImage.init(data: imageData)
+            profileImage.image = storedImage
+            }
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

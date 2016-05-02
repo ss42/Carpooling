@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import Google
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,7 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         GGLContext.sharedInstance().configureWithError(&configureError)
         assert(configureError == nil, "Error configuring Google services: \(configureError)")
         
+       // DataService.dataService.baseRef.defaultConfig().persistenceEnabled = true
+
+        
         return true
+    }
+    
+    override init() {
+        super.init()
+        Firebase.defaultConfig().persistenceEnabled = true
     }
     
     func application(application: UIApplication,

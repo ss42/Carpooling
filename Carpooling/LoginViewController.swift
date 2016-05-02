@@ -30,8 +30,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // self.emailField.delegate = self
-        //self.passwordField.delegate = self
+        self.emailField.delegate = self
+        self.passwordField.delegate = self
         
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -48,6 +48,30 @@ class LoginViewController: UIViewController {
         
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
+            DataService.dataService.CURRENT_USER_REF.queryOrderedByKey().observeEventType(.Value, withBlock: {
+                snapshot in
+                
+                let imageString = snapshot.value["image"] as? String
+                
+                if  imageString != nil {
+                    print("image not empty")
+                    print(imageString)
+                    let image = self.convertBase64StringToUImage(imageString!)
+                  //  self.tempImage! = image
+                    //self.saveImageToNSUserDefault(self.tempImage!)
+                    
+                    
+                    let imageData = UIImageJPEGRepresentation(image, 0.75)
+                    //saveData.setObject(imageData, forKey: "image")
+                    NSUserDefaults.standardUserDefaults().setObject(imageData, forKey: "image")
+                }
+                else {
+                    print("No photo")
+                    //self.profileImage.image = UIImage(named: "male")
+                }
+            })
+            
+            //go to next screen cuz the user is sign in
             self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
         }
     }
@@ -57,58 +81,20 @@ class LoginViewController: UIViewController {
         
     }
     
-  /*
+    func convertBase64StringToUImage(baseString: String)-> UIImage {
+        let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
+        let decodedimage = UIImage(data: decodedData!)
+        //println(decodedimage)
+        return decodedimage! as UIImage
+    }
     
+  /*
     func saveImageToNSUserDefault(image: UIImage){
         let saveData = NSUserDefaults.standardUserDefaults()
         let imageData = UIImageJPEGRepresentation(image, 0.75)
         saveData.setObject(imageData, forKey: profileImage)
     }
     
-    func retrievingDataFromFirebase(){
-        var currentUser = ""
-        DataService.dataService.userRef.observeAuthEventWithBlock({
-            authData in
-            print("hello world")
-            if authData != nil{
-                currentUser = authData.uid
-                print("The UID for current user is \(currentUser)")
-            }
-            else
-            {
-                print("authdata is nil")
-            }
-        })
-        
-        let newRef = DataService.dataService.userRef.childByAppendingPath(currentUser)
-        //let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUser)")
-        newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
-            snapshot in
-            
-            let imageString = snapshot.value["image"] as? String
-
-            if  imageString != nil {
-                print("image not empty")
-                print(imageString)
-                let image = self.convertBase64StringToUImage(imageString!)
-                self.tempImage! = image
-                self.saveImageToNSUserDefault(self.tempImage!)
-            }
-            else {
-                print("No photo")
-                //self.profileImage.image = UIImage(named: "male")
-            }
-
-        })
-        
-        
-    }
-    
-    func convertBase64StringToUImage(baseString: String)-> UIImage {
-        let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
-        let decodedimage = UIImage(data: decodedData!)
-        //println(decodedimage)
-        return decodedimage! as UIImage
         
     }
     //To get info back from NSUSEr
@@ -167,6 +153,7 @@ class LoginViewController: UIViewController {
     }
     
     
+    
   
     
 }
@@ -220,9 +207,7 @@ extension LoginViewController: GIDSignInDelegate,  GIDSignInUIDelegate{
 }
 
 
-
-extension LoginViewController: UITextViewDelegate{
-    
+extension LoginViewController: UITextFieldDelegate{
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         ScrollView.setContentOffset(CGPointMake(0, 0), animated: true)
@@ -230,7 +215,11 @@ extension LoginViewController: UITextViewDelegate{
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-            ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+        ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
     }
-    
 }
+
+    
+
+    
+
