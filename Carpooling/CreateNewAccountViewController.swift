@@ -37,9 +37,9 @@ class CreateNewAccountViewController: UIViewController, UITextFieldDelegate {
         let email = emailField.text
         let password = passwordField.text
         let password2 = passwordField2.text
-        print(email)
-        print(password)
-        print(password2)
+        //print(email)
+        //print(password)
+        //print(password2)
         
         if (email != "" && password != "" && password2 != "" ) && (password == password2){
             
