@@ -30,6 +30,9 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     @IBOutlet weak var notesLabel: UILabel!
     
+    
+    
+    
     var phoneNumber = ""
     var rideDetail: Trips?
     
@@ -50,7 +53,13 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
         
         
     }
+
     
+    @IBAction func updateCapacityStepper(sender: UIStepper) {
+        
+        
+    //self.capacityLabel.text = String(Int(sender.value))
+    }
     
     
     

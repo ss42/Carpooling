@@ -882,7 +882,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Capacity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nu-7F-IS5">
-                                <rect key="frame" x="25" y="312" width="550" height="26"/>
+                                <rect key="frame" x="25" y="312" width="148" height="26"/>
                                 <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -961,7 +961,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S7A-Cu-EqN">
-                                <rect key="frame" x="312" y="499" width="101" height="30"/>
+                                <rect key="frame" x="250" y="504" width="101" height="30"/>
                                 <state key="normal" title="Send Message"/>
                                 <connections>
                                     <action selector="sendMessage:" destination="ZMk-gy-Lkr" eventType="touchUpInside" id="Yyi-Aq-tV9"/>
@@ -979,6 +979,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Jmr-pP-Cow">
+                                <rect key="frame" x="199" y="310" width="94" height="29"/>
+                                <color key="backgroundColor" red="0.74509803919999995" green="0.92156862750000001" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="capacityStepperTapped:" destination="3kg-IA-wu9" eventType="valueChanged" id="gLi-P9-99N"/>
+                                    <action selector="updateCapacityStepper:" destination="ZMk-gy-Lkr" eventType="valueChanged" id="Xs3-qE-xng"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -997,6 +1006,7 @@
                         <outlet property="pickUpTimeLabel" destination="7sI-Qu-p4y" id="lmN-gZ-JEG"/>
                         <outlet property="postedTimeLabel" destination="1bw-KS-nOd" id="YBF-Hn-1BV"/>
                         <outlet property="startAddressLabel" destination="jFC-QC-8aF" id="ShB-qW-hJp"/>
+                        <outlet property="updateCapacityStepper" destination="Jmr-pP-Cow" id="37N-nh-NSs"/>
                         <segue destination="qIP-tq-mhX" kind="show" identifier="availableRidesSegue" id="gLe-1B-62c"/>
                     </connections>
                 </viewController>
@@ -1680,8 +1690,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gLe-1B-62c"/>
-        <segue reference="ZjQ-tk-mgs"/>
+        <segue reference="CDO-P3-2Jh"/>
+        <segue reference="7aP-hH-lMI"/>
         <segue reference="4zF-5w-xVF"/>
-        <segue reference="b7M-9h-orb"/>
     </inferredMetricsTieBreakers>
 </document>

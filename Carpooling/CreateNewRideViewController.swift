@@ -35,7 +35,7 @@ class CreateNewRideViewController: UIViewController {
     
     var user : NSDictionary?
     
-var tempArray:NSMutableArray = []
+    var tempArray:NSMutableArray = []
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.hidden = true
