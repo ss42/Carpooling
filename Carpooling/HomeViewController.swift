@@ -8,8 +8,11 @@
 
 import UIKit
 import Firebase
+import MessageUI
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class HomeViewController: UIViewController{
+    
     
     @IBOutlet weak var open: UIBarButtonItem!
     
@@ -24,6 +27,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     // fetch the trips from firebase and then update the tempArray
     func fetchTripList()
     {
+        
         DataService.dataService.postRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
@@ -55,6 +59,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
         print("temp array count is:  \(tempArray.count)")
         
+        
     }
     func convertBase64StringToUImage(baseString: String)-> UIImage {
         let decodedData = NSData(base64EncodedString: baseString, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)
@@ -69,7 +74,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         fetchTripList()
         print("after fetch")
-
+        
+      
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -81,6 +87,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         
         self.tableView.reloadData()
+  
         
     }
   
@@ -132,52 +139,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tempArray.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
-        
-        let trip = tempArray[indexPath.row] as! Trips
-        
-        // Configure the cell...
-        let picture = convertBase64StringToUImage((trip.driver?.picture)!)
-        
-        cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
-        cell.picture.image = picture
-        cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
-        cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
-        cell.postedTime?.text = "Posted \(trip.postedTime)"
-        cell.pickUpTime?.text = "On \(trip.pickUpTime)"
-        cell.notes?.text = trip.notes
-        cell.capacity?.text = "Capacity: \(trip.capacity)"
-     
 
-        configureTableView()
-        
-        return cell
-    }
-    
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //when selected do something
-        self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
-        
-        
-    }
-    
-    
-    func configureTableView(){
-        tableView.rowHeight = 160.00
-        
-        
-    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
         if segue.identifier == "showDetailsSegue"{
@@ -206,4 +168,90 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     */
 }
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tempArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
+        
+        let trip = tempArray[indexPath.row] as! Trips
+        
+        // Configure the cell...
+        let picture = convertBase64StringToUImage((trip.driver?.picture)!)
+        
+        cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
+        cell.picture.image = picture
+        cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
+        cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
+        cell.postedTime?.text = "Posted \(trip.postedTime)"
+        cell.pickUpTime?.text = "On \(trip.pickUpTime)"
+        cell.notes?.text = trip.notes
+        cell.capacity?.text = "Capacity: \(trip.capacity)"
+        
+        
+        configureTableView()
+        
+        return cell
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //when selected do something
+        self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
+        
+        
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let requestedRide = self.tempArray[indexPath.row] as! Trips
+        let driver = "\(requestedRide.driver!.firstName) \(requestedRide.driver!.lastName)"
+        
+        let contactAction = UITableViewRowAction(style: .Normal, title: "Contact \(requestedRide.driver!.firstName)"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+            
+            let contactAlertController = UIAlertController(title: "Contact  \(driver)", message: ":)", preferredStyle: .ActionSheet )
+            
+            let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
+                    //do stuff
+            }
+            let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
+                    //
+            }
+            let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
+                //do stuff
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+                
+            }
+            contactAlertController.addAction(callAction)
+            contactAlertController.addAction(textAction)
+            contactAlertController.addAction(emailAction)
+            contactAlertController.addAction(cancelAction)
+            
+            self.presentViewController(contactAlertController, animated: true, completion: nil)
+            
+        }
+        
+        contactAction.backgroundColor = UIColor.blackColor()
+    
+        return [contactAction]
+    }
+    
+    
+    
+    func configureTableView(){
+        tableView.rowHeight = 160.00
+        
+        
+    }
+}
+
+
 

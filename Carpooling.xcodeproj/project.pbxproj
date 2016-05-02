@@ -36,6 +36,7 @@
 		1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1066F2171CB8B7BB00CD795F /* Trips.swift */; };
 		1067958C1CC18AF000ED4EF8 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1067958B1CC18AF000ED4EF8 /* DataService.swift */; };
 		1067958E1CC1956900ED4EF8 /* CreateNewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1067958D1CC1956900ED4EF8 /* CreateNewAccountViewController.swift */; };
+		106A861A1CD7137E00F146E5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 106A86191CD7137E00F146E5 /* MessageUI.framework */; };
 		10722AEC1CAFA08A007C20C5 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */; };
 		10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AED1CAFA334007C20C5 /* HomeViewController.swift */; };
 		10722AF61CAFB596007C20C5 /* SlideOutMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10722AF51CAFB596007C20C5 /* SlideOutMenuController.swift */; };
@@ -86,6 +87,7 @@
 		1066F2171CB8B7BB00CD795F /* Trips.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trips.swift; sourceTree = "<group>"; };
 		1067958B1CC18AF000ED4EF8 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataService.swift; path = ../DataService.swift; sourceTree = "<group>"; };
 		1067958D1CC1956900ED4EF8 /* CreateNewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewAccountViewController.swift; sourceTree = "<group>"; };
+		106A86191CD7137E00F146E5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		10722AE91CAFA08A007C20C5 /* Carpooling-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Carpooling-Bridging-Header.h"; sourceTree = "<group>"; };
 		10722AEA1CAFA08A007C20C5 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		10722AEB1CAFA08A007C20C5 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				106A861A1CD7137E00F146E5 /* MessageUI.framework in Frameworks */,
 				F7AB1EEE0DA5BAFC3CFAD39F /* Pods_Carpooling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +226,7 @@
 		184A689D2910CCAADB87B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				106A86191CD7137E00F146E5 /* MessageUI.framework */,
 				105F21BA1CD41685005B6B8B /* MapKit.framework */,
 				105F21B81CD4167B005B6B8B /* CoreLocation.framework */,
 				3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */,
