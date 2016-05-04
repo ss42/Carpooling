@@ -14,21 +14,17 @@ class CreateNewRideViewController: UIViewController {
 
     
     @IBOutlet weak var notes: UITextView!
-    
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
     @IBOutlet weak var fromCityTextField: UITextField!
     @IBOutlet weak var fromStateTextField: UITextField!
     @IBOutlet weak var fromZipCodeTextField: UITextField!
-    
     @IBOutlet weak var toStreetAddressTextField: UITextField!
     @IBOutlet weak var toCityTextfield: UITextField!
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
-  
     @IBOutlet weak var capacity: UILabel!
 
     var currentUserUID = ""
@@ -36,6 +32,8 @@ class CreateNewRideViewController: UIViewController {
     var user : NSDictionary?
     
     var tempArray:NSMutableArray = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.hidden = true
@@ -110,6 +108,7 @@ class CreateNewRideViewController: UIViewController {
         let postedTime = getCurrentTime()
         let numberOfSeat = capacity.text
         let notesFromDriver = notes.text
+        
         //check for field if empty...
         let first = tempArray[0]
         let last = tempArray[1]
@@ -123,7 +122,6 @@ class CreateNewRideViewController: UIViewController {
         user = ["first": first, "last": last, "phone": phone, "email": email, "image": imageString,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
-       
         
         //to go to home screen
         performCustomSegue()
@@ -135,11 +133,11 @@ class CreateNewRideViewController: UIViewController {
         performCustomSegue()
     }
     
+    
+    //Perform Segue with Storyboard ID
     func performCustomSegue(){
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-     let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("home")
-        
+       // let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: UIViewController = storyboard!.instantiateViewControllerWithIdentifier("home")
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
@@ -231,11 +229,11 @@ class CreateNewRideViewController: UIViewController {
                 //show profile is not completed to create ride
                 self.showError()
                 
-                
             }
             
         })
     }
+    
     func showError(){
         let alert = UIAlertController(title: "Missing Information", message: "Please complete your profile so that riders can get information to communicate with you", preferredStyle: UIAlertControllerStyle.Alert)
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)

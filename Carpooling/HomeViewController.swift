@@ -21,8 +21,7 @@ class HomeViewController: UIViewController{
     var tempArray:NSMutableArray = [] //Trips.makeDummyTrips()
     //var tempArray:NSMutableArray?
     
-    var dummy = [["hello world" , "male"]]
-    
+    var imageToSend : UIImage?
     
     // fetch the trips from firebase and then update the tempArray
     func fetchTripList()
@@ -72,13 +71,11 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchTripList()
-        print("after fetch")
         
-      
+        fetchTripList()
+       
         tableView.delegate = self
         tableView.dataSource = self
-        
         
         if self.revealViewController() != nil {
            open.target = self.revealViewController()
@@ -96,7 +93,7 @@ class HomeViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    
+    //Calculates the time elapsed after a given time
     func timeElapsed(date: String)-> String{
         let dateformatter = NSDateFormatter()
         dateformatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
@@ -145,15 +142,11 @@ class HomeViewController: UIViewController{
         if segue.identifier == "showDetailsSegue"{
             
           let destinationVC = segue.destinationViewController as! DetailRideViewController
-        
-        
-
-       // let trip = tempArray[indexPath.row] as! Trips
-            
             destinationVC.rideDetail = tempArray[indexPath.row] as? Trips
             //vc.detailTrips = tempArray[indexPath.row] as! NSMutableArray
         }
     }
+    
     /*
         else if segue.identifier == "GoogleMapViewToUserProfileView" {
             self.screenShotMethod()
@@ -195,7 +188,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.notes?.text = trip.notes
         cell.capacity?.text = "Capacity: \(trip.capacity)"
         
-        
         configureTableView()
         
         return cell
@@ -205,6 +197,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //when selected do something
+      //  let requestedRide = self.tempArray[indexPath.row] as! Trips
+       // let sendImage: UIImage = requestedRide.
+
         self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
         
         

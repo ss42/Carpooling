@@ -36,12 +36,16 @@ class SlideOutMenuController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func signOutTapped(sender: AnyObject) {
+        
         print("loggin out started")
         DataService.dataService.userRef.unauth()
         
         GIDSignIn.sharedInstance().signOut()
-
+        
+        
+        //SettingNSUserDefault to nil when sign out
         NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "uid")
+        NSUserDefaults.standardUserDefaults().setValue(nil, forKey: "image")
         let loginViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Login")
         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
         print("loged out")

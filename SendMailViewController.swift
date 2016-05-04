@@ -23,6 +23,8 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.subject.delegate = self
+        //self.body.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -93,4 +95,17 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     
  
 
+}
+
+
+extension SendMailViewController: UITextFieldDelegate{
+  
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+       // ScrollView.setContentOffset(CGPointMake(0, 250), animated: true)
+    }
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        subject.resignFirstResponder()
+        return true
+    }
 }
