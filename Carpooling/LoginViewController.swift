@@ -45,13 +45,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+      
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
             DataService.dataService.CURRENT_USER_REF.queryOrderedByKey().observeEventType(.Value, withBlock: {
                 snapshot in
                 
-                let imageString = snapshot.value["image"] as? String
+                /*
+                 let imageString = nil//snapshot.value["image"] as? String
                 
                 if  imageString != nil {
                     print("image not empty")
@@ -69,6 +70,7 @@ class LoginViewController: UIViewController {
                     print("No photo")
                     //self.profileImage.image = UIImage(named: "male")
                 }
+ */
             })
             
             //go to next screen cuz the user is sign in

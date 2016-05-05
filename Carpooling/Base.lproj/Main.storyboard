@@ -771,7 +771,7 @@
                                                         <constraint firstItem="dFn-yh-d2D" firstAttribute="top" secondItem="EeI-gK-6pZ" secondAttribute="top" constant="55" id="qp6-5Q-05M"/>
                                                     </constraints>
                                                 </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWG-vZ-TE9">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Helllow world" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWG-vZ-TE9">
                                                     <rect key="frame" x="8" y="117" width="584" height="18"/>
                                                     <color key="backgroundColor" red="0.74509803919999995" green="0.92156862750000001" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -843,11 +843,12 @@
                         <outlet property="open" destination="58S-DR-I5d" id="BLf-1C-bzO"/>
                         <outlet property="tableView" destination="nY2-FI-upL" id="hU8-aZ-CI2"/>
                         <segue destination="ZMk-gy-Lkr" kind="presentation" identifier="showDetailsSegue" id="1KS-wn-3o0"/>
+                        <segue destination="EzE-Im-tOO" kind="show" identifier="sendMailSegue" id="ocR-eu-Tck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Qr-OB-w7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3174" y="-996"/>
+            <point key="canvasLocation" x="3172" y="-996"/>
         </scene>
         <!--Detail Ride View Controller-->
         <scene sceneID="KBK-ai-Zxc">
@@ -1017,7 +1018,7 @@
         <!--Send Mail View Controller-->
         <scene sceneID="eQ1-cd-LUy">
             <objects>
-                <viewController id="EzE-Im-tOO" customClass="SendMailViewController" customModule="Carpooling" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="sendMail" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EzE-Im-tOO" customClass="SendMailViewController" customModule="Carpooling" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8uh-xI-FOJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfr-Yf-IZq"/>
@@ -1107,7 +1108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ts9-eJ-FOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4635" y="-996"/>
+            <point key="canvasLocation" x="3813" y="-1408"/>
         </scene>
         <!--Request Ride View Controller-->
         <scene sceneID="qn3-CB-p6q">
@@ -1908,9 +1909,10 @@
         <image name="Carpool" width="380" height="261"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cqb-y2-gwG"/>
         <segue reference="gLe-1B-62c"/>
-        <segue reference="4zF-5w-xVF"/>
+        <segue reference="ocR-eu-Tck"/>
+        <segue reference="cqb-y2-gwG"/>
         <segue reference="b7M-9h-orb"/>
+        <segue reference="4zF-5w-xVF"/>
     </inferredMetricsTieBreakers>
 </document>

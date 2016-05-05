@@ -46,7 +46,7 @@ class Trips{
         self.postedTime = postedTime
         self.pickUpTime = pickUpTime
         self.capacity = capacity
-        
+        self.notes = notes
         
     }
     

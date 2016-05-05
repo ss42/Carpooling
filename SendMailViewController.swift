@@ -35,8 +35,8 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
     
     @IBAction func cancelPressed(sender: AnyObject) {
+
         dismissViewControllerAnimated(true, completion: nil)
-        
     }
 
     @IBAction func sendMailPressed(sender: AnyObject) {
@@ -91,7 +91,15 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         presentViewController(alertController, animated: true, completion: nil)
         
     }
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
+        if segue.identifier == "showDetailsSegue"{
+            
+            let destinationVC = segue.destinationViewController as! DetailRideViewController
+           // destinationVC.rideDetail = tempArray[indexPath.row] as? Trips
+            //vc.detailTrips = tempArray[indexPath.row] as! NSMutableArray
+        }
+    }
     
  
 
