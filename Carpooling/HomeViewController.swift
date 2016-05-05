@@ -47,11 +47,15 @@ class HomeViewController: UIViewController{
             let lastName = snapshot.value["last"] as? String
             let phoneNumber = snapshot.value["phone"] as? String
             let email = snapshot.value["email"] as? String
-            let picture = snapshot.value["image"] as? String
+            //let picture = snapshot.value["image"] as? String
+            let picture = "male"
             
-            let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture!)
+
+            
+            let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
             
             self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
+            
             
             print(self.tempArray.count)
             self.tableView.reloadData()
@@ -138,12 +142,17 @@ class HomeViewController: UIViewController{
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
         if segue.identifier == "showDetailsSegue"{
-            
+            let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
+
           let destinationVC = segue.destinationViewController as! DetailRideViewController
             destinationVC.rideDetail = tempArray[indexPath.row] as? Trips
             //vc.detailTrips = tempArray[indexPath.row] as! NSMutableArray
+        }
+        else if segue.identifier == "sendMailSegue"
+        {
+            let vc = segue.destinationViewController as! SendMailViewController
+            presentViewController(vc, animated: true, completion: nil)
         }
     }
     
@@ -177,15 +186,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let trip = tempArray[indexPath.row] as! Trips
         
         // Configure the cell...
-        let picture = convertBase64StringToUImage((trip.driver?.picture)!)
+       // let picture = convertBase64StringToUImage((trip.driver?.picture)!)
         
         cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
-        cell.picture.image = picture
+       // cell.picture.image = picture
         cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
         cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
         cell.postedTime?.text = "Posted \(trip.postedTime)"
         cell.pickUpTime?.text = "On \(trip.pickUpTime)"
-        cell.notes?.text = trip.notes
+        cell.notes?.text = "Notes here \(trip.notes)"
+        print("Trip Notes 66666 is \(trip.notes)")
         cell.capacity?.text = "Capacity: \(trip.capacity)"
         
         configureTableView()
@@ -220,6 +230,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     //do stuff
             }
             let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
+                self.performSegueWithIdentifier("sendMailSegue", sender: nil)
                 //do stuff
                 //segue to sendmailcontroller and send data or driver's email add thru segue
             }
