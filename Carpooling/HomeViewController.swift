@@ -245,10 +245,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             self.presentViewController(contactAlertController, animated: true, completion: nil)
             
         }
+        let requestAction = UITableViewRowAction(style: .Normal, title: "Request Ride"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+            
+            let requestAlertController = UIAlertController(title: nil, message: "Are you sure you want to request this ride?", preferredStyle: .ActionSheet)
+            
+            let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default, handler: nil)
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+            
+            requestAlertController.addAction(requestAction)
+            requestAlertController.addAction(cancelAction)
+            
+            
+            self.presentViewController(requestAlertController, animated: true, completion: nil)
+    
+        }
         
         contactAction.backgroundColor = UIColor.blackColor()
     
-        return [contactAction]
+        return [contactAction, requestAction]
     }
     
     

@@ -25,7 +25,20 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var ScrollView: UIScrollView!
     
+    @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var pageControlView: UIView!
+    
+    @IBOutlet weak var pageControlLabel: UILabel!
+    
+    @IBOutlet weak var pageControlImageView: UIImageView!
+    
+    var pageTitles: NSArray!
+    var pageImages: NSArray!
+    
+    // create swipe gesture
+    let swipeGestureLeft = UISwipeGestureRecognizer()
+    let swipeGestureRight = UISwipeGestureRecognizer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,15 +46,61 @@ class LoginViewController: UIViewController {
         self.emailField.delegate = self
         self.passwordField.delegate = self
         
-        GIDSignIn.sharedInstance().delegate = self
+        self.pageTitles = NSArray(objects: "Students have a hard time coming to Saint Marys, Lets help each other. #SMCDOESCARE","Lets bring less cars to college and help the environment","Make extra cash while you are going to college")
+        self.pageImages = NSArray(objects: "requestRide", "Carpool", "Carpool")
+        
+       /* GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().uiDelegate = self
         // Attempt to sign in silently, this will succeed if
         // the user has recently been authenticated
-        GIDSignIn.sharedInstance().signInSilently()
+        GIDSignIn.sharedInstance().signInSilently()*/
+        
+        // set gesture direction
+        self.swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
+        self.swipeGestureRight.direction = UISwipeGestureRecognizerDirection.Right
+        // add gesture target
+        self.swipeGestureLeft.addTarget(self, action: #selector(LoginViewController.handleSwipeLeft(_:)))
+        self.swipeGestureRight.addTarget(self, action: #selector(LoginViewController.handleSwipeRight(_:)))
+        self.pageControlView.addGestureRecognizer(self.swipeGestureLeft)
+        self.pageControlView.addGestureRecognizer(self.swipeGestureRight)
+        self.setCurrentPageLabel()
+
+
+    }
+    // MARK: - Utility function
+    
+    // increase page number on swift left
+    func handleSwipeLeft(gesture: UISwipeGestureRecognizer){
+        self.pageController()
+
+    }
+    
+    // reduce page number on swift right
+    func handleSwipeRight(gesture: UISwipeGestureRecognizer){
+        
+       self.pageController()
         
         
     }
+    func pageController(){
+        if self.pageControl.currentPage == 0 {
+             self.pageControlLabel.text = self.pageTitles[0] as? String
+            self.pageControlImageView.image = UIImage(named: self.pageImages[0] as! String)
+        }
+        else if self.pageControl.currentPage == 1 {
+            self.pageControlLabel.text = self.pageTitles[1] as? String
+            self.pageControlImageView.image = UIImage(named: self.pageImages[1] as! String)
+        }
+        else if self.pageControl.currentPage == 2 {
+            self.pageControlLabel.text = self.pageTitles[2] as? String
+            self.pageControlImageView.image = UIImage(named: self.pageImages[2] as! String)
+        }
+    }
     
+    // set current page number label
+    private func setCurrentPageLabel(){
+        //self.pageControlLabel.text = "\(self.pageControl.currentPage + 1)"
+    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -159,7 +218,7 @@ class LoginViewController: UIViewController {
   
     
 }
-
+/*
 
 extension LoginViewController: GIDSignInDelegate,  GIDSignInUIDelegate{
     func signIn(signIn: GIDSignIn!, didSignInForUser user: GIDGoogleUser!,
@@ -207,6 +266,7 @@ extension LoginViewController: GIDSignInDelegate,  GIDSignInUIDelegate{
     }
 
 }
+ */
 
 
 extension LoginViewController: UITextFieldDelegate{
@@ -223,5 +283,4 @@ extension LoginViewController: UITextFieldDelegate{
 
     
 
-    
-
+ 
