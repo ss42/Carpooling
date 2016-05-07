@@ -25,20 +25,17 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var ScrollView: UIScrollView!
     
-    @IBOutlet weak var pageControl: UIPageControl!
     
-    @IBOutlet weak var pageControlView: UIView!
     
-    @IBOutlet weak var pageControlLabel: UILabel!
+    @IBOutlet weak var autoLabel: UILabel!
     
-    @IBOutlet weak var pageControlImageView: UIImageView!
+    @IBOutlet weak var autoImageView: UIImageView!
     
     var pageTitles: NSArray!
     var pageImages: NSArray!
     
-    // create swipe gesture
-    let swipeGestureLeft = UISwipeGestureRecognizer()
-    let swipeGestureRight = UISwipeGestureRecognizer()
+    var countdown = 0
+    var myTimer = NSTimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,55 +52,15 @@ class LoginViewController: UIViewController {
         // the user has recently been authenticated
         GIDSignIn.sharedInstance().signInSilently()*/
         
-        // set gesture direction
-        self.swipeGestureLeft.direction = UISwipeGestureRecognizerDirection.Left
-        self.swipeGestureRight.direction = UISwipeGestureRecognizerDirection.Right
-        // add gesture target
-        self.swipeGestureLeft.addTarget(self, action: #selector(LoginViewController.handleSwipeLeft(_:)))
-        self.swipeGestureRight.addTarget(self, action: #selector(LoginViewController.handleSwipeRight(_:)))
-        self.pageControlView.addGestureRecognizer(self.swipeGestureLeft)
-        self.pageControlView.addGestureRecognizer(self.swipeGestureRight)
-        self.setCurrentPageLabel()
 
 
     }
-    // MARK: - Utility function
-    
-    // increase page number on swift left
-    func handleSwipeLeft(gesture: UISwipeGestureRecognizer){
-        self.pageController()
 
-    }
-    
-    // reduce page number on swift right
-    func handleSwipeRight(gesture: UISwipeGestureRecognizer){
-        
-       self.pageController()
-        
-        
-    }
-    func pageController(){
-        if self.pageControl.currentPage == 0 {
-             self.pageControlLabel.text = self.pageTitles[0] as? String
-            self.pageControlImageView.image = UIImage(named: self.pageImages[0] as! String)
-        }
-        else if self.pageControl.currentPage == 1 {
-            self.pageControlLabel.text = self.pageTitles[1] as? String
-            self.pageControlImageView.image = UIImage(named: self.pageImages[1] as! String)
-        }
-        else if self.pageControl.currentPage == 2 {
-            self.pageControlLabel.text = self.pageTitles[2] as? String
-            self.pageControlImageView.image = UIImage(named: self.pageImages[2] as! String)
-        }
-    }
-    
-    // set current page number label
-    private func setCurrentPageLabel(){
-        //self.pageControlLabel.text = "\(self.pageControl.currentPage + 1)"
-    }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        myTimer = NSTimer(timeInterval: 1, target: self, selector: #selector(LoginViewController.changeTextAndImage), userInfo: nil, repeats: true)
+      
       
         // If we have the uid stored, the user is already logger in - no need to sign in again!
         if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil && DataService.dataService.CURRENT_USER_REF.authData != nil {
@@ -135,6 +92,14 @@ class LoginViewController: UIViewController {
             //go to next screen cuz the user is sign in
             self.performSegueWithIdentifier("CurrentlyLoggedIn", sender: nil)
         }
+    }
+    
+    
+    func changeTextAndImage() {
+        countdown += 1
+        print("Countdown is \(countdown)")
+        autoLabel.text = "\(countdown)"
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -281,6 +246,24 @@ extension LoginViewController: UITextFieldDelegate{
     }
 }
 
+func compressImage(image: UIImage) -> UIImage {
+    var actualHeight : CGFloat = image.size.height
+    var actualWidth : CGFloat = image.size.width
+    var maxHeight : CGFloat = 600.0
+    var maxWidth : CGFloat = 800.0
+    var imgRatio : CGFloat = actualWidth/actualHeight
+    var maxRatio : CGFloat = maxWidth/maxHeight
+    var compressionQuality : CGFloat = 0.5 //50 percent compression
     
-
- 
+    if ((actualHeight > maxHeight) || (actualWidth > maxWidth)){
+        if(imgRatio, maxRatio){
+            //adjust height according to maxWidth
+            imgRatio = maxWidth / actualWidth;
+            actualHeight = imgRatio * actualHeight;
+            actualWidth = maxWidth;
+        }
+        else{
+            actualHeight = maxHeight;
+            actualWidth = maxWidth;
+        }
+    }}

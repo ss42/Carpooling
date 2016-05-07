@@ -11,7 +11,6 @@
         <mutableArray key="SF-UI-Display-Light.otf">
             <string>SFUIDisplay-Light</string>
             <string>SFUIDisplay-Light</string>
-            <string>SFUIDisplay-Light</string>
         </mutableArray>
         <mutableArray key="SF-UI-Display-Thin.otf">
             <string>SFUIDisplay-Thin</string>
@@ -26,6 +25,9 @@
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
+        </mutableArray>
+        <mutableArray key="SF-UI-Text-MediumItalic.otf">
+            <string>SFUIText-MediumItalic</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -71,23 +73,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AyH-RB-uuW">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AyH-RB-uuW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="553"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1gL-S0-9t9">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1gL-S0-9t9">
                                         <rect key="frame" x="20" y="442" width="560" height="107"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-hj-oXn">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-hj-oXn">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-8t-z4S">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0dI-8t-z4S">
                                                 <rect key="frame" x="0.0" y="38" width="560" height="30"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-Ee-aRH">
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-Ee-aRH">
                                                 <rect key="frame" x="0.0" y="76" width="560" height="31"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
                                                 <state key="normal" title="Need Help Logging In?">
@@ -99,55 +101,30 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLX-DJ-YL0">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="434"/>
-                                        <subviews>
-                                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="dZA-mH-V5I">
-                                                <rect key="frame" x="20" y="397" width="560" height="37"/>
-                                                <color key="pageIndicatorTintColor" red="1" green="0.97254901959999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="currentPageIndicatorTintColor" red="0.74509803919999995" green="0.92156862750000001" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            </pageControl>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-fc-ZUQ">
-                                                <rect key="frame" x="0.0" y="99" width="600" height="283"/>
-                                                <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <fontDescription key="fontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="18"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="SMC-POOL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUA-Nw-zOv">
-                                                <rect key="frame" x="0.0" y="36" width="600" height="50"/>
-                                                <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="30"/>
-                                                <color key="textColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-hP-Ajh">
-                                                <rect key="frame" x="419" y="253" width="181" height="129"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="181" id="FzA-X9-tha"/>
-                                                    <constraint firstAttribute="height" constant="129" id="TrP-vk-7Jf"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.82352941180000006" green="0.82352941180000006" blue="0.82352941180000006" alpha="1" colorSpace="calibratedRGB"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMC-POOL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUA-Nw-zOv">
+                                        <rect key="frame" x="0.0" y="22" width="600" height="50"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="30"/>
+                                        <color key="textColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Students Some of us have a hard time commuting to Saint Marys, Lets help each other. #SMCDOESCARE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9i-fc-ZUQ">
+                                        <rect key="frame" x="8" y="135" width="582" height="283"/>
+                                        <color key="backgroundColor" red="1" green="0.97254901959999995" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-MediumItalic" family="SF UI Text" pointSize="18"/>
+                                        <color key="textColor" red="0.1244791667" green="0.1244791667" blue="0.1244791667" alpha="0.7643588362" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="requestRide" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-hP-Ajh">
+                                        <rect key="frame" x="409" y="289" width="181" height="129"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="x1E-hP-Ajh" secondAttribute="trailing" id="7mM-7q-RAa"/>
-                                            <constraint firstItem="x1E-hP-Ajh" firstAttribute="bottom" secondItem="a9i-fc-ZUQ" secondAttribute="bottom" id="BbD-0z-WpI"/>
-                                            <constraint firstItem="dZA-mH-V5I" firstAttribute="top" secondItem="x1E-hP-Ajh" secondAttribute="bottom" id="ENv-fw-Vq2"/>
-                                            <constraint firstItem="x1E-hP-Ajh" firstAttribute="trailing" secondItem="RUA-Nw-zOv" secondAttribute="trailing" id="Nvj-3N-EJ3"/>
-                                            <constraint firstAttribute="bottom" secondItem="x1E-hP-Ajh" secondAttribute="bottom" constant="52" id="cRC-Lt-mcl"/>
-                                            <constraint firstAttribute="height" constant="434" id="mgw-Nz-7HD"/>
-                                            <constraint firstItem="x1E-hP-Ajh" firstAttribute="trailing" secondItem="a9i-fc-ZUQ" secondAttribute="trailing" id="zXj-vs-lPm"/>
+                                            <constraint firstAttribute="width" constant="181" id="FzA-X9-tha"/>
+                                            <constraint firstAttribute="height" constant="129" id="TrP-vk-7Jf"/>
                                         </constraints>
-                                    </view>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="OLX-DJ-YL0" firstAttribute="centerX" secondItem="AyH-RB-uuW" secondAttribute="centerX" id="3gp-qE-hPK"/>
-                                    <constraint firstAttribute="trailing" secondItem="OLX-DJ-YL0" secondAttribute="trailing" id="FdP-Y9-w64"/>
                                     <constraint firstItem="1gL-S0-9t9" firstAttribute="centerX" secondItem="AyH-RB-uuW" secondAttribute="centerX" id="JkE-Ch-2VG"/>
-                                    <constraint firstItem="OLX-DJ-YL0" firstAttribute="top" secondItem="AyH-RB-uuW" secondAttribute="top" id="Qcq-N4-Mbt"/>
                                     <constraint firstItem="1gL-S0-9t9" firstAttribute="leading" secondItem="AyH-RB-uuW" secondAttribute="leading" constant="20" id="U37-g4-x8l"/>
-                                    <constraint firstItem="OLX-DJ-YL0" firstAttribute="leading" secondItem="AyH-RB-uuW" secondAttribute="leading" id="VRH-XX-jrf"/>
-                                    <constraint firstItem="1gL-S0-9t9" firstAttribute="top" secondItem="OLX-DJ-YL0" secondAttribute="bottom" constant="8" symbolic="YES" id="jMT-O7-dSo"/>
                                     <constraint firstAttribute="trailing" secondItem="1gL-S0-9t9" secondAttribute="trailing" constant="20" id="mic-qE-fFd"/>
                                     <constraint firstAttribute="bottom" secondItem="1gL-S0-9t9" secondAttribute="bottom" id="yJ1-oz-P4z"/>
                                 </constraints>
@@ -168,11 +145,9 @@
                     </view>
                     <connections>
                         <outlet property="ScrollView" destination="AyH-RB-uuW" id="3p8-6I-vhc"/>
+                        <outlet property="autoImageView" destination="x1E-hP-Ajh" id="QVB-TA-S2y"/>
+                        <outlet property="autoLabel" destination="a9i-fc-ZUQ" id="yAt-o6-gxS"/>
                         <outlet property="emailField" destination="Az7-hj-oXn" id="cuL-pq-9KK"/>
-                        <outlet property="pageControl" destination="dZA-mH-V5I" id="vjb-Bj-fXf"/>
-                        <outlet property="pageControlImageView" destination="x1E-hP-Ajh" id="mvG-d0-2wu"/>
-                        <outlet property="pageControlLabel" destination="a9i-fc-ZUQ" id="4Gf-uu-8AA"/>
-                        <outlet property="pageControlView" destination="OLX-DJ-YL0" id="Lw2-BD-7E4"/>
                         <outlet property="passwordField" destination="0dI-8t-z4S" id="fxV-ue-UdO"/>
                         <segue destination="rmz-5K-Mwl" kind="presentation" identifier="CurrentlyLoggedIn" id="ZjQ-tk-mgs"/>
                     </connections>
@@ -1915,6 +1890,9 @@
             <point key="canvasLocation" x="1676" y="-1006"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="requestRide" width="50" height="35"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gLe-1B-62c"/>
         <segue reference="ocR-eu-Tck"/>
