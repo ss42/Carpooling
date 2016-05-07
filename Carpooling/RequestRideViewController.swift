@@ -66,9 +66,15 @@ class RequestRideViewController: UIViewController {
     let tempRider = Rider(firstName: "john", lastName: "Snow", phoneNumber: "01154", email: "abcom", password: "hey", picture:  "male")
     //let tempTrip = Trips(tempRider)
     
+    func custom(){
+        searchController?.searchBar.placeholder = "Enter Address here"
+        searchController?.searchBar.imageForSearchBarIcon(UISearchBarIcon.ResultsList, state: UIControlState.Normal)
+        searchController?.searchBar.barTintColor = UIColor.redColor()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.custom()
         datePicker.hidden = true
         doneButton.hidden = true
         confirmTextFieldDelegate()
@@ -114,7 +120,6 @@ class RequestRideViewController: UIViewController {
         notes.hidden = true
      
         //need to reload data
-        
         
     }
   

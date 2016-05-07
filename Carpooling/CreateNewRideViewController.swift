@@ -115,11 +115,13 @@ class CreateNewRideViewController: UIViewController {
         let phone = tempArray[2]
         let email = tempArray[3]
         let imageString = tempArray[4]
+      
         
         print("Todays date is  \(postedTime)")
         let pickupTime = dateLabel.text
         
-        user = ["first": first, "last": last, "phone": phone, "email": email, "image": imageString,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!]
+        // removed imagestring be sure to re-add it!
+        user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
         
@@ -147,7 +149,9 @@ class CreateNewRideViewController: UIViewController {
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.dateFormat = "dd MMM HH:mm"
+        print("formatting done")
         let strDate = dateFormatter.stringFromDate(datePicker.date)
+        print("done with the format")
         dateLabel.text = strDate
         datePicker.hidden = true
         notes.hidden = false
@@ -184,6 +188,8 @@ class CreateNewRideViewController: UIViewController {
         return currentTimeAndDate
     }
     
+    
+    // gets all the info that we will need for the driver of this ride and puts it into self.tempArray
     func updateInfoFromDatabase(){
         let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUserUID)")
         newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
@@ -201,7 +207,7 @@ class CreateNewRideViewController: UIViewController {
             print("The phone number of this guy is \(phone)")
             print("The email of this guy is \(email)")
             print("image not empty")
-            print(imageString)
+            //print(imageString)
             
             if  (first != nil && last != nil && phone != nil && email != nil && imageString != nil) {
                
@@ -210,7 +216,7 @@ class CreateNewRideViewController: UIViewController {
                     print("The phone number of this guy is \(phone)")
                     print("The email of this guy is \(email)")
                     print("image not empty")
-                    print(imageString)
+                    //print(imageString)
                   //  self.user = ["first": first!, "last": last!, "phone": phone!, "email": email!, "image": imageString!]
                 print("User info sucessfully appended to dictionary ")
                 self.tempArray.addObject(first!)
@@ -218,10 +224,6 @@ class CreateNewRideViewController: UIViewController {
                 self.tempArray.addObject(phone!)
                 self.tempArray.addObject(email!)
                 self.tempArray.addObject(imageString!)
-                
-                for i in self.tempArray{
-                    print(i)
-                }
     
         
              }
