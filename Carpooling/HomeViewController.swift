@@ -14,23 +14,20 @@ import MessageUI
 class HomeViewController: UIViewController{
     
     
-    @IBOutlet weak var ridesSegment: UISegmentedControl!
-    
     @IBOutlet weak var open: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
     
     var tempArray:NSMutableArray = [] //Trips.makeDummyTrips()
-    
-    var availaibleRideArray: NSMutableArray = []
+    //var tempArray:NSMutableArray?
     
     var imageToSend : UIImage?
     
     // fetch the trips from firebase and then update the tempArray
-    
-    func fetchTripList(ref: Firebase, rideArray: NSMutableArray)
+    func fetchTripList()
     {
-        ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
+        
+        DataService.dataService.postRef.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
             
             let fromStreet = snapshot.value["fromStreet"] as? String
@@ -53,11 +50,17 @@ class HomeViewController: UIViewController{
             //let picture = snapshot.value["image"] as? String
             let picture = "male"
             
+
+            
             let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
             
-            rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
+            self.tempArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
+            
+            
+            print(self.tempArray.count)
             self.tableView.reloadData()
         })
+        print("temp array count is:  \(tempArray.count)")
         
         
     }
@@ -68,15 +71,12 @@ class HomeViewController: UIViewController{
         return decodedimage! as UIImage
         
     }
-   
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        fetchTripList(DataService.dataService.postRef, rideArray: tempArray)
-        fetchTripList(DataService.dataService.requestRideRef, rideArray: availaibleRideArray)
-        
+        fetchTripList()
        
         tableView.delegate = self
         tableView.dataSource = self
@@ -140,11 +140,6 @@ class HomeViewController: UIViewController{
     
     }
     
-    @IBAction func changeView(sender: UISegmentedControl) {
-        print("SegmentControl pressed")
-        self.tableView.reloadData()
-    }
-    
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetailsSegue"{
@@ -181,51 +176,29 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var returnValue = 0
-        switch ridesSegment.selectedSegmentIndex {
-        case 0:
-            returnValue = tempArray.count
-            print("Case 0 in numberof sectionsin ")
-
-        case 1:
-            print("Case 1 in numberof sectionsin ")
-
-            returnValue = availaibleRideArray.count
-        default:
-            break
-        }
-        return returnValue
+        return tempArray.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell: AvailableRidesTableViewCell = tableView.dequeueReusableCellWithIdentifier("Cell") as! AvailableRidesTableViewCell
         
-        switch ridesSegment.selectedSegmentIndex {
-        case 0:
-            print("Case 0 in cellfor rowAtindex")
-            let trip = tempArray[indexPath.row] as! Trips
-            // Configure the cell...
-            // let picture = convertBase64StringToUImage((trip.driver?.picture)!)
-            
-            cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
-            // cell.picture.image = picture
-            cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
-            cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
-            cell.postedTime?.text = "Posted \(trip.postedTime)"
-            cell.pickUpTime?.text = "On \(trip.pickUpTime)"
-            cell.notes?.text = "Notes here \(trip.notes)"
-            cell.capacity?.text = "Capacity: \(trip.capacity)"
-            configureTableView()
-        case 1:
-            
-            print("Case 1 in cell for rowat index")
-            availaibleRideArray.count
-        default:
-            break
-        }
+        let trip = tempArray[indexPath.row] as! Trips
         
+        // Configure the cell...
+       // let picture = convertBase64StringToUImage((trip.driver?.picture)!)
         
+        cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
+       // cell.picture.image = picture
+        cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
+        cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
+        cell.postedTime?.text = "Posted \(trip.postedTime)"
+        cell.pickUpTime?.text = "On \(trip.pickUpTime)"
+        cell.notes?.text = "Notes here \(trip.notes)"
+        print("Trip Notes 66666 is \(trip.notes)")
+        cell.capacity?.text = "Capacity: \(trip.capacity)"
+        
+        configureTableView()
         
         return cell
     }
@@ -295,7 +268,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func configureTableView(){
-        tableView.rowHeight = 130.00
+        tableView.rowHeight = 160.00
         
         
     }

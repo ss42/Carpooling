@@ -229,28 +229,6 @@ extension LoginViewController: GIDSignInDelegate,  GIDSignInUIDelegate{
         GIDSignIn.sharedInstance().signOut()
         DataService.dataService.userRef.unauth()
     }
- func compressImage(image: UIImage) -> UIImage {
- var actualHeight : CGFloat = image.size.height
- var actualWidth : CGFloat = image.size.width
- var maxHeight : CGFloat = 600.0
- var maxWidth : CGFloat = 800.0
- var imgRatio : CGFloat = actualWidth/actualHeight
- var maxRatio : CGFloat = maxWidth/maxHeight
- var compressionQuality : CGFloat = 0.5 //50 percent compression
- 
- if ((actualHeight > maxHeight) || (actualWidth > maxWidth)){
- if(imgRatio == maxRatio){
- //adjust height according to maxWidth
- imgRatio = maxWidth / actualWidth;
- actualHeight = imgRatio * actualHeight;
- actualWidth = maxWidth;
- }
- else{
- actualHeight = maxHeight;
- actualWidth = maxWidth;
- }
- }
- }
 
 }
  */
@@ -268,3 +246,24 @@ extension LoginViewController: UITextFieldDelegate{
     }
 }
 
+func compressImage(image: UIImage) -> UIImage {
+    var actualHeight : CGFloat = image.size.height
+    var actualWidth : CGFloat = image.size.width
+    var maxHeight : CGFloat = 600.0
+    var maxWidth : CGFloat = 800.0
+    var imgRatio : CGFloat = actualWidth/actualHeight
+    var maxRatio : CGFloat = maxWidth/maxHeight
+    var compressionQuality : CGFloat = 0.5 //50 percent compression
+    
+    if ((actualHeight > maxHeight) || (actualWidth > maxWidth)){
+        if(imgRatio, maxRatio){
+            //adjust height according to maxWidth
+            imgRatio = maxWidth / actualWidth;
+            actualHeight = imgRatio * actualHeight;
+            actualWidth = maxWidth;
+        }
+        else{
+            actualHeight = maxHeight;
+            actualWidth = maxWidth;
+        }
+    }}

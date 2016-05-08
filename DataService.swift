@@ -19,7 +19,6 @@ class DataService {
     var baseRef = Firebase(url: "\(BASE_URL)")
     var userRef = Firebase(url: "\(BASE_URL)/users")
     var postRef = Firebase(url: "\(BASE_URL)/posts")
-    var requestRideRef = Firebase(url:  "\(BASE_URL)/requestRidesPost")
     
   
     
@@ -40,15 +39,6 @@ class DataService {
     func createNewPost(trip: Dictionary<String, AnyObject>) {
         
         let firebaseNewPost = postRef.childByAutoId()
-        
-        // setValue() saves to Firebase.
-        
-        firebaseNewPost.setValue(trip)
-    }
-    
-    func createNewRequest(trip: Dictionary<String, AnyObject>) {
-        
-        let firebaseNewPost = requestRideRef.childByAutoId()
         
         // setValue() saves to Firebase.
         
