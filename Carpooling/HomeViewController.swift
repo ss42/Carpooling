@@ -222,7 +222,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             
             print("Case 1 in cell for rowat index")
-            availaibleRideArray.count
+            let trip = availaibleRideArray[indexPath.row] as! Trips
+            // Configure the cell...
+            // let picture = convertBase64StringToUImage((trip.driver?.picture)!)
+            
+            cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
+            // cell.picture.image = picture
+            cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
+            cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
+            cell.postedTime?.text = "Posted \(trip.postedTime)"
+            cell.pickUpTime?.text = "On \(trip.pickUpTime)"
+            cell.notes?.text = "Notes here \(trip.notes)"
+            cell.capacity?.text = "Capacity: \(trip.capacity)"
+            configureTableView()
+
         default:
             break
         }
@@ -238,8 +251,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         //when selected do something
       //  let requestedRide = self.tempArray[indexPath.row] as! Trips
        // let sendImage: UIImage = requestedRide.
-
-        self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
+        switch ridesSegment.selectedSegmentIndex {
+        case 0:
+            self.performSegueWithIdentifier("showDetailsSegue", sender: nil)
+            
+        case 1:
+            print("Case 1 in numberof sectionsin ")
+            
+            //returnValue = availaibleRideArray.count
+        default:
+            break
+        }
         
         
     }
@@ -281,7 +303,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let requestAlertController = UIAlertController(title: nil, message: "Are you sure you want to request this ride?", preferredStyle: .ActionSheet)
                 
-                let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default, handler: nil)
+                let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default){(action)-> Void in
+                    self.tableView.reloadData()
+
+                    //do stuff
+                }
                 let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
                 requestAlertController.addAction(requestAction)
                 requestAlertController.addAction(cancelAction)
@@ -298,6 +324,23 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 1:
             print("Case 1 in numberof sectionsin ")
+            let GiveRideAction = UITableViewRowAction(style: .Normal, title: "Request Ride"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+                
+                let giveRideAlertController = UIAlertController(title: nil, message: "Are you sure you want to give ride?", preferredStyle: .ActionSheet)
+                
+                let giveRideAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default){(action)-> Void in
+                    
+                    self.tableView.reloadData()
+                    //do stuff
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+                giveRideAlertController.addAction(giveRideAction)
+                giveRideAlertController.addAction(cancelAction)
+                
+                self.presentViewController(giveRideAlertController, animated: true, completion: nil)
+                
+            }
+            return [GiveRideAction]
             
         default:
             break

@@ -130,12 +130,16 @@ class CreateNewRideViewController: UIViewController {
     var searchController2: UISearchController?
     var resultView2: UITextView?
     
+    
+    @IBOutlet var datePickerView: DatePickerView!
+    var currentView: UIView?
+    
+    
     @IBOutlet weak var searchView1: UIView!
     @IBOutlet weak var searchView2: UIView!
     
     @IBOutlet weak var notes: UITextView!
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
+
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
     @IBOutlet weak var fromCityTextField: UITextField!
@@ -156,8 +160,7 @@ class CreateNewRideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        datePicker.hidden = true
-        doneButton.hidden = true
+        
         confirmTextFieldDelegate()
         
         
@@ -215,6 +218,9 @@ class CreateNewRideViewController: UIViewController {
                 print("authdata is nil")
             }
         })
+        
+        datePickerView.frame = CGRectMake(view.frame.origin.x, view.frame.height, view.frame.size.width, datePickerView.frame.height)
+        self.view.addSubview(datePickerView)
        
     }
     
@@ -236,17 +242,15 @@ class CreateNewRideViewController: UIViewController {
         toCityTextfield.delegate = self
         toStateTextField.delegate = self
         toZipCodeTextField.delegate = self
+        datePickerView.delegate = self
     }
     
     
     @IBAction func chooseDateAndTimeTapped(sender: AnyObject) {
-        datePicker.hidden = false
-        doneButton.hidden = false
-        notes.hidden = true
-        //self.datePicker.addGestureRecognizer(sender as! UIGestureRecognizer)
         
-        //need to reload data
+        //datePickerView.animationDidStart(0.6)
         
+        self.presentPicker(datePickerView)
         
     }
     
@@ -306,20 +310,7 @@ class CreateNewRideViewController: UIViewController {
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    
-    @IBAction func doneTapped(sender: AnyObject) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.dateFormat = "dd MMM HH:mm"
-        print("formatting done")
-        let strDate = dateFormatter.stringFromDate(datePicker.date)
-        print("done with the format")
-        dateLabel.text = strDate
-        datePicker.hidden = true
-        notes.hidden = false
-        doneButton.hidden = true
-    }
+
     
     //to display alert for errors
     func displayMyAlertMessage(title: String, message: String) {
@@ -416,7 +407,33 @@ class CreateNewRideViewController: UIViewController {
             self.presentViewController(vc, animated: true, completion: nil)
                     }
     }
+    
+    func presentPicker(view: UIView){
+        
+        currentView = view
+        UIView.animateWithDuration(0.3){() -> Void in
+         view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y - view.frame.size.height, view.frame.width, view.frame.height)
+        }
+    }
+    func dismissPicker(){
+        UIView.animateWithDuration(0.3){ () -> Void in
+            if let picker = self.currentView {
+                self.currentView = nil
+                picker.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height, self.view.frame.size.width, picker.frame.height)
+            }
+        }
+    }
 
+}
+
+extension CreateNewRideViewController: DatePickerViewDelegate{
+    func cancelPressed() {
+            dismissPicker()
+    }
+    func donePressed() {
+        dateLabel.text = datePickerView.date
+        dismissPicker()
+    }
 }
 
 extension CreateNewRideViewController: UITextFieldDelegate{
