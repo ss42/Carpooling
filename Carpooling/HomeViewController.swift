@@ -32,31 +32,33 @@ class HomeViewController: UIViewController{
     {
         ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: {
             snapshot in
-            
-            let fromStreet = snapshot.value["fromStreet"] as? String
-            let fromCity = snapshot.value["fromCity"] as? String
-            let fromState = snapshot.value["fromState"] as? String
-            let fromZipCode = snapshot.value["fromZipCode"] as? String
-            let toStreet = snapshot.value["toStreet"] as? String
-            let toCity = snapshot.value["toCity"] as? String
-            let toState = snapshot.value["toState"] as? String
-            let toZipCode = snapshot.value["toZipCode"] as? String
-            let postedTime = snapshot.value["postedTime"] as? String
-            let pickUpTime = snapshot.value["pickupTime"] as? String
-            let notes = snapshot.value["notes"] as? String
-            let capacity = snapshot.value["capacity"] as? String
-            let elapsed = self.timeElapsed(postedTime!)
-            let firstName = snapshot.value["first"] as? String
-            let lastName = snapshot.value["last"] as? String
-            let phoneNumber = snapshot.value["phone"] as? String
-            let email = snapshot.value["email"] as? String
-            //let picture = snapshot.value["image"] as? String
-            let picture = "male"
-            
-            let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
-            
-            rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
-            self.tableView.reloadData()
+            //if time has not passed, assign values and add to array
+                let fromStreet = snapshot.value["fromStreet"] as? String
+                let fromCity = snapshot.value["fromCity"] as? String
+                let fromState = snapshot.value["fromState"] as? String
+                let fromZipCode = snapshot.value["fromZipCode"] as? String
+                let toStreet = snapshot.value["toStreet"] as? String
+                let toCity = snapshot.value["toCity"] as? String
+                let toState = snapshot.value["toState"] as? String
+                let toZipCode = snapshot.value["toZipCode"] as? String
+                let postedTime = snapshot.value["postedTime"] as? String
+                let pickUpTime = snapshot.value["pickupTime"] as? String
+                //if the pickup time has expired
+                let notes = snapshot.value["notes"] as? String
+                let capacity = snapshot.value["capacity"] as? String
+                let elapsed = self.timeElapsed(postedTime!)
+                let firstName = snapshot.value["first"] as? String
+                let lastName = snapshot.value["last"] as? String
+                let phoneNumber = snapshot.value["phone"] as? String
+                let email = snapshot.value["email"] as? String
+                //let picture = snapshot.value["image"] as? String
+                let picture = "male"
+                
+                let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
+                
+                rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
+                self.tableView.reloadData()
+            // else nothing
         })
         
         
@@ -243,55 +245,70 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        let requestedRide = self.tempArray[indexPath.row] as! Trips
-        let driver = "\(requestedRide.driver!.firstName) \(requestedRide.driver!.lastName)"
         
-        let contactAction = UITableViewRowAction(style: .Normal, title: "Contact \(requestedRide.driver!.firstName)"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
-            
-            let contactAlertController = UIAlertController(title: "Contact  \(driver)", message: ":)", preferredStyle: .ActionSheet )
-            
-            let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
+        switch ridesSegment.selectedSegmentIndex {
+        case 0:
+            let requestedRide = self.tempArray[indexPath.row] as! Trips
+            let driver = "\(requestedRide.driver!.firstName) \(requestedRide.driver!.lastName)"
+            print("Case 0 Actionsheet mail call text")
+            let contactAction = UITableViewRowAction(style: .Normal, title: "Contact \(requestedRide.driver!.firstName)"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+                
+                let contactAlertController = UIAlertController(title: "Contact  \(driver)", message: ":)", preferredStyle: .ActionSheet )
+                
+                let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
                     //do stuff
-            }
-            let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
+                }
+                let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
                     //do stuff
-            }
-            let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
-                self.performSegueWithIdentifier("sendMailSegue", sender: nil)
-                //do stuff
-                //segue to sendmailcontroller and send data or driver's email add thru segue
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+                }
+                let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
+                    self.performSegueWithIdentifier("sendMailSegue", sender: nil)
+                    //do stuff
+                    //segue to sendmailcontroller and send data or driver's email add thru segue
+                }
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+                    
+                }
+                contactAlertController.addAction(callAction)
+                contactAlertController.addAction(textAction)
+                contactAlertController.addAction(emailAction)
+                contactAlertController.addAction(cancelAction)
+                
+                self.presentViewController(contactAlertController, animated: true, completion: nil)
                 
             }
-            contactAlertController.addAction(callAction)
-            contactAlertController.addAction(textAction)
-            contactAlertController.addAction(emailAction)
-            contactAlertController.addAction(cancelAction)
+            let requestAction = UITableViewRowAction(style: .Normal, title: "Request Ride"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+                
+                let requestAlertController = UIAlertController(title: nil, message: "Are you sure you want to request this ride?", preferredStyle: .ActionSheet)
+                
+                let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default, handler: nil)
+                let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+                requestAlertController.addAction(requestAction)
+                requestAlertController.addAction(cancelAction)
+                
+                self.presentViewController(requestAlertController, animated: true, completion: nil)
+                
+            }
             
-            self.presentViewController(contactAlertController, animated: true, completion: nil)
+            contactAction.backgroundColor = UIColor.blackColor()
+            print("ContactActionSheet")
             
+            return [contactAction, requestAction]
+
+            
+        case 1:
+            print("Case 1 in numberof sectionsin ")
+            
+        default:
+            break
         }
-        let requestAction = UITableViewRowAction(style: .Normal, title: "Request Ride"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
-            
-            let requestAlertController = UIAlertController(title: nil, message: "Are you sure you want to request this ride?", preferredStyle: .ActionSheet)
-            
-            let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default, handler: nil)
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-            
-            requestAlertController.addAction(requestAction)
-            requestAlertController.addAction(cancelAction)
-            
-            
-            self.presentViewController(requestAlertController, animated: true, completion: nil)
-    
-        }
-        
-        contactAction.backgroundColor = UIColor.blackColor()
-    
-        return [contactAction, requestAction]
+        return []
     }
+
     
+    func actionSheet(){
+        
+    }
     
     
     func configureTableView(){

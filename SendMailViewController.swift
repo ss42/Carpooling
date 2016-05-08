@@ -41,16 +41,17 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
 
     @IBAction func sendMailPressed(sender: AnyObject) {
         if MFMailComposeViewController.canSendMail(){
-            var subjectText = subject.text
-            var bodyText = body.text
+            let subjectText = subject.text
+            let bodyText = body.text
             
-            var toRecipients = ["sanjay.shrestha010@gmail.com"]
+            let toRecipients = ["sanjay.shrestha010@gmail.com"]
             
-            var mc: MFMailComposeViewController = MFMailComposeViewController()
+            let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
             mc.setSubject(subjectText!)
             mc.setMessageBody(bodyText, isHTML: false)
             mc.setToRecipients(toRecipients)
+            print("Sending mail")
             
             self.presentViewController(mc, animated: true, completion: nil)
         }

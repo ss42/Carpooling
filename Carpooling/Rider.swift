@@ -25,6 +25,10 @@ class Rider{
         email = authData.providerData["email"] as! String
         password = authData.providerData["provider"] as! String
     }
+    init(uidAddress: String)
+    {
+        //self.uid = uidAddress
+    }
     
     init(firstName:String, lastName:String, phoneNumber:String, email:String, password:String, picture: String)//, uid: String)
     {
