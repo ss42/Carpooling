@@ -13,7 +13,7 @@ class AvailableRidesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var startAddress: UILabel!
     
-    @IBOutlet weak var endAddress: UILabel!
+
     
     @IBOutlet weak var postedTime: UILabel!
     
@@ -23,7 +23,7 @@ class AvailableRidesTableViewCell: UITableViewCell {
     
     @IBOutlet weak var picture: UIImageView!
     
-    @IBOutlet weak var notes: UILabel!
+ 
     
     @IBOutlet weak var fullName: UILabel!
     

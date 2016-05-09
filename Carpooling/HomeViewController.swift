@@ -101,6 +101,7 @@ class HomeViewController: UIViewController{
     
     //Calculates the time elapsed after a given time
     func timeElapsed(date: String)-> String{
+        
         let dateformatter = NSDateFormatter()
         dateformatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
         dateformatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -212,11 +213,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
             // cell.picture.image = picture
-            cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
-            cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
+            cell.startAddress?.text = "Leaving \(trip.fromCity) to \(trip.toCity) \n on  \(trip.pickUpTime)  "
+           // cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
             cell.postedTime?.text = "Posted \(trip.postedTime)"
             cell.pickUpTime?.text = "On \(trip.pickUpTime)"
-            cell.notes?.text = "Notes here \(trip.notes)"
+         //   cell.notes?.text = "Notes here \(trip.notes)"
             cell.capacity?.text = "Capacity: \(trip.capacity)"
             configureTableView()
         case 1:
@@ -228,11 +229,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
             // cell.picture.image = picture
-            cell.startAddress?.text = "From: \(trip.fromStreetAddress), \(trip.fromCity), \(trip.fromState), \(trip.fromZipCode)  "
-            cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
+            cell.startAddress?.text = "Leaving from  \(trip.fromCity) to (trip.toCity) on \(trip.pickUpTime)"
+            //cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
             cell.postedTime?.text = "Posted \(trip.postedTime)"
             cell.pickUpTime?.text = "On \(trip.pickUpTime)"
-            cell.notes?.text = "Notes here \(trip.notes)"
+            //cell.notes?.text = "Notes here \(trip.notes)"
             cell.capacity?.text = "Capacity: \(trip.capacity)"
             configureTableView()
 
@@ -278,10 +279,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 let contactAlertController = UIAlertController(title: "Contact  \(driver)", message: ":)", preferredStyle: .ActionSheet )
                 
                 let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
+                    
+                    var url:NSURL = NSURL(string: "tel://+15103675660")!
+                    UIApplication.sharedApplication().openURL(url)
                     //do stuff
                 }
                 let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
                     //do stuff
+                    
+                    let msgVC = MFMessageComposeViewController()
+                    msgVC.body = "Hello World"
+                    msgVC.recipients = ["+15103675660"]
+                    msgVC.messageComposeDelegate = self
+                    self.presentViewController(msgVC, animated: true, completion: nil)
                 }
                 let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
                     self.performSegueWithIdentifier("sendMailSegue", sender: nil)
@@ -358,6 +368,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.rowHeight = 130.00
         
         
+    }
+}
+extension HomeViewController: MFMessageComposeViewControllerDelegate{
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        tableView.reloadData()
+        
+
     }
 }
 
