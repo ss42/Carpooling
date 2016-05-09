@@ -10,8 +10,12 @@
 import Foundation
 import Firebase
 
+//imports firebase and foundation
+
 
 let BASE_URL =  "http://smcpool.firebaseio.com"
+
+// Website that contains the backend of the app
 
 class DataService {
     static let dataService = DataService()
@@ -21,6 +25,7 @@ class DataService {
     var postRef = Firebase(url: "\(BASE_URL)/posts")
     var requestRideRef = Firebase(url:  "\(BASE_URL)/requestRidesPost")
     
+// Firebase for users and posting done inside the app
   
     
     var CURRENT_USER_REF: Firebase {
@@ -29,6 +34,7 @@ class DataService {
         let currentUser = Firebase(url: "\(baseRef)").childByAppendingPath("users").childByAppendingPath(userID)
         
         return currentUser!
+// User ID setup
     }
     
 
