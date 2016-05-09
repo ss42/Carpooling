@@ -1685,7 +1685,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="260"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2S-8R-vXD">
+                        <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2S-8R-vXD">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <items>
                                 <barButtonItem title="Cancel" id="iBm-B4-mWC">
