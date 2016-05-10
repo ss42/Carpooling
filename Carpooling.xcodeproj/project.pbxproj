@@ -320,7 +320,7 @@
 				TargetAttributes = {
 					92485E0E1CAD937A0094D2C9 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = JV3YKREUE2;
+						DevelopmentTeam = 7B9F98EQ3K;
 					};
 				};
 			};
@@ -568,16 +568,14 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Carpooling/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Sanjay-Carpooling";
+				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIPFLAGS = "-ObjC flag";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -591,15 +589,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Carpooling/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Sanjay-Carpooling";
+				PRODUCT_BUNDLE_IDENTIFIER = Sanjay.Carpooling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				STRIPFLAGS = "-ObjC flag";
 				SWIFT_INCLUDE_PATHS = "$(SRCROOT)/**";
 				SWIFT_OBJC_BRIDGING_HEADER = "Carpooling/Carpooling-Bridging-Header.h";
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -10,17 +10,11 @@ import UIKit
 import GoogleMaps
 import Google
 import Firebase
-// These are the functions that were imported in order for the app to function properly. 
-// Google Maps to locate the rider and driver.
-// Google to enable Google sign in. 
-// Firebase this is the program that registers all the users and keeps track of them.
-
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-// main app view that shows the first screen of the creating a profile. 
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

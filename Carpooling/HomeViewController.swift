@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import MessageUI
 
-// Without this the app wouldnt function, this connects to the back end of the App
-
 
 class HomeViewController: UIViewController{
     
@@ -65,8 +63,7 @@ class HomeViewController: UIViewController{
                 self.tableView.reloadData()
             // else nothing
         })
-        print("temp array count is:  \(tempArray.count)")
-        // These strings are the functions that allow the user to see where the desire location from start to the end location.
+        
         
     }
     func convertBase64StringToUImage(baseString: String)-> UIImage {
@@ -265,7 +262,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-// when the user types the number of the cell on the app, these strings show to display that number. 
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
