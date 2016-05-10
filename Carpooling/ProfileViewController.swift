@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 
+// Imports Firebase and UIKit
+
 class ProfileViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var firstName: UITextField!
@@ -17,6 +19,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var emailAddress: UITextField!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var editProfilePictureButton: UIButton!
+
+// These functions allow for a new profile to be created.
     
     @IBOutlet weak var ScrollView: UIScrollView!
     
@@ -27,8 +31,9 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         if let imageData = NSUserDefaults.standardUserDefaults().objectForKey("image") as? NSData{
             let storedImage = UIImage.init(data: imageData)
             profileImage.image = storedImage
-        }
         
+        }
+// Allows the user to upload and save profile pictures.
         
         confirmDelegate()
         
@@ -57,6 +62,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
         self.emailAddress.delegate = self
         
     }
+// Allows new users to insert their information in order to create a new profile
     
     
     override func viewWillAppear(animated: Bool) {
@@ -246,6 +252,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
+// allows users to take picture directly from the app to create a profile picture. 
     
     func takePhoto(){
         let cameraPicker = UIImagePickerController()
@@ -254,6 +261,7 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
         self.presentViewController(cameraPicker, animated: true, completion: nil)
         
     }
+// Allows the user to choose a photo from their camera file.
     
     func choosePhoto(){
         let photoPicker = UIImagePickerController()
@@ -264,3 +272,4 @@ extension ProfileViewController : UIImagePickerControllerDelegate, UINavigationC
     }
     
 }
+// allows photo to be chosen along for their profile picture.

@@ -20,6 +20,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var body: UITextView!
     
     var emailAddress: String?
+    // format on how the email is structured.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         }
         
     
+        // Strings show to whom the email must be sent to and the message that the email contains.
+        
         
     }
     
@@ -83,7 +86,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         default: break
 
         }
-        
+// In case that the message wants to be saved or it wants to be deleted, It shows the reponse messages to each case. 
         
         self.dismissViewControllerAnimated(true, completion: nil)
         

@@ -30,6 +30,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     @IBOutlet weak var notesLabel: UILabel!
     
+// displays the ride available on the app. 
     
     
     
