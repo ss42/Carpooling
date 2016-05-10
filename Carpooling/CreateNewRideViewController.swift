@@ -275,6 +275,7 @@ class CreateNewRideViewController: UIViewController {
         let postedTime = getCurrentTime()
         let numberOfSeat = capacity.text
         let notesFromDriver = notes.text
+        let startingCapacity = capacity.text
         
         //check for field if empty...
         let first = tempArray[0]
@@ -288,7 +289,7 @@ class CreateNewRideViewController: UIViewController {
         let pickupTime = dateLabel.text
         
         // removed imagestring be sure to re-add it!
-        user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
+        user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString, "startingCapacity": startingCapacity!]
         DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
         
         

@@ -56,9 +56,23 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
 
     
     @IBAction func updateCapacityStepper(sender: UIStepper) {
-        
-        
-    //self.capacityLabel.text = String(Int(sender.value))
+        let totalriders = (Int(rideDetail!.startingCapacity)! - Int(rideDetail!.capacity)!)
+        print(totalriders)
+        if (Int(rideDetail!.startingCapacity)! > totalriders){
+            sender.maximumValue = Double(rideDetail!.capacity)!
+        }
+        else
+        {
+            sender.maximumValue = 0
+        }
+    //sender.maximumValue = Double(rideDetail!.capacity)!
+    sender.minimumValue = 1
+    let ridersAdded = Int(sender.value)
+    
+    
+    
+    capacityLabel.text =  "Seats remaining: \(totalriders + ridersAdded) / \(rideDetail!.startingCapacity)"
+
     }
     
     
@@ -100,7 +114,11 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
         pickUpTimeLabel.text = "I will pick you on \(rideDetail!.pickUpTime)"
         startAddressLabel.text = "From \(rideDetail!.fromStreetAddress), \(rideDetail!.fromCity), \(rideDetail!.fromState), \(rideDetail!.fromZipCode) "
         endAddressLabel.text = "To: \(rideDetail!.toStreetAddress), \(rideDetail!.toCity), \(rideDetail!.toState), \(rideDetail!.toZipCode)  "
-        capacityLabel.text = "Available room for Ride: \(rideDetail!.capacity)"
+        
+        // capacity math
+        let totalriders = (Int(rideDetail!.startingCapacity)! - Int(rideDetail!.capacity)!)
+        print(totalriders)
+        capacityLabel.text =  "Seats remaining: \(Int(rideDetail!.capacity)!) / \(rideDetail!.startingCapacity)"
         notesLabel.text = rideDetail!.notes
         phoneNumber = (rideDetail?.driver?.phoneNumber)!
         

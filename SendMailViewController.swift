@@ -19,10 +19,12 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     @IBOutlet weak var body: UITextView!
     
+    var emailAddress: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.subject.delegate = self
+        print(emailAddress)
         //self.body.delegate = self
 
         // Do any additional setup after loading the view.
@@ -45,7 +47,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
             let subjectText = subject.text
             let bodyText = body.text
             
-            let toRecipients = ["sanjay.shrestha010@gmail.com"]
+            let toRecipients = [self.emailAddress!]
             
             let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self

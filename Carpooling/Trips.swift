@@ -26,9 +26,11 @@ class Trips{
     var notes = ""
     var postedTime = ""
     var capacity = ""
+    var startingCapacity = ""
     var riders:[Rider]?
+    var postId = ""
     
-    init(rider:Rider, fromStreetAddress:String, fromCity:String, fromState:String, fromZipCode:String, toStreetAddress:String, toCity:String, toState:String, toZipCode:String, pickUpTime: String, notes:String, postedTime: String, capacity: String)
+    init(rider:Rider, fromStreetAddress:String, fromCity:String, fromState:String, fromZipCode:String, toStreetAddress:String, toCity:String, toState:String, toZipCode:String, pickUpTime: String, notes:String, postedTime: String, capacity: String, startingCapacity:String, postId:String)
     {
         self.driver = rider
         self.firstName = rider.firstName
@@ -46,7 +48,9 @@ class Trips{
         self.postedTime = postedTime
         self.pickUpTime = pickUpTime
         self.capacity = capacity
+        self.startingCapacity = startingCapacity
         self.notes = notes
+        self.postId = postId
         
     }
     

@@ -52,11 +52,14 @@ class HomeViewController: UIViewController{
                 let phoneNumber = snapshot.value["phone"] as? String
                 let email = snapshot.value["email"] as? String
                 //let picture = snapshot.value["image"] as? String
+                let startingCapacity = snapshot.value["startingCapacity"] as? String
                 let picture = "male"
+                let postId = snapshot.value["postId"] as? String
+            
                 
                 let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
                 
-                rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!))
+                rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!, startingCapacity: startingCapacity!, postId: postId!))
                 self.tableView.reloadData()
             // else nothing
         })
@@ -70,7 +73,9 @@ class HomeViewController: UIViewController{
         return decodedimage! as UIImage
         
     }
-   
+    override func viewWillAppear(animated: Bool) {
+         self.tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -150,18 +155,29 @@ class HomeViewController: UIViewController{
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(segue.identifier)
         if segue.identifier == "showDetailsSegue"{
             let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
 
-          let destinationVC = segue.destinationViewController as! DetailRideViewController
+            let destinationVC = segue.destinationViewController as! DetailRideViewController
             destinationVC.rideDetail = tempArray[indexPath.row] as? Trips
             //vc.detailTrips = tempArray[indexPath.row] as! NSMutableArray
         }
+        //if segue.identifier == "sendMailSegue"
         else if segue.identifier == "sendMailSegue"
         {
+            print("before assignment")
             let vc = segue.destinationViewController as! SendMailViewController
-            presentViewController(vc, animated: true, completion: nil)
+            print("after assignment")
+            print(vc.description)
+            //self.dismissViewControllerAnimated(false, completion: nil)
+            //presentViewController(vc, animated: true, completion: nil)
+            //performSegueWithIdentifier("sendMailSegue", sender: self)
+            //UIViewController.name
+            //presentViewController("sendMail", animated: true, completion: nil)
+            print("after present")
         }
+ 
     }
     
     /*
@@ -222,14 +238,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             configureTableView()
         case 1:
             
-            print("Case 1 in cell for rowat index")
+            print("Case 1 in cell for row at index")
             let trip = availaibleRideArray[indexPath.row] as! Trips
             // Configure the cell...
             // let picture = convertBase64StringToUImage((trip.driver?.picture)!)
             
             cell.fullName.text = "\(trip.firstName) \(trip.lastName)"
             // cell.picture.image = picture
-            cell.startAddress?.text = "Leaving from  \(trip.fromCity) to (trip.toCity) on \(trip.pickUpTime)"
+            cell.startAddress?.text = "Leaving from  \(trip.fromCity) to \(trip.toCity) \n on \(trip.pickUpTime)"
             //cell.endAddress?.text = "To: \(trip.toStreetAddress), \(trip.toCity), \(trip.toState), \(trip.toZipCode)  "
             cell.postedTime?.text = "Posted \(trip.postedTime)"
             cell.pickUpTime?.text = "On \(trip.pickUpTime)"
@@ -294,7 +310,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                     self.presentViewController(msgVC, animated: true, completion: nil)
                 }
                 let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
-                    self.performSegueWithIdentifier("sendMailSegue", sender: nil)
+                    //self.performSegueWithIdentifier("sendMailSegue", sender: nil)
+                    //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc: SendMailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("sendMail") as! SendMailViewController
+                    let trip = self.tempArray[indexPath.row] as! Trips
+                    vc.emailAddress = trip.email
+                    self.presentViewController(vc, animated: true, completion: nil)
+
                     //do stuff
                     //segue to sendmailcontroller and send data or driver's email add thru segue
                 }
