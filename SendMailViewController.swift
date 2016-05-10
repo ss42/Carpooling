@@ -20,6 +20,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var body: UITextView!
     
     var emailAddress: String?
+    // format on how the email is structured.
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,11 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
             let subjectText = subject.text
             let bodyText = body.text
             
+<<<<<<< 7399fd0c8c4aa2e2f8490b63ee43317f20beaf7d
             let toRecipients = [self.emailAddress!]
+=======
+            let toRecipients = ["sanjay.shrestha010@gmail.com"]
+>>>>>>> Coding
             
             let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
@@ -61,8 +66,13 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         else{
             print("No email service")
         }
+<<<<<<< 7399fd0c8c4aa2e2f8490b63ee43317f20beaf7d
         
     
+=======
+// Strings show to whom the email must be sent to and the message that the email contains.
+        
+>>>>>>> Coding
         
     }
     
@@ -83,7 +93,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         default: break
 
         }
-        
+// In case that the message wants to be saved or it wants to be deleted, It shows the reponse messages to each case. 
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
