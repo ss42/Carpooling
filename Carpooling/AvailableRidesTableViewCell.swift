@@ -26,13 +26,12 @@ class AvailableRidesTableViewCell: UITableViewCell {
  
     
     @IBOutlet weak var fullName: UILabel!
-
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-// displays all available rides, start location, end location, start time, nu,ber of passangers. 
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
