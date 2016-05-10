@@ -48,11 +48,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
             let subjectText = subject.text
             let bodyText = body.text
             
-<<<<<<< 7399fd0c8c4aa2e2f8490b63ee43317f20beaf7d
             let toRecipients = [self.emailAddress!]
-=======
-            let toRecipients = ["sanjay.shrestha010@gmail.com"]
->>>>>>> Coding
             
             let mc: MFMailComposeViewController = MFMailComposeViewController()
             mc.mailComposeDelegate = self
@@ -66,13 +62,10 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         else{
             print("No email service")
         }
-<<<<<<< 7399fd0c8c4aa2e2f8490b63ee43317f20beaf7d
         
     
-=======
-// Strings show to whom the email must be sent to and the message that the email contains.
+        // Strings show to whom the email must be sent to and the message that the email contains.
         
->>>>>>> Coding
         
     }
     
