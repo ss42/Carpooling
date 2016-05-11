@@ -30,7 +30,7 @@ extension RequestRideViewController: GMSAutocompleteResultsViewControllerDelegat
             for i in place.addressComponents!{
                 print(i.type, " ", i.name)
             }
-     
+            
             
             for i in place.addressComponents!{
                 print("before assignment")
@@ -131,18 +131,19 @@ class RequestRideViewController: UIViewController {
     var searchController2: UISearchController?
     var resultView2: UITextView?
     
+    @IBOutlet var datePickerView: DatePickerView!
+    var currentView: UIView?
     
-
+    
     
     
     
     @IBOutlet weak var searchView1: UIView!
     @IBOutlet weak var searchView2: UIView!
-
+    
     @IBOutlet weak var notes: UITextView!
-
-    @IBOutlet weak var doneButton: UIButton!
-    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
@@ -155,7 +156,7 @@ class RequestRideViewController: UIViewController {
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
     @IBOutlet weak var capacity: UILabel!
-
+    
     
     var currentUserUID = ""
     
@@ -163,17 +164,11 @@ class RequestRideViewController: UIViewController {
     
     var tempArray:NSMutableArray = []
     
-    func custom(){
-        searchController?.searchBar.placeholder = "Enter Address here"
-        searchController?.searchBar.imageForSearchBarIcon(UISearchBarIcon.ResultsList, state: UIControlState.Normal)
-        searchController?.searchBar.barTintColor = UIColor.redColor()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.custom()
-        datePicker.hidden = true
-        doneButton.hidden = true
+        
         confirmTextFieldDelegate()
         
         resultsViewController = GMSAutocompleteResultsViewController()
@@ -226,9 +221,11 @@ class RequestRideViewController: UIViewController {
                 print("authdata is nil")
             }
         })
+        datePickerView.frame = CGRectMake(view.frame.origin.x, view.frame.height, view.frame.size.width, datePickerView.frame.height)
+        self.view.addSubview(datePickerView)
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -242,15 +239,16 @@ class RequestRideViewController: UIViewController {
         toCityTextfield.delegate = self
         toStateTextField.delegate = self
         toZipCodeTextField.delegate = self
+        datePickerView.delegate = self
+        
     }
     
-  
+    
     
     @IBAction func chooseDateAndTimeTapped(sender: AnyObject) {
-        datePicker.hidden = false
-        doneButton.hidden = false
-        notes.hidden = true
-     
+        
+        self.presentPicker(datePickerView)
+        print("present piceker pressed")
         //need to reload data
         
     }
@@ -259,18 +257,6 @@ class RequestRideViewController: UIViewController {
         self.capacity.text = String(Int(sender.value))
     }
     
-    
-  
-    @IBAction func doneTapped(sender: AnyObject) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.dateFormat = "dd MMM HH:mm"
-        let strDate = dateFormatter.stringFromDate(datePicker.date)
-        dateLabel.text = strDate
-        datePicker.hidden = true
-        notes.hidden = false
-    }
     
     //to display alert for errors
     func displayMyAlertMessage(title: String, message: String) {
@@ -307,20 +293,29 @@ class RequestRideViewController: UIViewController {
         let numberOfSeat = capacity.text
         let notesFromDriver = notes.text
         
-        //check for field if empty...
-        let first = tempArray[0]
-        let last = tempArray[1]
-        let phone = tempArray[2]
-        let email = tempArray[3]
-        let imageString = tempArray[4]
+        if fromStreet != "" && fromCity != "" && fromState != "" && fromZipCode != "" && toCity != "" && toStreet != "" && toZipCode != "" && numberOfSeat != ""{
+            
+            //check for field if empty...
+            let first = tempArray[0]
+            let last = tempArray[1]
+            let phone = tempArray[2]
+            let email = tempArray[3]
+            let imageString = tempArray[4]
+            
+            
+            print("Todays date is  \(postedTime)")
+            let pickupTime = dateLabel.text
+            
+            // removed imagestring be sure to re-add it!
+            user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
+            DataService.dataService.createNewRequest(user as! Dictionary<String, AnyObject>)
+        }
+        else {
+            self.displayMyAlertMessage("Empty Fields", message: "Please fill all the required fields.")
+
+        }
         
-        
-        print("Todays date is  \(postedTime)")
-        let pickupTime = dateLabel.text
-        
-        // removed imagestring be sure to re-add it!
-        user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
-        DataService.dataService.createNewRequest(user as! Dictionary<String, AnyObject>)
+   
         
         
         
@@ -328,7 +323,7 @@ class RequestRideViewController: UIViewController {
         performCustomSegue()
     }
     
-
+    
     @IBAction func cancelTapped(sender: AnyObject) {
         performCustomSegue()
     }
@@ -400,12 +395,38 @@ class RequestRideViewController: UIViewController {
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(action)
         //self.presentViewController(alert, animated: true, completion: nil)
-        self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
+        //self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+    
+    func presentPicker(view: UIView){
+        print("  present picker clicketd")
+        currentView = view
+        UIView.animateWithDuration(1.0){() -> Void in
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y - view.frame.size.height, view.frame.width, view.frame.height)
+        }
+    }
+    func dismissPicker(){
+        UIView.animateWithDuration(1.0){ () -> Void in
+            if let picker = self.currentView {
+                self.currentView = nil
+                picker.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height, self.view.frame.size.width, picker.frame.height)
+            }
+        }
+    }
+    
+    
+}
 
-
+extension RequestRideViewController: DatePickerViewDelegate{
+    func cancelPressed() {
+        dismissPicker()
+    }
+    func donePressed() {
+        dateLabel.text = datePickerView.date
+        dismissPicker()
+    }
 }
 
 extension RequestRideViewController: UITextFieldDelegate{

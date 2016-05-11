@@ -118,7 +118,7 @@ extension CreateNewRideViewController: GMSAutocompleteResultsViewControllerDeleg
 }
 
 class CreateNewRideViewController: UIViewController {
-
+    
     
     // adding stuff for autocomplete
     
@@ -139,7 +139,7 @@ class CreateNewRideViewController: UIViewController {
     @IBOutlet weak var searchView2: UIView!
     
     @IBOutlet weak var notes: UITextView!
-
+    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var fromStreetAddressTextField: UITextField!
     @IBOutlet weak var fromCityTextField: UITextField!
@@ -150,7 +150,7 @@ class CreateNewRideViewController: UIViewController {
     @IBOutlet weak var toStateTextField: UITextField!
     @IBOutlet weak var toZipCodeTextField: UITextField!
     @IBOutlet weak var capacity: UILabel!
-
+    
     var currentUserUID = ""
     
     var user : NSDictionary?
@@ -221,10 +221,10 @@ class CreateNewRideViewController: UIViewController {
         
         datePickerView.frame = CGRectMake(view.frame.origin.x, view.frame.height, view.frame.size.width, datePickerView.frame.height)
         self.view.addSubview(datePickerView)
-       
+        
     }
     
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -232,7 +232,7 @@ class CreateNewRideViewController: UIViewController {
     }
     
     
-        
+    
     func confirmTextFieldDelegate() {
         fromStreetAddressTextField.delegate = self
         fromCityTextField.delegate = self
@@ -243,6 +243,7 @@ class CreateNewRideViewController: UIViewController {
         toStateTextField.delegate = self
         toZipCodeTextField.delegate = self
         datePickerView.delegate = self
+        notes.delegate = self
     }
     
     
@@ -252,9 +253,12 @@ class CreateNewRideViewController: UIViewController {
         
         self.presentPicker(datePickerView)
         
+        
+        print("choose date  and time pressed")
+        
     }
     
-
+    
     @IBAction func capacityStepperTapped(sender: UIStepper) {
         self.capacity.text = String(Int(sender.value))
     }
@@ -276,21 +280,27 @@ class CreateNewRideViewController: UIViewController {
         let numberOfSeat = capacity.text
         let notesFromDriver = notes.text
         let startingCapacity = capacity.text
-        
-        //check for field if empty...
-        let first = tempArray[0]
-        let last = tempArray[1]
-        let phone = tempArray[2]
-        let email = tempArray[3]
-        let imageString = tempArray[4]
-      
-        
-        print("Todays date is  \(postedTime)")
-        let pickupTime = dateLabel.text
-        
-        // removed imagestring be sure to re-add it!
-        user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString, "startingCapacity": startingCapacity!]
-        DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
+        if fromStreet != "" && fromCity != "" && fromState != "" && fromZipCode != "" && toCity != "" && toStreet != "" && toZipCode != "" && startingCapacity != ""{
+            
+            //check for field if empty...
+            let first = tempArray[0]
+            let last = tempArray[1]
+            let phone = tempArray[2]
+            let email = tempArray[3]
+            let imageString = tempArray[4]
+            
+            
+            print("Todays date is  \(postedTime)")
+            let pickupTime = dateLabel.text
+            
+            // removed imagestring be sure to re-add it!
+            user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString, "startingCapacity": startingCapacity!]
+            DataService.dataService.createNewPost(user as! Dictionary<String, AnyObject>)
+            
+        }
+        else{
+            self.displayMyAlertMessage("Empty Fields", message: "Please fill all the required fields.")
+        }
         
         
         //to go to home screen
@@ -306,12 +316,12 @@ class CreateNewRideViewController: UIViewController {
     
     //Perform Segue with Storyboard ID
     func performCustomSegue(){
-       // let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        // let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: UIViewController = storyboard!.instantiateViewControllerWithIdentifier("home")
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-
+    
     
     //to display alert for errors
     func displayMyAlertMessage(title: String, message: String) {
@@ -364,28 +374,30 @@ class CreateNewRideViewController: UIViewController {
             print("image not empty")
             //print(imageString)
             
-            if  (first != nil && last != nil && phone != nil && email != nil && imageString != nil) {
-               
-                    print("The first name of this guy is \(first)")
-                    print("The last name of this guy is \(last)")
-                    print("The phone number of this guy is \(phone)")
-                    print("The email of this guy is \(email)")
-                    print("image not empty")
-                    //print(imageString)
-                  //  self.user = ["first": first!, "last": last!, "phone": phone!, "email": email!, "image": imageString!]
+            if  (first != "" && last != "" && phone != "" && email != "" && imageString != "") {
+                
+                print("The first name of this guy is \(first)")
+                print("The last name of this guy is \(last)")
+                print("The phone number of this guy is \(phone)")
+                print("The email of this guy is \(email)")
+                print("image not empty")
+                //print(imageString)
+                //  self.user = ["first": first!, "last": last!, "phone": phone!, "email": email!, "image": imageString!]
                 print("User info sucessfully appended to dictionary ")
                 self.tempArray.addObject(first!)
                 self.tempArray.addObject(last!)
                 self.tempArray.addObject(phone!)
                 self.tempArray.addObject(email!)
                 self.tempArray.addObject(imageString!)
-    
-        
-             }
+                
+                
+            }
             else {
                 //show profile is not completed to create ride
                 self.showError()
+                let vc: UIViewController = self.storyboard!.instantiateViewControllerWithIdentifier("profileView") as! ProfileViewController
                 
+                self.presentViewController(vc, animated: true, completion: nil)
             }
             
         })
@@ -396,9 +408,11 @@ class CreateNewRideViewController: UIViewController {
         let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
         alert.addAction(action)
         //self.presentViewController(alert, animated: true, completion: nil)
-        self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
+        //self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
         self.presentViewController(alert, animated: true, completion: nil)
-
+        self.performSegueWithIdentifier("incompleteProfileSegue", sender: nil)
+        
+        
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         //let indexPath: NSIndexPath = self.tableView.indexPathForSelectedRow!
@@ -406,14 +420,15 @@ class CreateNewRideViewController: UIViewController {
             print("overide prepere for segue")
             let vc = segue.destinationViewController as! ProfileViewController
             self.presentViewController(vc, animated: true, completion: nil)
-                    }
+        }
     }
     
     func presentPicker(view: UIView){
+        print("jpresent picker func")
         
         currentView = view
         UIView.animateWithDuration(0.3){() -> Void in
-         view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y - view.frame.size.height, view.frame.width, view.frame.height)
+            view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y - view.frame.size.height, view.frame.width, view.frame.height)
         }
     }
     func dismissPicker(){
@@ -424,19 +439,25 @@ class CreateNewRideViewController: UIViewController {
             }
         }
     }
-
+    
 }
 
 extension CreateNewRideViewController: DatePickerViewDelegate{
     func cancelPressed() {
-            dismissPicker()
+        dismissPicker()
     }
     func donePressed() {
         dateLabel.text = datePickerView.date
         dismissPicker()
+        
     }
 }
 
+extension CreateNewRideViewController: UITextViewDelegate{
+    func textViewDidBeginEditing(textView: UITextView) {
+        notes.text = ""
+    }
+}
 extension CreateNewRideViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField) {
         //add something may be?
