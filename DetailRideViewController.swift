@@ -12,7 +12,6 @@ import MessageUI
 
 class DetailRideViewController: UIViewController{//, MFMessageComposeViewControllerDelegate{
     
-    @IBOutlet weak var message: UITextView!
     
     @IBOutlet weak var image: UIImageView!
     
@@ -140,28 +139,21 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
         
     }
     
-    @IBAction func call(sender: AnyObject) {
-        
-        if let phoneURL = NSURL(string: "tel://\(phoneNumber)"){
-            UIApplication.sharedApplication().openURL(phoneURL)
-        }
-        
-        
-    }
+
     func loadDataFromPreviousViewController(){
-        image.image = UIImage(named: "male")
-        fullNameLabel.text = "\(rideDetail!.firstName) \(rideDetail!.lastName)"
-        postedTimeLabel.text = rideDetail?.postedTime
-        pickUpTimeLabel.text = "I will pick you on \(rideDetail!.pickUpTime)"
-        startAddressLabel.text = "From \(rideDetail!.fromStreetAddress), \(rideDetail!.fromCity), \(rideDetail!.fromState), \(rideDetail!.fromZipCode) "
-        endAddressLabel.text = "To: \(rideDetail!.toStreetAddress), \(rideDetail!.toCity), \(rideDetail!.toState), \(rideDetail!.toZipCode)  "
+        self.image.image = UIImage(named: "male")
+        self.fullNameLabel.text = "\(rideDetail!.firstName) \(rideDetail!.lastName)"
+        self.postedTimeLabel.text = rideDetail?.postedTime
+        self.pickUpTimeLabel.text = "I will pick you on \(rideDetail!.pickUpTime)"
+        self.startAddressLabel.text = "From \(rideDetail!.fromStreetAddress), \(rideDetail!.fromCity), \(rideDetail!.fromState), \(rideDetail!.fromZipCode) "
+        self.endAddressLabel.text = "To: \(rideDetail!.toStreetAddress), \(rideDetail!.toCity), \(rideDetail!.toState), \(rideDetail!.toZipCode)  "
         
         // capacity math
         let totalriders = (Int(rideDetail!.startingCapacity)! - Int(rideDetail!.capacity)!)
         print(totalriders)
-        capacityLabel.text =  "Seats remaining: \(Int(rideDetail!.capacity)!) / \(rideDetail!.startingCapacity)"
-        notesLabel.text = "Notes from the Driver: \(rideDetail!.notes)"
-        phoneNumber = (rideDetail?.driver?.phoneNumber)!
+        self.capacityLabel.text =  "Seats remaining: \(Int(rideDetail!.capacity)!) / \(rideDetail!.startingCapacity)"
+        self.notesLabel.text = "Notes from the Driver: \(rideDetail!.notes)"
+        self.phoneNumber = (rideDetail?.driver?.phoneNumber)!
         
     }
     

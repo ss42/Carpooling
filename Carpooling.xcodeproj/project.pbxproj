@@ -46,6 +46,8 @@
 		1079BF801CBB88F900DBDF92 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */; };
 		107A381B1CCF011A008840DA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 107A381A1CCF011A008840DA /* GoogleService-Info.plist */; };
 		107A381D1CCF03E2008840DA /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107A381C1CCF03E2008840DA /* ForgotPasswordViewController.swift */; };
+		1092FB391CE37D1F0087025C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092FB381CE37D1F0087025C /* SettingsViewController.swift */; };
+		1092FB3C1CE384C60087025C /* RideHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1092FB3B1CE384C60087025C /* RideHistoryViewController.swift */; };
 		92485E131CAD937A0094D2C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E121CAD937A0094D2C9 /* AppDelegate.swift */; };
 		92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92485E141CAD937A0094D2C9 /* LoginViewController.swift */; };
 		92485E181CAD937A0094D2C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92485E161CAD937A0094D2C9 /* Main.storyboard */; };
@@ -101,6 +103,8 @@
 		1079BF7F1CBB88F900DBDF92 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		107A381A1CCF011A008840DA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		107A381C1CCF03E2008840DA /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		1092FB381CE37D1F0087025C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1092FB3B1CE384C60087025C /* RideHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RideHistoryViewController.swift; sourceTree = "<group>"; };
 		3EA1B83ABC26D71D5F4C882B /* Pods_Carpooling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Carpooling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E0F1CAD937A0094D2C9 /* Carpooling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Carpooling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92485E121CAD937A0094D2C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -236,6 +240,22 @@
 			name = Profile;
 			sourceTree = "<group>";
 		};
+		1092FB371CE37D020087025C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1092FB381CE37D1F0087025C /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1092FB3A1CE384B70087025C /* Ride History */ = {
+			isa = PBXGroup;
+			children = (
+				1092FB3B1CE384C60087025C /* RideHistoryViewController.swift */,
+			);
+			name = "Ride History";
+			sourceTree = "<group>";
+		};
 		184A689D2910CCAADB87B006 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +298,8 @@
 			isa = PBXGroup;
 			children = (
 				1067958B1CC18AF000ED4EF8 /* DataService.swift */,
+				1092FB3A1CE384B70087025C /* Ride History */,
+				1092FB371CE37D020087025C /* Settings */,
 				10100AF61CE3157A00809623 /* About */,
 				107A381A1CCF011A008840DA /* GoogleService-Info.plist */,
 				1079BF811CBB88FF00DBDF92 /* Profile */,
@@ -441,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1092FB3C1CE384C60087025C /* RideHistoryViewController.swift in Sources */,
 				1067958C1CC18AF000ED4EF8 /* DataService.swift in Sources */,
 				105F21B71CD41619005B6B8B /* DetailRideViewController.swift in Sources */,
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
@@ -454,6 +477,7 @@
 				1066F2161CB8B73100CD795F /* Rider.swift in Sources */,
 				1066F2181CB8B7BB00CD795F /* Trips.swift in Sources */,
 				92DB5D221CB9B52E00796EEC /* AvailableRidesTableViewCell.swift in Sources */,
+				1092FB391CE37D1F0087025C /* SettingsViewController.swift in Sources */,
 				1067958E1CC1956900ED4EF8 /* CreateNewAccountViewController.swift in Sources */,
 				1066F2131CB8B0DA00CD795F /* RequestRideViewController.swift in Sources */,
 				107A381D1CCF03E2008840DA /* ForgotPasswordViewController.swift in Sources */,
