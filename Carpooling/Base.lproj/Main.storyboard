@@ -15,8 +15,27 @@
         </mutableArray>
         <mutableArray key="SF-UI-Display-Thin.otf">
             <string>SFUIDisplay-Thin</string>
+            <string>SFUIDisplay-Thin</string>
+            <string>SFUIDisplay-Thin</string>
+            <string>SFUIDisplay-Thin</string>
+            <string>SFUIDisplay-Thin</string>
         </mutableArray>
         <mutableArray key="SF-UI-Text-Light.otf">
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
+            <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
             <string>SFUIText-Light</string>
@@ -51,7 +70,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="0O4-a2-GLH"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="20"/>
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -62,7 +81,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70Y-aQ-NXV">
                                         <rect key="frame" x="300" y="0.0" width="300" height="50"/>
                                         <color key="backgroundColor" red="0.90588235294117647" green="0.29803921568627451" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="20"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -76,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="553"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1gL-S0-9t9">
-                                        <rect key="frame" x="20" y="442" width="560" height="107"/>
+                                        <rect key="frame" x="20" y="442" width="560" height="110"/>
                                         <subviews>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Az7-hj-oXn">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
@@ -89,8 +108,8 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CxO-Ee-aRH">
-                                                <rect key="frame" x="0.0" y="76" width="560" height="31"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
+                                                <rect key="frame" x="0.0" y="76" width="560" height="34"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                 <state key="normal" title="Need Help Logging In?">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -102,7 +121,7 @@
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SMC-POOL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RUA-Nw-zOv">
                                         <rect key="frame" x="0.0" y="22" width="600" height="50"/>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="36"/>
                                         <color key="textColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -113,13 +132,6 @@
                                         <color key="textColor" red="0.1244791667" green="0.1244791667" blue="0.1244791667" alpha="0.7643588362" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="requestRide" translatesAutoresizingMaskIntoConstraints="NO" id="x1E-hP-Ajh">
-                                        <rect key="frame" x="409" y="289" width="181" height="129"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="181" id="FzA-X9-tha"/>
-                                            <constraint firstAttribute="height" constant="129" id="TrP-vk-7Jf"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1gL-S0-9t9" firstAttribute="centerX" secondItem="AyH-RB-uuW" secondAttribute="centerX" id="JkE-Ch-2VG"/>
@@ -144,7 +156,6 @@
                     </view>
                     <connections>
                         <outlet property="ScrollView" destination="AyH-RB-uuW" id="3p8-6I-vhc"/>
-                        <outlet property="autoImageView" destination="x1E-hP-Ajh" id="QVB-TA-S2y"/>
                         <outlet property="autoLabel" destination="a9i-fc-ZUQ" id="yAt-o6-gxS"/>
                         <outlet property="emailField" destination="Az7-hj-oXn" id="cuL-pq-9KK"/>
                         <outlet property="passwordField" destination="0dI-8t-z4S" id="fxV-ue-UdO"/>
@@ -174,12 +185,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="192.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sanjay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-KN-C2q">
-                                                    <rect key="frame" x="8" y="111" width="187" height="25"/>
-                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
-                                                    <color key="textColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="b6P-zB-9TV">
                                                     <rect key="frame" x="66" y="22" width="75" height="75"/>
                                                     <userDefinedRuntimeAttributes>
@@ -193,6 +198,12 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sanjay" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-KN-C2q">
+                                                    <rect key="frame" x="10" y="131" width="187" height="25"/>
+                                                    <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                                    <color key="textColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.32156862749999998" green="0.27058823529999998" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -418,15 +429,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="549"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="i4i-Pe-FlH">
-                                        <rect key="frame" x="119" y="46" width="362" height="449"/>
+                                        <rect key="frame" x="25" y="50" width="550" height="433"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b10-gL-sGj">
-                                                <rect key="frame" x="0.0" y="0.0" width="362" height="180"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b10-gL-sGj">
+                                                <rect key="frame" x="0.0" y="0.0" width="550" height="155"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Hpe-ZR-XH5">
-                                                        <rect key="frame" x="121" y="0.0" width="120" height="120"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Hpe-ZR-XH5">
+                                                        <rect key="frame" x="215" y="0.0" width="120" height="120"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dWW-Yu-k8X">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dWW-Yu-k8X">
                                                                 <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -435,12 +446,16 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
                                                         </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="120" id="bvX-TY-Cip"/>
+                                                            <constraint firstAttribute="height" constant="120" id="ygc-5u-K7S"/>
+                                                        </constraints>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-WC-mFb">
-                                                        <rect key="frame" x="166" y="125" width="30" height="55"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ybj-WC-mFb">
+                                                        <rect key="frame" x="260" y="125" width="30" height="30"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-a8-0Jp">
-                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="55"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MgR-a8-0Jp">
+                                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                 <state key="normal" title="Edit"/>
                                                                 <connections>
                                                                     <action selector="editButtonTapped:" destination="rEP-gY-UCO" eventType="touchUpInside" id="XuO-4R-Myz"/>
@@ -450,58 +465,57 @@
                                                     </stackView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="Hpe-ZR-XH5" firstAttribute="leading" secondItem="b10-gL-sGj" secondAttribute="leading" constant="121" id="YtT-nD-LZk"/>
                                                     <constraint firstItem="Ybj-WC-mFb" firstAttribute="top" secondItem="b10-gL-sGj" secondAttribute="top" constant="125" id="iTR-il-CpZ"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-BJ-rYg">
-                                                <rect key="frame" x="0.0" y="205" width="362" height="111"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="h0i-BJ-rYg">
+                                                <rect key="frame" x="0.0" y="180" width="550" height="114"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6te-3a-9CY">
-                                                        <rect key="frame" x="0.0" y="0.0" width="362" height="21"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6te-3a-9CY">
+                                                        <rect key="frame" x="0.0" y="0.0" width="550" height="24"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Personal Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWN-OF-Fue">
-                                                                <rect key="frame" x="0.0" y="0.0" width="362" height="21"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Personal Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WWN-OF-Fue">
+                                                                <rect key="frame" x="0.0" y="0.0" width="550" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="20"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-XE-68g">
-                                                        <rect key="frame" x="0.0" y="36" width="362" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZLY-XE-68g">
+                                                        <rect key="frame" x="0.0" y="39" width="550" height="30"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1j-PD-ekj">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1j-PD-ekj">
                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="112" id="2Rt-SS-vcB"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J44-81-Pxa">
-                                                                <rect key="frame" x="112" y="0.0" width="250" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J44-81-Pxa">
+                                                                <rect key="frame" x="112" y="0.0" width="438" height="30"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FQB-8r-IZ8">
-                                                        <rect key="frame" x="0.0" y="81" width="362" height="30"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQB-8r-IZ8">
+                                                        <rect key="frame" x="0.0" y="84" width="550" height="30"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evx-Z2-gte">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evx-Z2-gte">
                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="112" id="zsR-rv-geo"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVw-Sp-BII">
-                                                                <rect key="frame" x="112" y="0.0" width="250" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rVw-Sp-BII">
+                                                                <rect key="frame" x="112" y="0.0" width="438" height="30"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
@@ -509,14 +523,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Hra-TX-6MO">
-                                                <rect key="frame" x="0.0" y="340" width="362" height="109"/>
+                                                <rect key="frame" x="0.0" y="319" width="550" height="114"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PYK-Ha-UB8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="362" height="19"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="550" height="24"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-3L-O4U">
-                                                                <rect key="frame" x="0.0" y="0.0" width="362" height="19"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="550" height="24"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="20"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -531,58 +545,51 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfn-81-Joe">
-                                                        <rect key="frame" x="0.0" y="34" width="362" height="30"/>
+                                                        <rect key="frame" x="0.0" y="39" width="550" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGl-xH-gnC">
-                                                                <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="126" height="30"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YrB-pz-sf9">
-                                                                <rect key="frame" x="112" y="0.0" width="251" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="126" y="0.0" width="425" height="30"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXI-mN-Q8H">
-                                                        <rect key="frame" x="0.0" y="79" width="362" height="30"/>
+                                                        <rect key="frame" x="0.0" y="84" width="550" height="30"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eM7-ra-6KA">
                                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="30"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="112" id="9AY-i6-Pxo"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUW-1v-Oct">
-                                                                <rect key="frame" x="112" y="0.0" width="250" height="30"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <rect key="frame" x="112" y="0.0" width="438" height="30"/>
+                                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="PYK-Ha-UB8" secondAttribute="bottom" constant="90" id="GPZ-C7-1Da"/>
-                                                </constraints>
                                             </stackView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="h0i-BJ-rYg" secondAttribute="bottom" constant="134" id="2cl-Wm-q6p"/>
-                                            <constraint firstAttribute="width" constant="362" id="kkf-nK-pYY"/>
-                                            <constraint firstAttribute="height" constant="449" id="woM-1q-lk7"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="i4i-Pe-FlH" firstAttribute="top" secondItem="B3R-aX-YDs" secondAttribute="top" constant="46" id="2hq-cj-i7v"/>
+                                    <constraint firstItem="i4i-Pe-FlH" firstAttribute="top" secondItem="B3R-aX-YDs" secondAttribute="top" constant="50" id="FMD-WR-iro"/>
                                     <constraint firstAttribute="bottom" secondItem="i4i-Pe-FlH" secondAttribute="bottom" constant="54" id="Fap-h6-qZ2"/>
                                     <constraint firstItem="i4i-Pe-FlH" firstAttribute="centerX" secondItem="B3R-aX-YDs" secondAttribute="centerX" id="RCW-Af-Ueb"/>
-                                    <constraint firstAttribute="trailing" secondItem="i4i-Pe-FlH" secondAttribute="trailing" constant="119" id="qCz-IU-MRI"/>
+                                    <constraint firstItem="i4i-Pe-FlH" firstAttribute="leading" secondItem="B3R-aX-YDs" secondAttribute="leading" constant="25" id="YiC-2Q-2NM"/>
+                                    <constraint firstAttribute="trailing" secondItem="i4i-Pe-FlH" secondAttribute="trailing" constant="25" id="puG-rG-WjP"/>
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVc-3e-gQy">
@@ -1339,21 +1346,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-BQ-MnU">
-                                <rect key="frame" x="20" y="114" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Passcode here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAF-GI-t6v">
-                                <rect key="frame" x="20" y="177" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm your Passcode here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-ik-7YZ">
-                                <rect key="frame" x="20" y="238" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
-                            </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NqQ-8a-jJe">
                                 <rect key="frame" x="0.0" y="550" width="600" height="50"/>
                                 <subviews>
@@ -1385,12 +1377,47 @@
                                     <constraint firstAttribute="height" constant="50" id="4sI-en-GzQ"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ZjL-mC-GnO">
+                                <rect key="frame" x="25" y="70" width="550" height="223"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J6b-pv-B9Z">
+                                        <rect key="frame" x="0.0" y="0.0" width="550" height="43"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="KGd-tV-5jI">
+                                        <rect key="frame" x="0.0" y="93" width="550" height="130"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email Address here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n3h-BQ-MnU">
+                                                <rect key="frame" x="0.0" y="0.0" width="550" height="30"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xAF-GI-t6v">
+                                                <rect key="frame" x="0.0" y="50" width="550" height="30"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Password again" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nMe-ik-7YZ">
+                                                <rect key="frame" x="0.0" y="100" width="550" height="30"/>
+                                                <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98075510529999999" green="0.96038710019999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NqQ-8a-jJe" secondAttribute="trailing" id="CJe-V4-drR"/>
+                            <constraint firstItem="ZjL-mC-GnO" firstAttribute="leading" secondItem="sDA-Nf-FQj" secondAttribute="leading" constant="25" id="D4a-92-RNK"/>
                             <constraint firstItem="NqQ-8a-jJe" firstAttribute="leading" secondItem="sDA-Nf-FQj" secondAttribute="leading" id="Y0f-Re-0Dn"/>
+                            <constraint firstItem="ZjL-mC-GnO" firstAttribute="top" secondItem="9nb-7v-aqr" secondAttribute="bottom" constant="50" id="c41-VE-vNY"/>
                             <constraint firstItem="mVa-Ac-rxu" firstAttribute="top" secondItem="NqQ-8a-jJe" secondAttribute="bottom" id="ezP-uL-Qat"/>
+                            <constraint firstItem="ZjL-mC-GnO" firstAttribute="centerX" secondItem="sDA-Nf-FQj" secondAttribute="centerX" id="gGP-Lz-ZFc"/>
+                            <constraint firstAttribute="trailing" secondItem="ZjL-mC-GnO" secondAttribute="trailing" constant="25" id="lax-rG-3xj"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1471,18 +1498,18 @@
                                     <constraint firstAttribute="height" constant="50" id="D8V-S9-G2G"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-yC-H8P">
-                                <rect key="frame" x="20" y="120" width="560" height="101"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6ns-yC-H8P">
+                                <rect key="frame" x="20" y="120" width="560" height="123"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Need Help Loggin in?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKF-4n-cY9">
-                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need Help Logging in?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKF-4n-cY9">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="43"/>
+                                        <fontDescription key="fontDescription" name="SFUIDisplay-Thin" family="SF UI Display" pointSize="36"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address you registered with." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTl-mE-N4Q">
-                                        <rect key="frame" x="0.0" y="71" width="560" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email address you registered with." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTl-mE-N4Q">
+                                        <rect key="frame" x="0.0" y="93" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" name="SFUIText-Light" family="SF UI Text" pointSize="18"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
                                 </subviews>
@@ -1745,15 +1772,14 @@
         <image name="home" width="25" height="25"/>
         <image name="menu1" width="40" height="40"/>
         <image name="profile" width="24" height="24"/>
-        <image name="requestRide" width="50" height="35"/>
         <image name="settings" width="24" height="24"/>
         <image name="user_male_circle" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ocR-eu-Tck"/>
         <segue reference="gLe-1B-62c"/>
-        <segue reference="CDO-P3-2Jh"/>
-        <segue reference="7aP-hH-lMI"/>
+        <segue reference="ZjQ-tk-mgs"/>
         <segue reference="4zF-5w-xVF"/>
+        <segue reference="b7M-9h-orb"/>
     </inferredMetricsTieBreakers>
 </document>
