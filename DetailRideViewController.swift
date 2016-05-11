@@ -35,6 +35,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     var phoneNumber = ""
     var rideDetail: Trips?
+    var riderAddedAmount: String?
     
     
     override func viewDidLoad() {
@@ -68,6 +69,8 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     //sender.maximumValue = Double(rideDetail!.capacity)!
     sender.minimumValue = 1
     let ridersAdded = Int(sender.value)
+        self.riderAddedAmount = String(ridersAdded)
+        print(self.riderAddedAmount)
     
     
     
@@ -76,28 +79,66 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     }
     
     
-    
-    @IBAction func sendMessage(sender: AnyObject) {
-        /*
-        let msgVC = MFMessageComposeViewController()
-        msgVC.body = "body here"
-        msgVC.recipients = [phoneNumber]
-        
-        msgVC.messageComposeDelegate = self
-        
-        self.presentViewController(msgVC, animated: true, completion: nil)
-        
-        */
-        
-    }
-    
+
     
     @IBAction func sendMail(sender: AnyObject) {
         
+        let contactAlertController = UIAlertController(title: "Contact  \(fullNameLabel.text)", message: ":)", preferredStyle: .ActionSheet )
+        
+        let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
+            print("THe number calling is tel://+1\((self.rideDetail?.phoneNumber)!)")
+            
+            let url:NSURL = NSURL(string: "tel://+1\((self.rideDetail?.phoneNumber)!)")!
+            UIApplication.sharedApplication().openURL(url)
+            //do stuff
+        }
+        let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
+            //do stuff
+            
+            let msgVC = MFMessageComposeViewController()
+            msgVC.body = ""
+            msgVC.recipients = [(self.rideDetail?.phoneNumber)!]
+            msgVC.messageComposeDelegate = self
+            self.presentViewController(msgVC, animated: true, completion: nil)
+            
+        }
+        let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
+            //self.performSegueWithIdentifier("sendMailSegue", sender: nil)
+            //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc: SendMailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("sendMail") as! SendMailViewController
+            vc.emailAddress = self.rideDetail?.email
+            self.presentViewController(vc, animated: true, completion: nil)
+            
+            //do stuff
+            //segue to sendmailcontroller and send data or driver's email add thru segue
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+            
+        }
+        contactAlertController.addAction(callAction)
+        contactAlertController.addAction(textAction)
+        contactAlertController.addAction(emailAction)
+        contactAlertController.addAction(cancelAction)
+        
+        self.presentViewController(contactAlertController, animated: true, completion: nil)
+
+        
+    }
+    
+    @IBAction func requestRidePressed(sender: AnyObject) {
+        
         
     }
     
     
+    func alert(title: String, msg: String){
+        
+        let alertController = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: title, style: .Default, handler: nil))
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+    }
     
     @IBAction func call(sender: AnyObject) {
         
@@ -119,10 +160,18 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
         let totalriders = (Int(rideDetail!.startingCapacity)! - Int(rideDetail!.capacity)!)
         print(totalriders)
         capacityLabel.text =  "Seats remaining: \(Int(rideDetail!.capacity)!) / \(rideDetail!.startingCapacity)"
-        notesLabel.text = rideDetail!.notes
+        notesLabel.text = "Notes from the Driver: \(rideDetail!.notes)"
         phoneNumber = (rideDetail?.driver?.phoneNumber)!
         
     }
     
     
+}
+extension DetailRideViewController: MFMessageComposeViewControllerDelegate{
+    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //tableView.reloadData()
+        
+        
+    }
 }

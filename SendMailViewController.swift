@@ -43,6 +43,10 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
 
     
     @IBAction func sendMailPressed(sender: AnyObject) {
+        
+        
+        
+        
         if MFMailComposeViewController.canSendMail(){
             let subjectText = subject.text
             let bodyText = body.text
@@ -66,7 +70,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
         
     }
     
-    
+   
     
     func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
        

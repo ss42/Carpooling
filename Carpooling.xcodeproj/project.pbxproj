@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10100AF81CE3159000809623 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10100AF71CE3159000809623 /* AboutViewController.swift */; };
 		101856B31CAE40E00019F1F7 /* UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101856B21CAE40E00019F1F7 /* UI.swift */; };
 		101C83F71CD33730001B1D33 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 101C83E41CD336FF001B1D33 /* SF-UI-Display-Heavy.otf */; };
 		101C83F81CD3373B001B1D33 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 101C83E21CD336FF001B1D33 /* SF-UI-Display-Black.otf */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10100AF71CE3159000809623 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		101856B21CAE40E00019F1F7 /* UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UI.swift; sourceTree = "<group>"; };
 		101C83E21CD336FF001B1D33 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		101C83E31CD336FF001B1D33 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10100AF61CE3157A00809623 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				10100AF71CE3159000809623 /* AboutViewController.swift */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
 		101C840C1CD33821001B1D33 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				1067958B1CC18AF000ED4EF8 /* DataService.swift */,
+				10100AF61CE3157A00809623 /* About */,
 				107A381A1CCF011A008840DA /* GoogleService-Info.plist */,
 				1079BF811CBB88FF00DBDF92 /* Profile */,
 				92485E121CAD937A0094D2C9 /* AppDelegate.swift */,
@@ -433,6 +444,7 @@
 				1067958C1CC18AF000ED4EF8 /* DataService.swift in Sources */,
 				105F21B71CD41619005B6B8B /* DetailRideViewController.swift in Sources */,
 				10722AEE1CAFA334007C20C5 /* HomeViewController.swift in Sources */,
+				10100AF81CE3159000809623 /* AboutViewController.swift in Sources */,
 				92485E151CAD937A0094D2C9 /* LoginViewController.swift in Sources */,
 				101856B31CAE40E00019F1F7 /* UI.swift in Sources */,
 				1079BF7E1CBB816A00DBDF92 /* CustomViewIBDesignable.swift in Sources */,

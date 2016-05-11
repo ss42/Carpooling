@@ -348,8 +348,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 
             }
             
-            contactAction.backgroundColor = UIColor.blackColor()
-            print("ContactActionSheet")
+            contactAction.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
+            requestAction.backgroundColor = UIColor(red: 82/255, green: 69/255, blue: 105/255, alpha: 1.0)
+
             
             return [contactAction, requestAction]
 
