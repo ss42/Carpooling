@@ -187,7 +187,6 @@ class CreateNewRideViewController: UIViewController {
         subView.addSubview((controller1)!)
         //self.view.addSubview(subView)
         searchController?.searchBar.sizeToFit()
-        
         searchController?.hidesNavigationBarDuringPresentation = false
         
         let subView2 = searchView2

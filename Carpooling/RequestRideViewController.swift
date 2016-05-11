@@ -208,6 +208,7 @@ class RequestRideViewController: UIViewController {
         // When UISearchController presents the results view, present it in
         // this view controller, not one further up the chain.
         self.definesPresentationContext = true
+        
         DataService.dataService.userRef.observeAuthEventWithBlock({
             authData in
             print("hello world")
