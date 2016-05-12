@@ -296,7 +296,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
                     
-                    var url:NSURL = NSURL(string: "tel://+15103675660")!
+                    var url:NSURL = NSURL(string: "tel://+15106954976")!
                     UIApplication.sharedApplication().openURL(url)
                     //do stuff
                 }
@@ -357,11 +357,53 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
         case 1:
             print("Case 1 in numberof sectionsin ")
-            let GiveRideAction = UITableViewRowAction(style: .Normal, title: "Request Ride"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
+            let GiveRideAction = UITableViewRowAction(style: .Normal, title: "Drive"){(action: UITableViewRowAction!, indexPath: NSIndexPath) -> Void in
                 
-                let giveRideAlertController = UIAlertController(title: nil, message: "Are you sure you want to give ride?", preferredStyle: .ActionSheet)
+                let giveRideAlertController = UIAlertController(title: nil, message: "Are you sure you want to give ride?", preferredStyle: .Alert)
                 
                 let giveRideAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default){(action)-> Void in
+                    
+                    
+                    let requestedRide = self.tempArray[indexPath.row] as! Trips
+
+                   // contact the person
+                    let contactAlertController = UIAlertController(title: "Please message or Call or Email so that \(requestedRide.firstName)) knows that you are driving.", message: "", preferredStyle: .ActionSheet )
+                    
+                    let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
+                        
+                        var url:NSURL = NSURL(string: "tel://+15106954976")!
+                        UIApplication.sharedApplication().openURL(url)
+                        //do stuff
+                    }
+                    let textAction = UIAlertAction(title: "Text", style: UIAlertActionStyle.Default){(action)-> Void in
+                        //do stuff
+                        
+                        let msgVC = MFMessageComposeViewController()
+                        msgVC.body = "I am picking you up."
+                        msgVC.recipients = ["+15106954976"]
+                        msgVC.messageComposeDelegate = self
+                        self.presentViewController(msgVC, animated: true, completion: nil)
+                    }
+                    let emailAction = UIAlertAction(title: "Email", style: UIAlertActionStyle.Default){(action)-> Void in
+                        //self.performSegueWithIdentifier("sendMailSegue", sender: nil)
+                        //let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                        let vc: SendMailViewController = self.storyboard!.instantiateViewControllerWithIdentifier("sendMail") as! SendMailViewController
+                        vc.emailAddress = requestedRide.email
+                        self.presentViewController(vc, animated: true, completion: nil)
+                        
+                        //do stuff
+                        //segue to sendmailcontroller and send data or driver's email add thru segue
+                    }
+                    let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default){(action)-> Void in
+                        
+                    }
+                    contactAlertController.addAction(callAction)
+                    contactAlertController.addAction(textAction)
+                    contactAlertController.addAction(emailAction)
+                    contactAlertController.addAction(cancelAction)
+                    
+                    self.presentViewController(contactAlertController, animated: true, completion: nil)
+
                     
                     self.tableView.reloadData()
                     //do stuff
@@ -373,6 +415,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 self.presentViewController(giveRideAlertController, animated: true, completion: nil)
                 
             }
+            GiveRideAction.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
+
             return [GiveRideAction]
             
         default:
@@ -382,9 +426,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     
-    func actionSheet(){
-        
-    }
+ 
     
     
     func configureTableView(){

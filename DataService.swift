@@ -42,22 +42,12 @@ class DataService {
         let firebaseNewPost = postRef.childByAutoId()
         
         print(firebaseNewPost.key)
-        //var postId = firebaseNewPost.key
-
-        //print(postId)
-        // setValue() saves to Firebase.
         
-        // make a block here to wait until upload is done before going back to home view controller
         
         var trip2 = trip
         trip2["postId"] = firebaseNewPost.key
         firebaseNewPost.setValue(trip2)
-        //let postId = firebaseNewPost.key
-        //print(postId)
-        //let dict:[String:String] = ["postId":postId]
-        //trip2["postId"] = "1231"
-        //print("before assignment")
-        //firebaseNewPost.setValue(trip2)
+        
         print("after assignment")
         
     }
@@ -66,9 +56,9 @@ class DataService {
         
         let firebaseNewPost = requestRideRef.childByAutoId()
         
-        // setValue() saves to Firebase.
-        
-        firebaseNewPost.setValue(trip)
+        var trip2 = trip
+        trip2["postId"] = firebaseNewPost.key
+        firebaseNewPost.setValue(trip2)
         
         
     }

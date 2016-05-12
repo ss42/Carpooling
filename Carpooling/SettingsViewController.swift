@@ -54,6 +54,19 @@ class SettingsViewController: UIViewController {
             self.alert("Attention!", msg: "You need to have at least one medium of communication")
             
         }
+        else{
+            if phoneSwitch.on {
+                NSUserDefaults.standardUserDefaults().setObject(phoneSwitch.on, forKey: "phone")
+
+            }
+            if emailSwitch.on {
+                NSUserDefaults.standardUserDefaults().setObject(emailSwitch.on, forKey: "email")
+            }
+            if textMessageSwitch.on {
+                NSUserDefaults.standardUserDefaults().setObject(textMessageSwitch.on, forKey: "text")
+            }
+
+        }
         
         
     }

@@ -136,8 +136,6 @@ class RequestRideViewController: UIViewController {
     
     
     
-    @IBOutlet weak var ScrollView: UIScrollView!
-    
     
     @IBOutlet weak var searchView1: UIView!
     @IBOutlet weak var searchView2: UIView!
@@ -309,7 +307,7 @@ class RequestRideViewController: UIViewController {
             let pickupTime = dateLabel.text
             
             // removed imagestring be sure to re-add it!
-            user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
+            user = ["first": first, "last": last, "phone": phone, "email": email,"fromStreet": fromStreet!, "fromCity": fromCity!, "fromState": fromState!,"fromZipCode": fromZipCode!, "toStreet": toStreet!, "toCity": toCity!, "toState": toState!, "toZipCode": toZipCode!, "postedTime" : postedTime, "pickupTime" : pickupTime!, "capacity": numberOfSeat!,"startingCapacity": numberOfSeat!, "notes": notesFromDriver!, "image": imageString]
             DataService.dataService.createNewRequest(user as! Dictionary<String, AnyObject>)
         }
         else {

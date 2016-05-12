@@ -34,7 +34,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     var phoneNumber = ""
     var rideDetail: Trips?
-    var riderAddedAmount: String?
+    var riderAddedAmount = 0
     
     
     override func viewDidLoad() {
@@ -69,14 +69,15 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     //sender.maximumValue = Double(rideDetail!.capacity)!
     sender.minimumValue = 1
     let ridersAdded = Int(sender.value)
-        self.riderAddedAmount = String(ridersAdded)
+        self.riderAddedAmount = ridersAdded
         print(self.riderAddedAmount)
     
     
     
     capacityLabel.text =  "Seats remaining: \(totalriders + ridersAdded) / \(rideDetail!.startingCapacity)"
         print(riderAddedAmount)
-    addedRiders.text = "(\(riderAddedAmount)+ person(s) added)"
+    addedRiders.text = "(\((riderAddedAmount))+ person(s) added)"
+        print(addedRiders.text)
     
 
     }
@@ -86,7 +87,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     @IBAction func sendMail(sender: AnyObject) {
         
-        let contactAlertController = UIAlertController(title: "Contact  \(fullNameLabel.text)", message: ":)", preferredStyle: .ActionSheet )
+        let contactAlertController = UIAlertController(title: "Contact  \((fullNameLabel.text)!)", message: ":)", preferredStyle: .ActionSheet )
         
         let callAction = UIAlertAction(title: "Call the Driver", style: UIAlertActionStyle.Default){(action)-> Void in
             print("THe number calling is tel://+1\((self.rideDetail?.phoneNumber)!)")
@@ -129,16 +130,35 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     }
     
     @IBAction func requestRidePressed(sender: AnyObject) {
-        
+        if self.riderAddedAmount != 0 {
+            alert("You added \((riderAddedAmount)) persons to the ride!", msg: "Are you sure you want to request this Ride?", confirm: true)
+        }
+        else
+        {
+            alert("Alert", msg: "You have not added any riders to this ride. ", confirm: false)
+        }
         
     }
     
     
-    func alert(title: String, msg: String){
+    func alert(title: String, msg: String, confirm: Bool){
         
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
-        alertController.addAction(UIAlertAction(title: title, style: .Default, handler: nil))
-        
+       
+        if confirm{
+            
+            let confirm = UIAlertAction(title: "Confirm", style: .Default){(action)-> Void in
+                let newCapacity = ["capacity": "\(Int((self.rideDetail?.capacity)!)! - self.riderAddedAmount)"]
+                DataService.dataService.postRef.childByAppendingPath(self.rideDetail?.postId).updateChildValues(newCapacity)
+                
+                //do stuff
+            }
+            alertController.addAction(confirm)
+           
+
+        }
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+
         presentViewController(alertController, animated: true, completion: nil)
         
     }
