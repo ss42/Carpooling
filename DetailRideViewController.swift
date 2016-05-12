@@ -29,7 +29,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     @IBOutlet weak var notesLabel: UILabel!
     
-    
+    @IBOutlet weak var addedRiders: UILabel!
     
     
     var phoneNumber = ""
@@ -40,6 +40,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadDataFromPreviousViewController()
+        
 
     }
 
@@ -74,6 +75,9 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
     
     
     capacityLabel.text =  "Seats remaining: \(totalriders + ridersAdded) / \(rideDetail!.startingCapacity)"
+        print(riderAddedAmount)
+    addedRiders.text = "(\(riderAddedAmount)+ person(s) added)"
+    
 
     }
     
@@ -151,7 +155,7 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
         // capacity math
         let totalriders = (Int(rideDetail!.startingCapacity)! - Int(rideDetail!.capacity)!)
         print(totalriders)
-        self.capacityLabel.text =  "Seats remaining: \(Int(rideDetail!.capacity)!) / \(rideDetail!.startingCapacity)"
+        self.capacityLabel.text =  "Seats remaining: \(totalriders) / \(rideDetail!.startingCapacity)"
         self.notesLabel.text = "Notes from the Driver: \(rideDetail!.notes)"
         self.phoneNumber = (rideDetail?.driver?.phoneNumber)!
         

@@ -456,12 +456,26 @@ extension CreateNewRideViewController: UITextViewDelegate{
     func textViewDidBeginEditing(textView: UITextView) {
         notes.text = ""
     }
+    /*func textViewDidEndEditing(textView: UITextView) {
+
+        notes.resignFirstResponder()
+        //self.view.endEditing(true)
+        
+    }*/
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 extension CreateNewRideViewController: UITextFieldDelegate{
     func textFieldDidEndEditing(textField: UITextField) {
         //add something may be?
         
     }
+    
     func textFieldShouldClear(textField: UITextField) -> Bool {
         return true
     }
@@ -478,4 +492,5 @@ extension CreateNewRideViewController: UITextFieldDelegate{
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         return true
     }
+    
 }
