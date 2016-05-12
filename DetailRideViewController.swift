@@ -151,6 +151,10 @@ class DetailRideViewController: UIViewController{//, MFMessageComposeViewControl
                 let newCapacity = ["capacity": "\(Int((self.rideDetail?.capacity)!)! - self.riderAddedAmount)"]
                 DataService.dataService.postRef.childByAppendingPath(self.rideDetail?.postId).updateChildValues(newCapacity)
                 
+                let vc: RideHistoryViewController = self.storyboard!.instantiateViewControllerWithIdentifier("myRide") as! RideHistoryViewController
+                let requestedRide = self.rideDetail
+                vc.myRideArray.addObject(requestedRide!)
+                self.performSegueWithIdentifier("goHome", sender: nil)
                 //do stuff
             }
             alertController.addAction(confirm)

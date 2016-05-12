@@ -206,7 +206,6 @@ class CreateNewRideViewController: UIViewController {
         
         DataService.dataService.userRef.observeAuthEventWithBlock({
             authData in
-            print("hello world")
             if authData != nil{
                 self.currentUserUID = authData.uid
                 print("The UID for current user is \(self.currentUserUID)")

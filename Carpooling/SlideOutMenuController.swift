@@ -14,6 +14,10 @@ class SlideOutMenuController: UITableViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var profileNAme: UILabel!
+    
+    var currentUserUID = ""
+    var fullName = "User"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +27,32 @@ class SlideOutMenuController: UITableViewController {
             let storedImage = UIImage.init(data: imageData)
             profileImage.image = storedImage
             }
-
+        DataService.dataService.userRef.observeAuthEventWithBlock({
+            authData in
+            print("hello world")
+            if authData != nil{
+                self.currentUserUID = authData.uid
+                self.updateInfoFromDatabase()
+                
+            }
+            else
+            {
+                print("authdata is nil")
+            }
+        })
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("view load")
+        self.profileNAme.text = self.fullName
+        print(self.fullName)
     }
     
     override func didReceiveMemoryWarning() {
@@ -50,6 +74,23 @@ class SlideOutMenuController: UITableViewController {
         UIApplication.sharedApplication().keyWindow?.rootViewController = loginViewController
         print("loged out")
     }
+    func updateInfoFromDatabase(){
+        let newRef = Firebase(url: "http://smcpool.firebaseio.com/users/\(currentUserUID)")
+        newRef.queryOrderedByKey().observeEventType(.Value, withBlock: {
+            snapshot in
+            
+            print("Inside update from database func")
+            let first = snapshot.value["first"] as? String
+            let last = snapshot.value["last"] as? String
+      
+           // let imageString = snapshot.value["image"] as? String
+     
+            self.fullName = "\(first!) \(last!)"
+            print(self.fullName)
+            
+        })
+    }
+    
     
 
 }

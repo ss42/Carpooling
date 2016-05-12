@@ -336,6 +336,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 let requestAlertController = UIAlertController(title: nil, message: "Are you sure you want to request this ride?", preferredStyle: .ActionSheet)
                 
                 let requestAction = UIAlertAction(title: "Confirm Request", style: UIAlertActionStyle.Default){(action)-> Void in
+                    //do stuff when you confirm
+                    let vc: RideHistoryViewController = self.storyboard!.instantiateViewControllerWithIdentifier("myRide") as! RideHistoryViewController
+
+                    vc.myRideArray.addObject(requestedRide)
+                    
+                    
+                    
                     self.tableView.reloadData()
 
                     //do stuff
@@ -351,7 +358,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             contactAction.backgroundColor = UIColor(red: 231/255, green: 76/255, blue: 60/255, alpha: 1.0)
             requestAction.backgroundColor = UIColor(red: 82/255, green: 69/255, blue: 105/255, alpha: 1.0)
 
-            
             return [contactAction, requestAction]
 
             
