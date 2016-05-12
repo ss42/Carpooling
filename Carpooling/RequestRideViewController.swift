@@ -168,6 +168,8 @@ class RequestRideViewController: UIViewController {
         super.viewDidLoad()
         //self.custom()
         
+        notes.delegate = self
+        
         confirmTextFieldDelegate()
         
         resultsViewController = GMSAutocompleteResultsViewController()
@@ -403,12 +405,12 @@ class RequestRideViewController: UIViewController {
     func presentPicker(view: UIView){
         print("  present picker clicketd")
         currentView = view
-        UIView.animateWithDuration(1.0){() -> Void in
+        UIView.animateWithDuration(0.3){() -> Void in
             view.frame = CGRectMake(view.frame.origin.x, view.frame.origin.y - view.frame.size.height, view.frame.width, view.frame.height)
         }
     }
     func dismissPicker(){
-        UIView.animateWithDuration(1.0){ () -> Void in
+        UIView.animateWithDuration(0.3){ () -> Void in
             if let picker = self.currentView {
                 self.currentView = nil
                 picker.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.size.height, self.view.frame.size.width, picker.frame.height)
@@ -417,6 +419,16 @@ class RequestRideViewController: UIViewController {
     }
     
     
+}
+
+extension RequestRideViewController: UITextViewDelegate{
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 
 extension RequestRideViewController: DatePickerViewDelegate{

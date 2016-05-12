@@ -58,6 +58,8 @@ class HomeViewController: UIViewController{
             
                 
                 let r5: Rider = Rider(firstName: firstName!, lastName: lastName!, phoneNumber: phoneNumber!, email: email!, password: "39874", picture: picture)
+            
+            print(startingCapacity)
                 
                 rideArray.addObject(Trips(rider: r5, fromStreetAddress: fromStreet!, fromCity: fromCity!, fromState: fromState!, fromZipCode: fromZipCode!, toStreetAddress: toStreet!, toCity: toCity!, toState: toState!, toZipCode: toZipCode!, pickUpTime: pickUpTime! , notes: notes!, postedTime: elapsed, capacity: capacity!, startingCapacity: startingCapacity!, postId: postId!))
                 self.tableView.reloadData()

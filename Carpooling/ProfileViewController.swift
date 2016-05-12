@@ -130,7 +130,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
             let last = snapshot.value["last"] as? String
             let phone = snapshot.value["phone"] as? String
             let email = snapshot.value["email"] as? String
-           // let imageString = snapshot.value["image"] as? String
+            //let imageString = snapshot.value["image"] as? String
             
             //let user : NSDictionary = []
             
@@ -165,7 +165,7 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
              else {
              self.emailAddress.placeholder = "Enter your email address"
              }
-            /* if  imageString != nil {
+            /*if  imageString != nil {
                 print("image not empty")
                 print(imageString)
              let image = self.convertBase64StringToUImage(imageString!)
@@ -174,8 +174,8 @@ class ProfileViewController: UIViewController , UITextFieldDelegate{
              else {
                 print("No photo")
              //self.profileImage.image = UIImage(named: "male")
-             }
-*/        })
+             }*/
+       })
     }
     
     

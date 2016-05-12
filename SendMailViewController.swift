@@ -23,6 +23,7 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        body.delegate = self
         self.subject.delegate = self
         print(emailAddress)
         //self.body.delegate = self
@@ -115,6 +116,15 @@ class SendMailViewController: UIViewController, MFMailComposeViewControllerDeleg
     
  
 
+}
+extension SendMailViewController: UITextViewDelegate{
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
 
 
